@@ -1,0 +1,30 @@
+{
+  "friendLink":
+  [
+    [
+      {
+        "type": "我的世界服务器",
+        "class": "mcLink"
+      },{
+        "icon": "img/logo.png",
+        "link": "//mcwxt.top/mc/",
+        "name": "DMX梦幻服",
+        "brief": "一个强大的公益MC服务器"
+      }
+    ],[{
+         "type": "我的世界玩家社区",
+         "class": "mcForum"
+      },{
+        "icon": "//remcbbs.top/assets/img/remcbbs.png",
+        "link": "//remcbbs.top/",
+        "name": "REmcbbs论坛",
+        "brief": "一个强大的MC玩家社区"
+      }
+    ],[
+      {
+        "type": "玩家博客",
+        "class": "userBlog"
+      }
+    ]
+  ]
+}
