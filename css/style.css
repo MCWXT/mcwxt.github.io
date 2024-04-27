@@ -1,0 +1,191 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+  color: white;
+}
+a:link{
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+a:active{
+  text-decoration: underline;
+}
+body{
+  font-size: 15pt;
+  background-image: url("https://tse2-mm.cn.bing.net/th/id/OIP-C.YNoS-pOzeVnEOUiOszwVDAHaNK?dpr=2&pid=ImgDetMain");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+.body {
+  background-color: #00000069;
+  -webkit-tap-highlight-color: transparent;
+}
+span{
+  color: white;
+  margin: 0;
+}
+a{
+  transition: 0.5s;
+}
+.my-picture {
+  height: 200px;
+  background-color: #000000;
+  background-image: url("/img/0.jpg");
+  background-size: cover;
+  border-radius:10px;
+  box-shadow: 1px 1px 10px black;
+}
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-image: url("/img/avatar.jpg");
+  background-size: cover;
+  box-shadow: 1px 1px 10px black;
+  margin: 0;
+}
+.tx{
+  position: relative;
+  margin-left: 12em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  top: 7em;
+}
+.name{
+  padding: 0.5em 0;
+  margin-left: 0.5em;
+}
+.f/* 粉丝量和点赞量 */{
+  color: white;
+  font-size: 0.8em;
+}
+.w{
+  color: #00000000;
+  margin-left: 2.5em;
+}
+.me{
+  text-align: center;
+  margin: 0 0.5em;
+  padding: 0.2em;
+  border-radius: 5px;
+  background-color: #FF437B;
+}
+.gz{
+  font-size: 0.8em;
+}
+b,p{
+  color: white;
+}
+#MCWXT{
+  font-size: 1.6em;
+  color: white;
+}
+.boy{
+  color: #42D6FF;
+}
+#xx{
+  font-size: 0.65em;
+  margin: 0.5em;
+}
+.js{
+  background-color: #FFFFFF54;
+  box-shadow: 0px 0px 15px #FFFFFF91;
+  padding: 2px 0;
+}
+#js{
+  font-size: 0.7em;
+  margin-left: 0.5em;
+}
+#xxk{
+  margin: 5px 0;
+  color: white;
+  font-size: 0.9em;
+  text-align: center;
+}
+.xxk{
+  width: 100%;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  box-shadow: 0px 0px 50px 1px #FFFFFF75;
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+}
+#if{
+  width: 100%;
+  height: 31.5em;
+}
+.foot{
+  color: white;
+  width: 100%;
+  background-color: black;
+  height: 2.5em;
+}
+.footer{
+  margin: 0 20px;
+}
+.http{
+  color: #3EFF00;
+}
+.av{
+  width: 100px;
+  box-shadow: 1px 1px 10px black;
+  border-radius: 100%;
+}
+ul li{
+  display:inline-block;
+}
+.lj{
+  font-size: 0.65em;
+  margin: 1px 4px;
+}
+.x{
+  margin-top: 2px;
+  font-size: 8px;
+}
