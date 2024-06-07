@@ -27,7 +27,7 @@ const links = () => {
     }
     for (var num = 1; num < totalData.friendLink[i].length; num++) {
         project = project + `
-              <a class="friendLinks" href="${totalData.friendLink[i][num].link}">
+              <a class="friendLinks" href="link.html?target=${totalData.friendLink[i][num].link}">
               <div class="linkIcon">
               <img src="${totalData.friendLink[i][num].icon}" alt="">
               </div>

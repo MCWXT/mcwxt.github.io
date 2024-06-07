@@ -16,9 +16,8 @@ a{
 @font-face {
   font-family: "ali";
   src: 
-  url("../font/ali.woff2") format("woff2"),
-  url("../font/ali.woff") format("woff"),
-  url("../font/ali.ttf") format("ttf");
+  url("https://pan.tenire.com/down.php/9ea21ef6603b6ef9b04a55ca1efe2c94.woff2") format("woff2"),
+  url("../font/ali.woff") format("woff");
   font-display: swap;
 }
 *{

@@ -1,0 +1,44 @@
+footer{
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+.linkBox{
+  width: 100%;
+}
+.linkBox .link{
+  width: 80vw;
+  margin: 10vh auto;
+  box-shadow: 0 0 10px #00000094;
+  border-radius: 10px;
+  padding: 20px;
+}
+.linkText{
+  
+}
+.linkUrl{
+  word-wrap:break-word;
+  margin: 20px;
+  color: blue;
+}
+.standingRow{
+  height: 5vh;
+}
+.remind{
+  background-color: #FF8C619E;
+  margin: 5vh 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+.linkButton{
+  display: grid;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: black;
+  margin-left: auto;
+  margin-top: 5vh;
+  padding: 10px 15px;
+}
+.linkButton span{
+  color: white;
+}

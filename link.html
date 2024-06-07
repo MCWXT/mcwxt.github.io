@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, ,user-scalable=0">
+  <meta name="keywords" content="MCWXT的个人博客,MCWXT,Web,Blog,Personal blog">
+  <meta name="description" content="MCWXT的个人博客（mcwxt.top），MCWXT（Q:2775997367，V:MCWXT114514）——一位B站UP主，Minecraft我的世界忠实老玩家，Web爱好者，正在努力成为一个up主ing。欢迎大家来我的博客。..">
+  <title>MCWXT的个人博客</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/link.css">
+  <script src="js/jquery.min.js"></script>
+  <script defer src="js/script.js"></script>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="preload" href="https://pan.tenire.com/down.php/9ea21ef6603b6ef9b04a55ca1efe2c94.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="img/infonBackground.jpg" as="image" type="image/jpg">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="naver">
+        <div class="nav">
+          <div class="logo">
+            <img src="img/logo.png" alt="">
+            <span>MCWXT</span>
+          </div>
+          <div class="menuButton">
+            <button type="button" onclick="isDisplay()"><svg t="1710558000615" class="menuIcon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1626" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M146.624 279.424h91.328V190.08H146.624v89.28z m0 273.984h91.328V464.192H146.624v89.216z m0 273.984h91.328v-89.216H146.624v89.216z m182.656-637.248v89.28h548.032V190.08H329.28z m0 363.264h548.032V464.192H329.28v89.216z m0 273.984h548.032v-89.216H329.28v89.216z" p-id="1627"></path></svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="menu">
+        <div>
+          <ul>
+            <li><a class="menuLink" href=""><div><span>主页</span></div></a></li>
+            <li><a class="menuLink" href="#friendLik"><div><span>友链</span></div></a></li>
+            <li><a class="menuLink" href="JavaScript:alert('等待更新……');"><div><span>动态</span></div></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="linkBox">
+      <div class="link">
+        <b class="linkText">您即将离开mcwxt.top，前往：</b><br>
+        <div class="standingRow"></div>
+        <b class="linkUrl">remcbbs.com</b><br>
+        <div class="remind">
+          REMCBBS&MCWXT提醒您，注意网络安全！
+        </div>
+        <button class="linkButton"><span>继续</span></button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div>
+      <span class="statement">本网站由哔哩哔哩MCWXT制作，2024.3.16，感谢支持：REmcbbs DMX</span>
+    </div>
+</body>
+<script>
+  function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); return null;
+  }
+  const link = getQueryString("target");
+  const linkUrl = document.querySelector(".linkUrl");
+  const linkButton = document.querySelector(".linkButton");
+  linkUrl.innerHTML = link;
+  linkButton.addEventListener('click',() => {
+    location.href = link;
+  });
+</script>
+</html>
