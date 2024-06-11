@@ -26,5 +26,37 @@
         "class": "userBlog"
       }
     ]
+  ],
+  "video": [
+    {
+      "name": "【REmcbbs】独一无二，为您服务！",
+      "bvid": "BV1BH4y1A7qw",
+      "about": "加入我们652973775，MC新时代即将开始"
+    },
+    {
+      "name": "【REmcbbs】独属于MC的玩家社区！",
+      "bvid": "BV1mz42167sj",
+      "about": "REmcbbs邀请您共创MC新纪元"
+    },
+    {
+      "name": "【REmcbbs】我的世界论坛重大更新",
+      "bvid": "BV1Tu4m1M7KQ",
+      "about": "remcbbs.com域名正式正建立，站务基础稳固"
+    },
+    {
+      "name": "【Mcbbs】remcbbs情况汇报，新一代MC社区！",
+      "bvid": "BV1q1421S75B",
+      "about": "REmcbbs用户交流群：652973775"
+    },
+    {
+      "name": "【Minecraft】MCBBS复兴有望？新一代MC社区！",
+      "bvid": "BV1w2421u7ym",
+      "about": "remcbbs.com欢迎各位前来驻站"
+    },
+    {
+      "name": "【Minecraft】DMX梦幻服夏季专场！",
+      "bvid": "BV1xH4y1E7ae",
+      "about": "快来和我一起玩吧，加群：821975983"
+    }
   ]
 }

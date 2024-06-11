@@ -1,6 +1,6 @@
 const dom = {
   menu: $(".menu>div"),
-  link: $(".friendLinkContainer>div"),
+  link: $(".friendLinkContainer>div")
 }
 var display = false;
 const isDisplay = () => {
@@ -16,7 +16,7 @@ const totalData = $.parseJSON($.ajax({
   url: "data/data.json",
   dataType: "json",
   async: false
-}).responseText);;
+}).responseText);
 
 const links = () => {
   var partition = "";
