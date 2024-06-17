@@ -24,6 +24,11 @@
       {
         "type": "玩家博客",
         "class": "userBlog"
+      },{
+        "icon": "//tigercrl.top/assets/img/Tigercrl.jpg",
+        "link": "//tigercrl.top/",
+        "name": "tigercrl的的个人网站",
+        "brief": "会写前端！"
       }
     ]
   ],
