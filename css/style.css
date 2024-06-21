@@ -25,7 +25,7 @@ button:hover,button:active{
   font-display: swap;
 }
 *{
-  font-family: ali,sans-serif !important;
+  font-family: "ali",sans-serif !important;
 }
 .naver{
   height: 6vh;
@@ -74,6 +74,9 @@ button:hover,button:active{
   display: inline;
   float: right;
 }
+.menuButton > button{
+  box-shadow:none;
+}
 button{
   padding: 0;
   border: none 0;
@@ -113,189 +116,7 @@ button{
     display: none;
   }
 }
-.main .infonBackground{
-  width: 100%;
-  height: 20vh;
-  background: white url("../img/infonBackground.jpg") 0 -7vh no-repeat;
-  background-size: cover;
-}
-.infon .avatar{
-  display: inline;
-}
-.infon .avatar img{
-  height: 17vh;
-  border-radius: 100%;
-  position: relative;
-  top: -1vh;
-  margin-left: 4vw;
-}
-.infon .creativeInfon{
-  position: absolute;
-  width: 60vw;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  text-align: center;
-  left: 40vw;
-  top: 30vh;
-}
-.creativeInfon .follow,.creativeInfon .fans{
-  border-right: 1px solid #000000D0;
-}
-.follow span,.fans span,.like span{
-  display: block;
-}
-.follow .followText,.fans .fansText,.like .likeText{
-  font-size: 1vh;
-  color: #000000D0;
-}
-.follow .followNum, .fans .fansNum,.like .likeNum{
-  font-size: 2vh;
-}
-.infon .followMe{
-  display: inline;
-  grid-column: 1/4;
-  padding: 2vh;
-}
-.followMe button{
-  height: 4vh;
-  width: 50vw;
-  border: 1px solid #FF439B;
-  border-radius: 3px;
-  font-size: 2vh;
-  color: #FF8ED5;
-}
-.infon .name{
-  margin: 1vh 4vw;
-  font-size: 4.5vh;
-}
-.infon .briefIntroduction{
-  margin: 1vh 4vw;
-  color: #00000082;
-  font-size: 2vh;
-}
-.briefIntroduction a{
-  color: #00000082;
-}
-.infon .functional{
-  margin: 1vh 4vw;
-  border-top: 1px solid #00000082;
-  border-bottom: 1px solid #00000082;
-}
-.functional a{
-  font-size: 2vh;
-  margin: 1vh 4vw;
-  color: #00000082;
- }
-.friendLinkContainer>div{
-   margin: 2vh 4vw;
- }
-.friendLinks{
-  margin: 2vh 0;
-  display: grid;
-  grid-template-columns: auto auto;
-}
-.linkTitle{
-  margin: 2vh 0;
-}
-.linkTitle .linksIcon{
-  height: 3vh;
-  display: inline;
-}
-.friendLink h2{
-  font-size: 3vh;
-  display: inline;
-}
-.friendLinks{
-  box-shadow: 0 0 10px 1px #B2B2B27D;
-  border-radius: 5px;
-  height: 7vh;
-  padding: 1vh 0;
-  
-}
-.friendLinks .linkInfon{
-  width: 75vw;
-  height: 4.5vh;
-}
-.linkInfon h3{
-  font-size: 2vh;
-  margin: 1vh 0;
-}
-.friendLinks h4{
-  font-size: 1.5vh;
-  color: #00000082;
-}
-.friendLinks .linkIcon{
-  width: 14vw;
-  height: 6vh;
-}
-.linkIcon img{
-  height: 6vh;
-  width: 6vh;
-  border-radius: 100%;
-  margin: 0 1vw;
-}
-.noContent{
-  font-size: 2vh;
-  text-align: center;
-  display: block;
-  box-shadow: 0 0 10px 1px #B2B2B27D;
-  border-radius: 5px;
-  padding: 2.5vh 0;
-  background-color: #00000050;
-  margin: 2vh 0;
-}
-.contactInfon{
-  padding: 2vh 4vw;
-}
-.contactInfon .contactInfons{
-  box-shadow: 0 0 10px 1px #B2B2B27D;
-  border-radius: 5px;
-  padding: 2vh 0;
-  margin: 2vh 0;
-}
-.contactInfons a{
-  display: grid;
-  grid-template-columns: auto auto;
-}
-.contactInfons .qqIcon{
-  height: 10vh;
-}
-.emailIcon{
-  height: 9vh;
-  margin-left: .2em;
-}
-.vxIcon{
-  height: 8vh;
-  margin-left: .3em;
-}
-.contactInfons .contactId{
-  width: 70vw;
-  margin: auto 0;
-  margin-right: auto;
-}
-.contactId span{
-  font-size: 3vh;
-}
-#email{
-  font-size: 2vh;
-  color: #0000009C;
-}
-.mail,.contactId>span span{
-  font-size: 2vh;
-  margin-right: 2vw;
-}
-#qq{
-  color: #57ADFF;
-}
-#vx{
-  color: #00CA3F;
-}
-#mail{
-  color: #7900CA;
-}
-.contactInfons .appIcon{
-  width: 20vw;
-}
+
 footer>div{
   padding: 2vh 4vw;
   box-shadow: inset 0 1px 10px 0 #000000A8;
