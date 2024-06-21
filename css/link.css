@@ -25,20 +25,19 @@ footer{
   height: 5vh;
 }
 .remind{
-  background-color: #FF8C619E;
+  background-color: orangered;
   margin: 5vh 0;
   padding: 10px;
   border-radius: 5px;
+  font-size: .8em;
+  color: white;
 }
 .linkButton{
   display: grid;
   padding: 5px;
   border-radius: 5px;
-  background-color: black;
+  border: solid;
   margin-left: auto;
   margin-top: 5vh;
   padding: 10px 15px;
-}
-.linkButton span{
-  color: white;
 }

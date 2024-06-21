@@ -10,8 +10,12 @@ a:hover{
 a:active{
   text-decoration: underline;
 }
-a{
-  color: black
+a,button{
+  color: black;
+  -webkit-tap-highlight-color: transparent;
+}
+button:hover,button:active{
+  box-shadow: 1px 1px 8px -2px;
 }
 @font-face {
   font-family: "ali";
@@ -40,7 +44,8 @@ a{
 .menu>div{
   background-color: white;
   width: 30vw;
-  box-shadow: 1px 1px 0 1px;
+  box-shadow: 5px 5px 10px -10px;
+  border-bottom-right-radius: 5px;
   position: fixed;
   display: inline-block;
   float: left;
@@ -48,7 +53,7 @@ a{
   display: none;
   -webkit-animation-duration: .5s;
   -webkit-animation-fill-mode: both;
-  z-index: 1001
+  z-index: 1001;
 }
 .logo{
   display: inline;
@@ -88,10 +93,7 @@ button{
   height: 5vh;
 }
 .menu div ul li a div{
-  padding: 1vh 4vw;
-}
-.menu div ul li a div span{
-  font-size: 2vh;
+  padding: 10px 20px;
 }
 @keyframes displayMenu{
   from {
@@ -128,15 +130,13 @@ button{
   margin-left: 4vw;
 }
 .infon .creativeInfon{
+  position: absolute;
   width: 60vw;
   display: grid;
   grid-template-columns: auto auto auto;
   text-align: center;
-}
-.creativeInfon{
-  position: relative;
-  right: -40vw;
-  top: -13vh;
+  left: 40vw;
+  top: 30vh;
 }
 .creativeInfon .follow,.creativeInfon .fans{
   border-right: 1px solid #000000D0;

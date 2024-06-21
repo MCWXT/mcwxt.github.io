@@ -34,7 +34,7 @@
           <ul>
             <li><a class="menuLink" href="index.html"><div><span>主页</span></div></a></li>
             <li><a class="menuLink" href="index.html?#friendLik"><div><span>友链</span></div></a></li>
-            <li><a class="menuLink" href="JavaScript:alert('等待更新……');"><div><span>动态</span></div></a></li>
+            <li><a class="menuLink" href="dynamic.html"><div><span>动态</span></div></a></li>
           </ul>
         </div>
       </div>
@@ -67,9 +67,17 @@
   const link = getQueryString("target");
   const linkUrl = document.querySelector(".linkUrl");
   const linkButton = document.querySelector(".linkButton");
-  linkUrl.innerHTML = link;
+  const linkOf = () => {
+    if (!link) {
+      return "http://mcwxt.top"
+    }
+    if (link.indexOf("http:") == -1) {
+      return "http:" + link;
+    }
+  }
+  linkUrl.innerHTML = linkOf();
   linkButton.addEventListener('click',() => {
-    location.href = link;
+    window.open(linkOf())
   });
 </script>
 </html>
