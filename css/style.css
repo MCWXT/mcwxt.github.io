@@ -17,16 +17,6 @@ a,button{
 button:hover,button:active{
   box-shadow: 1px 1px 8px -2px;
 }
-@font-face {
-  font-family: "ali";
-  src: 
-  url("../font/ali.woff2") format("woff2"),
-  url("../font/ali.woff") format("woff");
-  font-display: swap;
-}
-*{
-  font-family: "ali",sans-serif !important;
-}
 .naver{
   height: 6vh;
 }
@@ -126,4 +116,14 @@ footer .statement{
 }
 .briefIntroduction span{
   font-size: 1em;
+}
+@font-face {
+  font-family: "ali";
+  src: 
+  url("../font/ali.woff2") format("woff2"),
+  url("../font/ali.woff") format("woff");
+  font-display: swap;
+}
+*{
+  font-family: "ali",sans-serif !important;
 }
