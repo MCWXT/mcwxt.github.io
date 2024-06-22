@@ -47,7 +47,7 @@ const links = () => {
               <div class="linkIcon">
               <img src="${totalData.friendLink[i][num].icon}" alt="">
               </div>
-              <div class="linkInfon">
+              <div class="linkInfo">
               <h3>${totalData.friendLink[i][num].name}</h3>
               <h4>${totalData.friendLink[i][num].brief}</h4>
               </div>
