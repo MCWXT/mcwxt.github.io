@@ -68,4 +68,4 @@ const links = () => {
 }
 dom.link.html(links());
 
-dom.loading.html(" ")
+dom.loading.fadeOut(1000);
