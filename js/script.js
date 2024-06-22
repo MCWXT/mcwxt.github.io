@@ -1,22 +1,22 @@
-class Mc {
-  import(assembly){
-    this.assemblyApi = {
-      url: "component/" + assembly + ".html",
-      dataType: "json",
-      async: false
-    }
-    const assemblyData = $.ajax(this.assemblyApi).responseText;
-    const assemblyDom = $(assembly);
-    assemblyDom.html(assemblyData);
+
+const imports = (assembly) => {
+  const name = assemblyApi = {
+    url: "component/" + assembly + ".txt",
+    dataType: "json",
+    async: false
   }
+  const assemblyData = $.ajax(this.assemblyApi).responseText;
+  const assemblyDom = $(assembly);
+  assemblyDom.html(assemblyData);
 }
-const mc = new Mc();
-mc.import("header");
-mc.import("footer")
+
+imports("header");
+imports("footer");
 
 const dom = {
   menu: $(".menu>div"),
-  link: $(".friendLinkContainer>div")
+  link: $(".friendLinkContainer>div"),
+  loading: $("loading")
 }
 var display = false;
 const isDisplay = () => {
@@ -68,4 +68,4 @@ const links = () => {
 }
 dom.link.html(links());
 
-$("loading").html(" ")
+dom.loading.html(" ")
