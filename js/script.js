@@ -1,3 +1,19 @@
+class Mc {
+  import(assembly){
+    this.assemblyApi = {
+      url: "component/" + assembly + ".html",
+      dataType: "json",
+      async: false
+    }
+    const assemblyData = $.ajax(this.assemblyApi).responseText;
+    const assemblyDom = $(assembly);
+    assemblyDom.html(assemblyData);
+  }
+}
+const mc = new Mc();
+mc.import("header");
+mc.import("footer")
+
 const dom = {
   menu: $(".menu>div"),
   link: $(".friendLinkContainer>div")
@@ -51,3 +67,5 @@ const links = () => {
   return partition;
 }
 dom.link.html(links());
+
+$("loading").html("")
