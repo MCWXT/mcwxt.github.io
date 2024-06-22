@@ -68,4 +68,4 @@ const links = () => {
 }
 dom.link.html(links());
 
-$("loading").html("")
+$("loading").html(" ")
