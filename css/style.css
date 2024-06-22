@@ -53,12 +53,13 @@ button:hover,button:active{
   border-radius: 100%;
   margin: .5vh 1vw;
 }
-.logo span{
+.logo h1{
   position: relative;
   top: -2vh;
   font-size: 3vh;
   color: #339BFF;
   text-shadow: 0 0 8px #339BFF;
+  display: inline;
 }
 .menuButton{
   display: inline;
