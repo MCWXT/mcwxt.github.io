@@ -2,7 +2,7 @@
   text-align: center;
   position: fixed;
   float: none;
-  z-index: 99999;
+  z-index: 999999;
   width: 100%;
   height: 100%;
   background-color: white;
@@ -32,6 +32,7 @@
 .loadPage .loading span{
   
 }
+
 a:link{
   text-decoration: none;
 }
@@ -52,78 +53,65 @@ button:hover,button:active{
   box-shadow: 1px 1px 8px -2px;
 }
 .naver{
-  height: 6vh;
+  
 }
 .nav{
   background-color: white;
   width: 100%;
-  height: 6vh;
   box-shadow: 0 0 20px -1px;
-  position: fixed;
-  display: inline-block;
-  float: left;
-  left: 0;
+  float: none;
   z-index: 1000;
+  display: flex;
+  padding: .1rem 0;/* 横向必须设为0 */
 }
+
 .menu>div{
+  transform: translate(-10rem);
   background-color: white;
-  width: 30vw;
+  width: 7rem;
   box-shadow: 5px 5px 10px -10px;
   border-bottom-right-radius: 5px;
-  position: fixed;
-  display: inline-block;
   float: left;
-  left: 0;
-  display: none;
+  position: absolute;
   -webkit-animation-duration: .5s;
   -webkit-animation-fill-mode: both;
-  z-index: 1001;
+  z-index: 1100;
 }
 .logo{
-  display: inline;
+  flex: 1 0 auto;
+  display: flex;
 }
 .logo img{
-  height: 5vh;
+  height: 2rem;
   border-radius: 100%;
-  margin: .5vh 1vw;
+  margin: auto .4rem;
 }
 .logo h1{
-  position: relative;
-  top: -2vh;
-  font-size: 3vh;
-  color: #339BFF;
-  text-shadow: 0 0 8px #339BFF;
-  display: inline;
+  font-size: 1.4rem;
+  color: #42445A;
+  display: block;
+  margin: auto .4rem;
 }
 .menuButton{
-  display: inline;
-  float: right;
+  
 }
 .menuButton > button{
   box-shadow:none;
 }
-button{
-  padding: 0;
-  border: none 0;
-  font: inherit;
-  background-color: transparent;
-  cursor: pointer;
-  outline: none;
-  box-shadow:none;
-}
+
 .menu{
   
 }
 .menuButton button{
-  margin: .5vh 1vw;
+  margin: auto .4rem;
 }
 .menuButton button svg{
-  height: 5vh;
+  height: 2.3rem;
 }
 .menu div ul li a div{
-  padding: 10px 20px;
+  padding: .6rem 1.2rem;
 }
-@keyframes displayMenu{
+@keyframes displayMenu/* 关闭菜单动画 */{
   from {
     transform: translate(-35vw);
   }
@@ -132,7 +120,8 @@ button{
     display: block;
   }
 }
-@keyframes hideMenu{
+
+@keyframes hideMenu/* 开启菜单动画 */{
   from{
     transform: translate(0);
   }
@@ -141,16 +130,15 @@ button{
     display: none;
   }
 }
-
+footer{
+  
+}
 footer>div{
-  padding: 2vh 4vw;
+  padding: 1rem 1rem;
   box-shadow: inset 0 1px 10px 0 #000000A8;
 }
 footer .statement{
-  font-size: 1.5vh;
-}
-.briefIntroduction span{
-  font-size: 1em;
+  font-size: .8rem;
 }
 @font-face {
   font-family: "ali";

@@ -7,12 +7,7 @@ const link = getQueryString("target");
 const linkUrl = document.querySelector(".linkUrl");
 const linkButton = document.querySelector(".linkButton");
 const linkOf = () => {
-  if (!link) {
-    return "http://mcwxt.top"
-  }
-  if (link.indexOf("http:") == -1) {
-    return "http:" + link;
-  }
+    return "http:" + (link || "//mcwxt.top");
 }
 linkUrl.innerHTML = linkOf();
 linkButton.addEventListener('click',() => {

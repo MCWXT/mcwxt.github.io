@@ -41,3 +41,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+button {
+  padding: 0;
+  border: none 0;
+  font: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}

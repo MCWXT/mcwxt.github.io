@@ -1,6 +1,6 @@
 .main .infoBackground{
   width: 100%;
-  height: 20vh;
+  height: 10rem;
   background: white url("https://s21.ax1x.com/2024/06/21/pkDO3Bd.jpg") 0 -7vh no-repeat;
   background-size: cover;
 }
@@ -8,20 +8,19 @@
   display: inline;
 }
 .info .avatar img{
-  height: 17vh;
+  height: 8rem;
   border-radius: 100%;
   position: relative;
-  top: -1vh;
-  margin-left: 4vw;
+  top: -.5rem;
+  margin: 0 1rem;
 }
 .info .creativeInfo{
   position: absolute;
-  width: 60vw;
   display: grid;
   grid-template-columns: auto auto auto;
   text-align: center;
-  left: 40vw;
-  top: 30vh;
+  left: 9.5rem;
+  top: 14rem;
 }
 .creativeInfo .follow,.creativeInfo .fans{
   border-right: 1px solid #000000D0;
@@ -30,144 +29,146 @@
   display: block;
 }
 .follow .followText,.fans .fansText,.like .likeText{
-  font-size: 1vh;
+  font-size: .5rem;
   color: #000000D0;
 }
 .follow .followNum, .fans .fansNum,.like .likeNum{
-  font-size: 2vh;
+  font-size: 1rem;
 }
 .info .followMe{
   display: inline;
   grid-column: 1/4;
-  padding: 2vh;
+  padding: 1rem;
 }
 .followMe button{
-  height: 4vh;
-  width: 50vw;
+  height: 2rem;
+  width: 10rem;
   border: 1px solid #FF439B;
   border-radius: 3px;
-  font-size: 2vh;
+  font-size: 1rem;
   color: #FF8ED5;
 }
 .info .name{
-  margin: 1vh 4vw;
-  font-size: 4.5vh;
+  margin: .5rem 1rem;
+  font-size: 2.2rem;
 }
 .info .briefIntroduction{
-  margin: 1vh 4vw;
+  margin: .5rem 1rem;
   color: #00000082;
-  font-size: 2vh;
+}
+.briefIntroduction span {
+  font-size: .8rem;
 }
 .briefIntroduction a{
   color: #00000082;
 }
 .info .functional{
-  margin: 1vh 4vw;
+  margin: .5rem 1rem;
   border-top: 1px solid #00000082;
   border-bottom: 1px solid #00000082;
 }
 .functional a{
-  font-size: 2vh;
-  margin: 1vh 4vw;
+  font-size: 1rem;
+  margin: .5rem 1rem;
   color: #00000082;
  }
 .friendLinkContainer>div{
-   margin: 2vh 4vw;
+   margin: 1rem .8rem;
  }
 .friendLinks{
-  margin: 2vh 0;
+  margin: 1rem 0;
   display: grid;
   grid-template-columns: auto auto;
 }
 .linkTitle{
-  margin: 2vh 0;
+  margin: 1rem 0;
 }
 .linkTitle .linksIcon{
-  height: 3vh;
+  height: 1.5rem;
   display: inline;
 }
 .friendLink h2{
-  font-size: 3vh;
+  font-size: 1.5rem;
   display: inline;
 }
 .friendLinks{
   box-shadow: 0 0 10px 1px #B2B2B27D;
   border-radius: 5px;
-  height: 7vh;
-  padding: 1vh 0;
+  height: 2.8rem;
+  padding: .5rem 0;
   
 }
 .friendLinks .linkInfo{
-  width: 75vw;
-  height: 4.5vh;
+  width: 14rem;
+  height: 2.2rem;
 }
 .linkInfo h3{
-  font-size: 2vh;
-  margin: 1vh 0;
+  font-size: 1rem;
+  margin: .3rem 0;
 }
 .friendLinks h4{
-  font-size: 1.5vh;
+  font-size: .7rem;
   color: #00000082;
 }
 .friendLinks .linkIcon{
-  width: 14vw;
-  height: 6vh;
+  width: 3.2rem;
+  height: 3rem;
 }
 .linkIcon img{
-  height: 6vh;
-  width: 6vh;
+  height: 3rem;
+  width: 3rem;
   border-radius: 100%;
-  margin: 0 1vw;
+  margin: 0 .2rem;
 }
 .noContent{
-  font-size: 2vh;
+  font-size: 1rem;
   text-align: center;
   display: block;
   box-shadow: 0 0 10px 1px #B2B2B27D;
   border-radius: 5px;
-  padding: 2.5vh 0;
+  padding: 1.2rem 0;
   background-color: #00000050;
-  margin: 2vh 0;
+  margin: 1rem 0;
 }
 .contactInfo{
-  padding: 2vh 4vw;
+  
 }
 .contactInfo .contactInfos{
   box-shadow: 0 0 10px 1px #B2B2B27D;
   border-radius: 5px;
-  padding: 2vh 0;
-  margin: 2vh 0;
+  padding: 1rem 0;
+  margin: .8rem;
 }
 .contactInfos a{
   display: grid;
   grid-template-columns: auto auto;
 }
 .contactInfos .qqIcon{
-  height: 10vh;
+  height: 5rem;
 }
 .emailIcon{
-  height: 9vh;
+  height: 4.2rem;
   margin-left: .2em;
 }
 .vxIcon{
-  height: 8vh;
-  margin-left: .3em;
+  height: 4rem;
+  margin-left: .3rem;
 }
 .contactInfos .contactId{
-  width: 70vw;
+  width: 14rem;
   margin: auto 0;
   margin-right: auto;
 }
 .contactId span{
-  font-size: 3vh;
+  font-size: 1.2rem;
 }
 #email{
-  font-size: 2vh;
+  font-size: 1rem;
   color: #0000009C;
 }
 .mail,.contactId>span span{
-  font-size: 2vh;
-  margin-right: 2vw;
+  font-size: .8rem;
+  margin-right: .5rem;
 }
 #qq{
   color: #57ADFF;
@@ -179,5 +180,5 @@
   color: #7900CA;
 }
 .contactInfos .appIcon{
-  width: 20vw;
+  width: 5rem;
 }
