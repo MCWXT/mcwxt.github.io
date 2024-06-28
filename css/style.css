@@ -52,17 +52,18 @@ a,button{
 button:hover,button:active{
   box-shadow: 1px 1px 8px -2px;
 }
-.naver{
+header{
   
 }
 .nav{
   background-color: white;
   width: 100%;
   box-shadow: 0 0 20px -1px;
-  float: none;
-  z-index: 1000;
   display: flex;
   padding: .1rem 0;/* 横向必须设为0 */
+  float: none;
+  position: fixed;
+  z-index: 100;
 }
 
 .menu>div{
@@ -71,29 +72,29 @@ button:hover,button:active{
   width: 7rem;
   box-shadow: 5px 5px 10px -10px;
   border-bottom-right-radius: 5px;
-  float: left;
-  position: absolute;
   -webkit-animation-duration: .5s;
   -webkit-animation-fill-mode: both;
-  z-index: 1100;
+  position: fixed;
+  z-index: 101;
 }
 .logo{
   flex: 1 0 auto;
   display: flex;
+  margin: .2rem;
 }
 .logo img{
-  height: 2rem;
+  height: 2.5rem;
   border-radius: 100%;
-  margin: auto .4rem;
 }
 .logo h1{
   font-size: 1.4rem;
   color: #42445A;
   display: block;
-  margin: auto .4rem;
+  margin: auto 0;
 }
 .menuButton{
-  
+  font-size: 2.5rem;
+  margin: auto 0;
 }
 .menuButton > button{
   box-shadow:none;
@@ -103,10 +104,7 @@ button:hover,button:active{
   
 }
 .menuButton button{
-  margin: auto .4rem;
-}
-.menuButton button svg{
-  height: 2.3rem;
+  
 }
 .menu div ul li a div{
   padding: .6rem 1.2rem;
@@ -143,8 +141,8 @@ footer .statement{
 @font-face {
   font-family: "ali";
   src: 
-  url("../font/ali.woff2") format("woff2"),
-  url("../font/ali.woff") format("woff");
+  url("font/ali.woff2") format("woff2"),
+  url("font/ali.woff") format("woff");
   font-display: swap;
 }
 *{

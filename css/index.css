@@ -20,7 +20,7 @@
   grid-template-columns: auto auto auto;
   text-align: center;
   left: 9.5rem;
-  top: 14rem;
+  top: 15rem;
 }
 .creativeInfo .follow,.creativeInfo .fans{
   border-right: 1px solid #000000D0;
@@ -82,6 +82,7 @@
 }
 .linkTitle{
   margin: 1rem 0;
+  font-size: 2rem;
 }
 .linkTitle .linksIcon{
   height: 1.5rem;
@@ -94,31 +95,27 @@
 .friendLinks{
   box-shadow: 0 0 10px 1px #B2B2B27D;
   border-radius: 5px;
-  height: 2.8rem;
-  padding: .5rem 0;
-  
+  display: flex;
 }
 .friendLinks .linkInfo{
-  width: 14rem;
-  height: 2.2rem;
+  margin: auto 1rem;
 }
 .linkInfo h3{
   font-size: 1rem;
-  margin: .3rem 0;
+  line-height: 1.3rem;
 }
 .friendLinks h4{
   font-size: .7rem;
+  line-height: 1.2rem;
   color: #00000082;
 }
 .friendLinks .linkIcon{
-  width: 3.2rem;
-  height: 3rem;
+  margin: .5rem;
 }
 .linkIcon img{
-  height: 3rem;
   width: 3rem;
+  height: 3rem;
   border-radius: 100%;
-  margin: 0 .2rem;
 }
 .noContent{
   font-size: 1rem;
@@ -136,26 +133,13 @@
 .contactInfo .contactInfos{
   box-shadow: 0 0 10px 1px #B2B2B27D;
   border-radius: 5px;
-  padding: 1rem 0;
   margin: .8rem;
 }
 .contactInfos a{
-  display: grid;
+  display: flex;
   grid-template-columns: auto auto;
 }
-.contactInfos .qqIcon{
-  height: 5rem;
-}
-.emailIcon{
-  height: 4.2rem;
-  margin-left: .2em;
-}
-.vxIcon{
-  height: 4rem;
-  margin-left: .3rem;
-}
 .contactInfos .contactId{
-  width: 14rem;
   margin: auto 0;
   margin-right: auto;
 }
@@ -166,7 +150,7 @@
   font-size: 1rem;
   color: #0000009C;
 }
-.mail,.contactId>span span{
+.mail,.contactId>span{
   font-size: .8rem;
   margin-right: .5rem;
 }
@@ -180,5 +164,8 @@
   color: #7900CA;
 }
 .contactInfos .appIcon{
-  width: 5rem;
+  margin: 1rem;
+}
+.contactInfos .appIcon i{
+  font-size: 3.5rem;
 }
