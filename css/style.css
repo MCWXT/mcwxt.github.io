@@ -55,15 +55,18 @@ button:hover,button:active{
 header{
   
 }
+.naver{
+  
+}
 .nav{
   background-color: white;
   width: 100%;
   box-shadow: 0 0 20px -1px;
   display: flex;
-  padding: .1rem 0;/* 横向必须设为0 */
   float: none;
   position: fixed;
   z-index: 100;
+  transition: background-color .5s ease;
 }
 
 .menu>div{

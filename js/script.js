@@ -22,11 +22,12 @@ const dom = {
 dom.naver[0].style.height = window.getComputedStyle(dom.nav[0]).height;
 const scroll = () => {
   const scrollTop = $(window).scrollTop();
-  if (scrollTop >= parseFloat(window.getComputedStyle(dom.nav[0]).height)) {
+  if (scrollTop >= parseFloat(window.getComputedStyle(dom.nav[0]).height) + 1 && dom.nav[0].style.backgroundColor !== "rgba(255, 255, 255, 0.8)") {
     dom.nav.css({
       "background-color": "#FFFFFFCC",
+      
     });
-  } else {
+  } else if (scrollTop <= parseFloat(window.getComputedStyle(dom.nav[0]).height) + 1 && dom.nav[0].style.backgroundColor !== "white") {
     dom.nav.css({
       "background-color": "white",
     });
