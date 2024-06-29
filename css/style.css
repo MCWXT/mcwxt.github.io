@@ -72,7 +72,7 @@ header{
   float: none;
   position: fixed;
   z-index: 100;
-  transition: background-color .5s ease;
+  transition: background-color .5s;
 }
 
 .menu>div{

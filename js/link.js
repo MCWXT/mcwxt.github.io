@@ -11,5 +11,5 @@ const linkOf = () => {
 }
 linkUrl.innerHTML = linkOf();
 linkButton.addEventListener('click',() => {
-  window.open(linkOf())
+  window.open(linkOf());
 });
