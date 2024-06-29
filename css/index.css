@@ -142,19 +142,7 @@
   font-size: 1.2rem;
 }
 #email{
-  color: #0000009C;
-}
-.mail,.contactId>span{
-  font-size: .8rem;
-}
-#qq{
-  color: #57ADFF;
-}
-#vx{
-  color: #00CA3F;
-}
-#mail{
-  color: #7900CA;
+  font-size: .6rem;
 }
 .contactInfos .appIcon{
   margin: 1rem;

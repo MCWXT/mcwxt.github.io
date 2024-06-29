@@ -49,5 +49,4 @@ const totalData = $.parseJSON($.ajax({
   dataType: "json",
   async: false
 }).responseText);
-
 dom.loading.fadeOut(1000);
