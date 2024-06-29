@@ -21,7 +21,7 @@ const links = () => {
     partition = partition + `
         <div class="friendLink">
           <div id="${totalData.friendLink[i][0].class}" class="linkTitle">
-            <i class="bi bi-link-45deg linksIcons"></i>
+            <i class="bi bi-link-45deg linksIcon"></i>
             <h2>${totalData.friendLink[i][0].type}</h2>
             ${project}
           </div>

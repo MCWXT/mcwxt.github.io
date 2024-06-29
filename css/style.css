@@ -93,7 +93,7 @@ header{
   font-size: 1.4rem;
   color: #42445A;
   display: block;
-  margin: auto 0;
+  margin: auto .5rem;
 }
 .menuButton{
   font-size: 2.5rem;
@@ -139,7 +139,7 @@ footer>div{
   box-shadow: inset 0 1px 10px 0 #000000A8;
 }
 footer .statement{
-  font-size: .8rem;
+  font-size: .6rem;
 }
 @font-face {
   font-family: "ali";
