@@ -73,9 +73,9 @@
   color: #00000082;
  }
 .friendLinkContainer>div{
-   margin: 1rem .8rem;
+   
  }
-.friendLinks{
+.friendLinks a{
   margin: 1rem 0;
   display: grid;
   grid-template-columns: auto auto;
@@ -88,24 +88,35 @@
   font-size: 1.4rem;
   display: inline;
 }
-.friendLinks{
+.friendLinks a{
   box-shadow: 0 0 10px 1px #B2B2B27D;
   border-radius: 5px;
   display: flex;
 }
-.friendLinks .linkInfo{
+.friendLinks a .linkInfo{
   margin: auto 1rem;
 }
 .linkInfo h3{
   font-size: .8rem;
   line-height: 1.1rem;
 }
-.friendLinks h4{
+.friendLinks a h4{
   font-size: .6rem;
   line-height: 1.1rem;
   color: #00000082;
 }
-.friendLinks .linkIcon{
+.friendLinks{
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.friendLinks a{
+  width: 20rem;
+  margin: .8rem 1rem;
+}
+.friendLinks a .linkIcon{
   margin: .5rem;
   height: 2.5rem;
 }
@@ -125,12 +136,17 @@
   margin: 1rem 0;
 }
 .contactInfo{
-  
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
 }
 .contactInfo .contactInfos{
   box-shadow: 0 0 10px 1px #B2B2B27D;
   border-radius: 5px;
-  margin: .8rem;
+  margin: .8rem 1rem;
+  width: 20rem;
 }
 .contactInfos a{
   display: flex;

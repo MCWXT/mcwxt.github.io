@@ -1,0 +1,40 @@
+.forum{
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.posts{
+  width: 20rem;
+  margin: 1rem .8rem;
+  display: flex;
+  border: 1px solid gray;
+  border-radius: .5rem;
+  box-shadow: 1px 1px 8px -2px;
+}
+.cover img{
+  height: 6rem;
+  width: 6rem;
+  border-radius: .5rem;
+}
+.posts .body{
+  margin: auto .8rem;
+}
+.posts .body div{
+  padding: .3rem;
+}
+.posts .title span{
+  
+}
+.posts .content{
+  font-size: .6rem;
+  color: gray;
+}
+.information{
+  font-size: .5rem;
+  left: -2rem;
+}
+.information span{
+  margin-right: .5rem;
+}

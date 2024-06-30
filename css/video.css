@@ -1,0 +1,24 @@
+.video iframe{
+  width: 100%;
+  height: 56vw;
+}
+.information{
+  margin: 1rem .8rem;
+}
+.information .name{
+  font-size: 1.5rem;
+}
+.information span{
+  font-size: .7rem;
+  margin-right: .7rem;
+}
+.title{
+  font-size: 1.2rem;
+  margin: .5rem;
+}
+.article{
+  margin: 1rem .8rem;
+  font-size: .8rem;
+  color: gray;
+  line-height: 1rem;
+}

@@ -1,7 +1,6 @@
-
 const imports = (assembly) => {
   const name = assemblyApi = {
-    url: "component/" + assembly + ".txt",
+    url: "component/" + assembly + ".html",
     dataType: "json",
     async: false
   }
@@ -44,9 +43,22 @@ const isDisplay = () => {
   
   
 }
-const totalData = $.parseJSON($.ajax({
-  url: "data/data.json",
+const requestData = (dataName) => {
+  return $.parseJSON($.ajax({
+  url: "data/" + dataName,
   dataType: "json",
   async: false
 }).responseText);
+}
 dom.loading.fadeOut(1000);
+
+const code = (str) => {
+  if (str.indexOf("base64") !== -1) {
+    const decode = atob(str.replace("base64",""));
+    const code = decodeURI(decode);
+    return code;
+  }
+  const encode = encodeURI(str);
+  const code = btoa(encode);
+  return "base64" + code;
+  }
