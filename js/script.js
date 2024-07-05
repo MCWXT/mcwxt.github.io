@@ -60,4 +60,5 @@ const code = (str) => {
   const code = btoa(encode);
   return "base64" + code;
   }
-dom.loading.fadeOut(1000);
+
+setTimeout(() => {dom.loading.fadeOut(1000);},500);
