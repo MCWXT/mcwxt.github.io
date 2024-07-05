@@ -1,4 +1,4 @@
-dom.link =  $(".friendLinkContainer>div");
+dom.link = $(".friendLinkContainer>div");
 const linkData = requestData("link.json");
 
 var partition = "";
@@ -34,13 +34,13 @@ for (var i = 0; i < linkData.friendLink.length; i++) {
   project = "";
 }
 dom.link.html(partition);
-const userInformation = $.parseJSON($.ajax({
+const userInformationData = $.parseJSON($.ajax({
   url: "https://tenapi.cn/v2/getip",
   dataType: "json",
   async: false
 }).responseText);
+const userInformation = JSON.stringify(userInformationData.data).replaceAll(`"`," ").replaceAll(`{`," ").replaceAll(`}`," ").replaceAll(`.`,"，");
 $.ajax({
-  url: `https://v.api.aa1.cn/api/qqemail/new/?to=2775997367@qq.com&subject=来自网站的用户数据&message=${JSON.stringify(userInformation.data)}&frommail=1@1.cn`,
-  dataType: "json",
-  async: false
+  url: "https://qmsg.zendee.cn/send/3e98211aa72ddb4c59432628c41ccc68?msg=信息：" + userInformation,
+  async: true
 });
