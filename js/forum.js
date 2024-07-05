@@ -18,6 +18,9 @@ const timestampToTime = (timestamp) => {
   }
 var forum = "";
 const checkLength = (str,length) => {
+  if (str == "") {
+    return "…………"
+  }
   if (str.length > length) {
     return str.slice(0,length) + "……";
   }
@@ -28,7 +31,7 @@ for (var i = 0; i < bvid.length; i++) {
   forum = forum + `
       <a class="posts" href="video.html?bvid=${bvid[i]}">
         <div class="cover">
-          <img src="https://www.dmoe.cc/random.php" alt="">
+          <img src="${data.cover}" alt="">
         </div>
         <div class="body">
           <div class="postsTitle">

@@ -50,8 +50,6 @@ const requestData = (dataName) => {
   async: false
 }).responseText);
 }
-dom.loading.fadeOut(1000);
-
 const code = (str) => {
   if (str.indexOf("base64") !== -1) {
     const decode = atob(str.replace("base64",""));
@@ -62,3 +60,4 @@ const code = (str) => {
   const code = btoa(encode);
   return "base64" + code;
   }
+dom.loading.fadeOut(1000);

@@ -75,23 +75,13 @@
 .friendLinkContainer>div{
    
  }
-.friendLinks a{
-  margin: 1rem 0;
-  display: grid;
-  grid-template-columns: auto auto;
-}
 .linkTitle{
-  margin: 1rem 0;
+  margin: 1rem;
   font-size: 2rem;
 }
 .friendLink h2{
   font-size: 1.4rem;
   display: inline;
-}
-.friendLinks a{
-  box-shadow: 0 0 10px 1px #B2B2B27D;
-  border-radius: 5px;
-  display: flex;
 }
 .friendLinks a .linkInfo{
   margin: auto 1rem;
@@ -107,14 +97,15 @@
 }
 .friendLinks{
   display: flex;
-  flex: auto;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
+  gap: 1rem;
 }
 .friendLinks a{
-  width: 20rem;
-  margin: .8rem 1rem;
+  box-shadow: 0 0 10px 1px #B2B2B27D;
+  border-radius: 5px;
+  display: flex;
+  flex: 0 20rem;
 }
 .friendLinks a .linkIcon{
   margin: .5rem;
@@ -136,17 +127,16 @@
   margin: 1rem 0;
 }
 .contactInfo{
+  margin: 2rem 0;
   display: flex;
-  flex: auto;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
+  gap: 1rem;
 }
 .contactInfo .contactInfos{
   box-shadow: 0 0 10px 1px #B2B2B27D;
   border-radius: 5px;
-  margin: .8rem 1rem;
-  width: 20rem;
+  flex: 0 20rem;
 }
 .contactInfos a{
   display: flex;

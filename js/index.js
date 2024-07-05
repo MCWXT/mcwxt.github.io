@@ -27,8 +27,8 @@ for (var i = 0; i < linkData.friendLink.length; i++) {
         <div id="${linkData.friendLink[i][0].class}" class="linkTitle">
           <i class="bi bi-link-45deg linksIcon"></i>
           <h2>${linkData.friendLink[i][0].type}</h2>
-          <div class="friendLinks">${project}</div>
         </div>
+        <div class="friendLinks">${project}</div>
       </div>
       `
   project = "";

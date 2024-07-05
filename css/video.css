@@ -1,12 +1,14 @@
 .video iframe{
   width: 100%;
-  height: 56vw;
+  height: calc(100vw/16*9);
 }
 .information{
   margin: 1rem .8rem;
 }
 .information .name{
+  margin: .5rem 0;
   font-size: 1.5rem;
+  display: block;
 }
 .information span{
   font-size: .7rem;

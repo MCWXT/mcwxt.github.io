@@ -24,4 +24,4 @@ const data = $.parseJSON($.ajax({
 $(".title h1").html(data.title);
 $(".video iframe")[0].src = "//player.bilibili.com/player.html?bvid=" + bvid;
 $(".article").html(data.detail);
-$(".information").html(`<span class="name">${data.name}</span><span>${timestampToTime(data.time)}</span><span><i class="bi bi-play-btn-fill"></i>${data.view}</span><span><i class="bi bi-heart-fill"></i>${data.like}</span>`)
+$(".information").html(`<span class="name">${data.name}</span><span>${timestampToTime(data.time)}</span><span><i class="bi bi-play-btn-fill"></i>${data.view}</span><span><i class="bi bi-heart-fill"></i>${data.like}</span><span><i class="bi">币</i>${data.coin}</span>`)
