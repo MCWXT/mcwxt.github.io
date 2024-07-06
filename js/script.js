@@ -60,5 +60,15 @@ const code = (str) => {
   const code = btoa(encode);
   return "base64" + code;
   }
-
+const sendQQ = (content, qId) => {
+  $.ajax({
+    url: "https://qmsg.zendee.cn/send/3e98211aa72ddb4c59432628c41ccc68",
+    data: {
+      msg: content,
+      qq: qId,
+    },
+    type: "post",
+    async: true
+  });
+}
 setTimeout(() => {dom.loading.fadeOut(1000);},500);

