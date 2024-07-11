@@ -1,0 +1,39 @@
+{
+  "friendLink": [{
+    "name": "tigercrl的的个人网站",
+    "link": "//tigercrl.top/",
+    "icon": "//tigercrl.top/assets/img/Tigercrl.jpg",
+    "brief": "会写前端！"
+    }, {
+    "name": "KBlog",
+    "link": "//ilukane.top/",
+    "icon": "//ilukane.top/assets/img/tx.png",
+    "brief": "静态之王"
+    }],
+  "myLink": [{
+    "type": "QQ",
+    "icon": "bi-tencent-qq",
+    "content": "2775997367",
+    "link": "//tenapi.cn/v2/qq?qq=2775997367"
+  },{
+    "type": "VX",
+    "icon": "bi-wechat",
+    "content": "MCWXT114514",
+    "link": "//u.wechat.com/EJKj9AIHxC0UTv-gIzoRCbI"
+  },{
+    "type": "Email",
+    "icon": "bi-envelope-fill",
+    "content": "mcwxt@remcbbs.com",
+    "link": "mailto:mcwxt@remcbbs.com"
+  },{
+    "type": "Github",
+    "icon": "bi-github",
+    "content": "MCWXT",
+    "link": "//github.com/MCWXT"
+  },{
+    "type": "Telegram",
+    "icon": "bi-telegram",
+    "content": "MCWXT",
+    "link": "//t.me/MCWXT"
+  }]
+}

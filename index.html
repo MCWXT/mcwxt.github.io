@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="MCWXT的个人博客,MCWXT,Web,Blog,Personal blog">
+  <meta name="description" content="MCWXT的个人博客。友链，资源，论坛，文章，视频各种功能一应俱全！">
+  <link rel="shortcut icon" href="/asse/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="/style/reset.css">
+  <link rel="stylesheet" href="/style/style.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+  <title>MCWXT的个人博客</title>
+</head>
+<style>
+  
+</style>
+<body>
+  <header>
+    <div>
+      <nav class="navbar position-fixed w-100 bg-body-tertiary p-1" style="z-index: 1000;">
+        <div class="rounded-circle">
+          <img class="d-inline-block rounded-circle" style="width: 2.5rem;" src="/assets/logo.png" alt="">
+          <h1 class="d-inline align-middle fs-4">MCWXT的个人博客</h1>
+        </div>
+        <div class="">
+          <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list"></i></button>
+          <ul class="dropdown-menu">
+            <li v-for="nav" data-in="page icon pageName"><a class="dropdown-item jumpPage" data-page="{{page}}"><i class="bi {{icon}}"></i>{{pageName}}</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="loading vh-100 vw-100 text-center fixed-top z-0">
+    <div class="d-inline-block" style="margin-top: 40vh;">
+      <div class="">
+        <div class="spinner-border" style="width: 3rem;height: 3rem;" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <span>Loading...</span>
+    </div>
+  </div>
+  <main>
+    <iframe class="w-100" src="/page/home.html" frameborder="0" onload="resizeIframe()"></iframe>
+  </main>
+  <footer class="text-bg-light">
+    <div class="p-2">
+      <span>本网站由哔哩哔哩MCWXT制作，2024.7.9，感谢支持：REmcbbs DMX</span>
+    </div>
+  </footer>
+</body>
+<script src="/script/script.js"></script>
+<script src="/script/main.js"></script>
+
+</html>
