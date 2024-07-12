@@ -28,15 +28,9 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="/assets/ffe2a3758e07429f89294316aa548bad79f06f80.png" class="d-block w-100" alt="">
-      </div>
-      <div class="carousel-item">
-        <img src="/assets/b2e21d8ce1a8106bdd16f19e2eaac3fc3d9a27f2.jpg" class="d-block w-100" alt="">
-      </div>
-      <div class="carousel-item">
-        <img src="/assets/26e4fb5b6c57d75e945fbd06f334c5412c04aa17.png" class="d-block w-100" alt="">
+    <div  class="carousel-inner">
+      <div v-for="carouselImg" data-in="imgSrc" class="carousel-item active">
+        <img src="{{imgSrc}}" class="d-block w-100" alt="">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
