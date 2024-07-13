@@ -21,7 +21,7 @@
     display: block;
     margin: 0 .8rem;
     white-space: nowrap;
-    font-size: .6rem;
+    font-size: .5rem;
   }
   img{
     object-fit: contain;
@@ -37,22 +37,22 @@
       <div>
         <img class="rounded-circle ms-2" src="/assets/logo.png" style="height: 8rem;position: relative;top: -.5rem;" alt="">
         <div class="text-center ms-2" style="width: 8rem;">
-          <span class="lh-1" style="font-size: 3rem;">MCWXT</span>
+          <span class="lh-1" style="font-size: 2.2rem">MCWXT</span>
         </div>
       </div>
       <div class="w-100" style="max-width: 15rem;">
         <div class="" style="margin: 2rem 0;">
           <div class="d-flex justify-content-center information">
             <div class="border-end text-center my-2">
-              <span class="fs-3">1000</span>
+              <span class="fs-4">1000</span>
               <span class="">粉丝</span>
             </div>
             <div class="border-end text-center my-2">
-              <span class="fs-3">1000</span>
+              <span class="fs-4">1000</span>
               <span>关注</span>
             </div>
             <div class="text-center my-2">
-              <span class="fs-3">10万</span>
+              <span class="fs-4">10万</span>
               <span>获赞</span>
             </div>
           </div>
@@ -63,7 +63,7 @@
       </div>
     </div>
     <div>
-      <div class="p-2 lh-1 text-black-50">
+      <div class="p-2 lh-1 text-black-50" style="font-size: .9rem;">
         <span>努力成为一个大UP主ing。感谢您来我的博客站，本人也参与开发：DMX梦幻服，星耀服务器，<a href="//remcbbs.top/">REmcbbs论坛</a>……也欢迎大家来我其他开发的站点产</span>
       </div>
     </div>
@@ -78,7 +78,7 @@
     <div>
       <div class="m-2">
         <i class="bi bi-link-45deg fs-3"></i>
-        <h2 class="d-inline fs-3">友链</h2>
+        <h2 class="d-inline fs-4">友链</h2>
       </div>
       <div class="d-flex justify-content-md-start justify-content-center flex-wrap">
         <a v-for="friendLink" data-in="link name icon brief" class="m-2 shadow-sm rounded d-flex jumpPage" data-page="link&link={{link}}" style="width: 22rem;">
@@ -86,14 +86,14 @@
             <img class="rounded-circle m-2" loading="lazy" style="height: 3rem;width: 3rem;" src="{{icon}}" alt="">
           </div>
           <div class="lh-1 my-auto">
-            <h3 class="fs-4 m-0">{{name}}</h3>
-            <span class="text-black-50" style="font-size: .8rem">{{brief}}</span>
+            <h3 class="fs-5 m-0">{{name}}</h3>
+            <span class="text-black-50" style="font-size: .7rem">{{brief}}</span>
           </div>
         </a>
         <a class="bg-secondary-subtle m-2 shadow-sm rounded d-flex" style="width: 22rem;" href="//github.com/MCWXT">
           <div class="my-2" style="height: 3rem;"></div>
           <div class="lh-1 m-auto">
-            <span class="fs-4 ">Join me!点击加入</span>
+            <span class="fs-5">Join me!点击加入</span>
           </div>
         </a>
       </div>
@@ -107,7 +107,7 @@
           <i class="bi {{icon}}" style="font-size: 4rem;"></i>
         </div>
         <div class="my-auto">
-          <span class="fs-3"><span class="text-primary">{{type}}：</span>{{content}}</span>
+          <span class="fs-5"><span class="text-primary">{{type}}：</span>{{content}}</span>
         </div>
       </div>
     </a>

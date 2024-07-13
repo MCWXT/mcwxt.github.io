@@ -14,12 +14,12 @@ doms.iframe.css({ 'min-height': window.innerHeight - 7 - doms.header[0].offsetHe
 
 const resizeIframe = () => {
   const height = doms.iframe[0].contentWindow.document.documentElement.scrollHeight;
-  doms.iframe[0].style.height = height + "px";
-  doms.loading.hide();
-  setTimeout(() => {
-    const height = doms.iframe[0].contentWindow.document.documentElement.scrollHeight;
+  if (height > document.documentElement.scrollHeight) {
+    doms.iframe[0].style.height = height + 10 + "px";
+  } else {
     doms.iframe[0].style.height = height + "px";
-  }, 1500);
+  }
+  doms.loading.hide();
 }
 const { nav } = requestData('main');
 vFor({

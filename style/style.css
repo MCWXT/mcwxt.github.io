@@ -2,7 +2,7 @@
 @import url("https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css");
 @import url("https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.css");
 *{
-  font-size: sans-serif;
+  font-family: sans-serif;
 }
 img{
   max-width: 100%;
