@@ -63,7 +63,9 @@ window.onload = () => {
   $('.jumpPage *').css({ 'pointer-events': 'none' });
   $('.jumpPage').click((event) => {
     const obj = event.target;
-    parent.window.location.href = `/?page=${obj.dataset.page}`;
+    const url = obj.dataset.page.split('&');
+    parent.window.location.hash = url[0];
+    parent.window.location.search = url[1] || '';
   })
   $('[href]').click(() => {
     toastr.warning('注意安全，已不在保护范围内','跳转至外链')
