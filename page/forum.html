@@ -43,8 +43,8 @@
 
   <div class="d-flex justify-content-md-start justify-content-center flex-wrap">
     <div v-for="bvid" data-in="bvid cover title content time view like" class="card m-1 shadow-sm" style="width: 10rem;">
-      <a class="jumpPage" data-page="video&bvid={{bvid}}" style="height: calc(10rem/3*4);">
-        <img src="{{cover}}" class="card-img-top" loading="lazy" style="width: 10rem;height: calc(10rem/16*9);" alt="">
+      <a class="jumpPage" data-page="video&bvid={{bvid}}" style="aspect-ratio: 3/4;">
+        <img src="{{cover}}" class="card-img-top" loading="lazy" style="width: 10rem;aspect-ratio: 16/9;" alt="">
         <div class="card-body p-0 m-1 lh-1" style="font-size: .6rem;">
           <h3 class="card-title .text-truncate fs-6">{{title}}</h3>
           <p class="card-text .text-truncate">{{content}}</p>
