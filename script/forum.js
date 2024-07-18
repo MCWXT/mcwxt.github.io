@@ -15,33 +15,24 @@ const timestampToTime = (timestamp) => {
   let s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
   return Y + M + D + h + m + s;
 }
-const checkLength = (str, length) => {
-  if (str == "") {
-    return "…………"
-  }
-  if (str.length > length) {
-    return str.slice(0, length) + "……";
-  }
-  return str;
-}
 const bv = (bvid) => {
   var _bv = [];
-  if ($.cookie('_bv')) {
-    return JSON.parse($.cookie('_bv'));
+  if (parent.window.localStorage.getItem('bv')) {
+    return JSON.parse(parent.window.localStorage.getItem('bv'));
   }
   for (var i = 0; i < bvid.length; i++) {
     var data = getData(bvid[i]);
     var bv = {};
     bv.bvid = bvid[i];
     bv.cover = data.cover;
-    bv.title = checkLength(data.title,25);
-    bv.content = checkLength(data.detail,45);
+    bv.title = data.title;
+    bv.content = data.detail;
     bv.time = timestampToTime(data.time);
     bv.view = data.view;
     bv.like = data.like;
     _bv[i] = bv;
   }
-  $.cookie('_bv', JSON.stringify(_bv));
+  parent.window.localStorage.setItem('bv',JSON.stringify(_bv));
   return _bv;
 }
 vFor({

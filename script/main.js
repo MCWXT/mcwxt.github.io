@@ -1,4 +1,5 @@
-const page = window.location.hash.split('#')[1] || 'home';
+const hash = window.location.hash.split('?');
+const page = hash[0].split('#')[1] || '/home';
 const doms = {
   body: $('body'),
   main: $('main'),
@@ -8,9 +9,12 @@ const doms = {
   footer: $('footer'),
   loading: $('.loading'),
 }
-doms.iframe[0].src = `/page/${page}.html`;
+doms.iframe[0].src = `/page${page}.html`;
 doms.header.css({ 'height': doms.nav[0].offsetHeight + 'px' });
 doms.iframe.css({ 'min-height': window.innerHeight - 7 - doms.header[0].offsetHeight - doms.footer[0].offsetHeight + 'px' });
+addEventListener("hashchange", () => {
+  location.reload();
+});
 const resizeIframe = () => {
   const height = doms.iframe[0].contentWindow.document.documentElement.scrollHeight;
   if (height > document.documentElement.scrollHeight) {

@@ -6,10 +6,10 @@ const requestData = (dataName) => {
   }).responseText);
 }
 const getQueryString = (name) => {
+  const search = '?' + parent.window.location.hash.split('?')[1];
   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-  var r = parent.window.location.search.substr(1).match(reg);
-  if (r != null) return unescape(r[2]);
-  return null;
+  var r = search.substr(1).match(reg);
+  return r ? unescape(r[2]) : null;
 }
 
 function stringIze(obj) {
@@ -60,12 +60,10 @@ const m = (data) => {
   }
 }
 window.onload = () => {
-  $('.jumpPage *').css({ 'pointer-events': 'none' });
-  $('.jumpPage').click((event) => {
+  $('[data-page] *').css({ 'pointer-events': 'none' });
+  $('[data-page]').click((event) => {
     const obj = event.target;
-    const url = obj.dataset.page.split('&');
-    parent.window.location.hash = url[0];
-    parent.window.location.search = url[1] || '';
+    parent.window.location.hash = obj.dataset.page;
   })
   $('[href]').click(() => {
     toastr.warning('注意安全，已不在保护范围内','跳转至外链')
