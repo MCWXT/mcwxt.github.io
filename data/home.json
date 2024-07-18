@@ -2,7 +2,7 @@
   "friendLink": [{
     "name": "REmcbbs",
     "link": "//remcbbs.com/",
-    "icon": "//remcbbs.com/data/attachment/common/template/boardimg_20240325p0e983p4.png",
+    "icon": "//tenapi.cn/v2/groupimg?qun=652973775",
     "brief": "新一届MC论坛"
     },{
     "name": "朝阳云",
@@ -22,8 +22,13 @@
     },{
     "name": "辽阔域名",
     "link": "//lkdns.us.kg/",
-    "icon": "//www.lkdns.org/q.jpg",
+    "icon": "//tenapi.cn/v2/groupimg?qun=233148186",
     "brief": "公益发放域名"
+    },{
+    "name": "绮云数据",
+    "link": "//epmb.asia/",
+    "icon": "//tenapi.cn/v2/groupimg?qun=716621671",
+    "brief": "'良心'商家"
     },{
     "name": "黄大云",
     "link": "//yun.wahd.fun/",
