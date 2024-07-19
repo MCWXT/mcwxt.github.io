@@ -6,59 +6,104 @@ const requestData = (dataName) => {
   }).responseText);
 }
 const getQueryString = (name) => {
-  const search = '?' + parent.window.location.hash.split('?')[1];
+  const search = '?' + parent.window.location.hash.split('?')[1];//模拟一个完整的search
   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
   var r = search.substr(1).match(reg);
   return r ? unescape(r[2]) : null;
 }
+class For {
+  constructor() {
 
-function stringIze(obj) {
-  var o = document.createElement("div");
-  o.appendChild(obj);
-  return o.innerHTML;
-}
-const VFor = (f, e, v, a) => {
-  var html = '';
-  for (var n = 0; n < v.length; n++) {
-    var _html = e.outerHTML;
-    for (var i = 0; i < a.length; i++) {
-      _html = _html.replace(`{{${a[i]}}}`, v[n][a[i]]);
+  }
+  get doms() {
+    return $('[v-for]');
+  }
+  get Dom() {
+    return this.doms[0] || undefined;
+  }
+  get For() {
+    return this.Dom.getAttribute('v-for') || undefined;
+  }
+  get In() {
+    return this.Dom.dataset.in.split(' ');
+  }
+  isTure() {
+    return this.Dom;
+  }
+  get forNow() {
+    return $(`[v-for="${this.For}"]`);
+  }
+  forIn(data, forElementSub) {
+    const { Dom, For, In } = this;
+    var inElement = Dom.outerHTML;
+    for (var i = 0; i < In.length; i++) {
+      inElement = inElement.replace(`{{${In[i]}}}`, data[forElementSub][In[i]]);
     }
-    html = html + _html.replace(`v-for="${f}"`, '');
+    return inElement;
   }
-  $(`[v-for="${f}"]`).after(html);
-  $(`[v-for="${f}"]`).remove();
-}
-const vFor = (data) => {
-  const e = $('[v-for]');
-  if (!e[0]) { return };
-  const For = e[0].getAttribute('v-for');
-  const forData = data[For];
-  const In = e[0].dataset.in.split(' ');
-  if (For && e[0] && data && In) {
-    VFor(For, e[0], forData, In);
-  }
-  vFor(data);
-}
-const M = (f, e, v, a) => {
-  var html = e.outerHTML;
-  for (var i = 0; i < a.length; i++) {
-    html = html.replace(`{{${a[i]}}}`, v[a[i]]);
-  }
-  html = html.replace(`m="${f}"`, '');
-  $(`[m="${f}"]`).after(html);
-  $(`[m="${f}"]`).remove();
-}
-const m = (data) => {
-  const e = $('[m]');
-  if (!e[0]) { return };
-  const For = e[0].getAttribute('m');
-  const forData = data[For];
-  const In = e[0].dataset.in.split(' ');
-  if (For && e[0] && data && In) {
-    M(For, e[0], forData, In);
+  render(data) {
+    if (!this.isTure()) return;
+    var forElement = '';
+    for (var i = 0; i < data[this.For].length; i++) {
+      forElement = forElement + this.forIn(data[this.For], i).replace(`v-for="${this.For}"`, '');
+    };
+    this.forNow.after(forElement);
+    this.forNow.remove();
+    this.render(data);
   }
 }
+class V {
+  constructor() {
+
+  }
+  get doms() {
+    return $('[v]');
+  }
+  get Dom() {
+    return this.doms[0] || undefined;
+  }
+  get v() {
+    return this.Dom.getAttribute('v') || undefined;
+  }
+  get In() {
+    return this.Dom.dataset.in.split(' ');
+  }
+  isTure() {
+    return this.Dom;
+  }
+  get vNow() {
+    return $(`[v="${this.v}"]`);
+  }
+  vIn(data) {
+    const { Dom, For, In } = this;
+    var inElement = Dom.outerHTML;
+    for (var i = 0; i < In.length; i++) {
+      inElement = inElement.replace(`{{${In[i]}}}`, data[In[i]]);
+    }
+    return inElement;
+  }
+  render(data) {
+    if (!this.isTure()) return;
+    var vElement = '';
+    vElement = vElement + this.vIn(data[this.v]).replace(`v="${this.v}"`, '');
+    this.vNow.after(vElement);
+    this.vNow.remove();
+  }
+}
+class Tao {
+  constructor() {
+    this.For = new For();
+    this.V = new V();
+  }
+  for(data) {
+    this.For.render(data);
+  }
+  v(data) {
+    this.V.render(data);
+  }
+}
+const tao = new Tao();
+
 window.onload = () => {
   $('[data-page] *').css({ 'pointer-events': 'none' });
   $('[data-page]').click((event) => {
@@ -66,6 +111,6 @@ window.onload = () => {
     parent.window.location.hash = obj.dataset.page;
   })
   $('[href]').click(() => {
-    toastr.warning('注意安全，已不在保护范围内','跳转至外链')
+    toastr.warning('注意安全，已不在保护范围内', '跳转至外链')
   })
 }

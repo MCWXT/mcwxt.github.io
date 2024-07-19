@@ -35,7 +35,7 @@ const bv = (bvid) => {
   parent.window.localStorage.setItem('bv',JSON.stringify(_bv));
   return _bv;
 }
-vFor({
+tao.for({
   bvid: bv(bvid),
   carouselImg: [{imgSrc: 'http://i0.hdslb.com/bfs/archive/b2e21d8ce1a8106bdd16f19e2eaac3fc3d9a27f2.jpg',},{imgSrc: 'http://i0.hdslb.com/bfs/archive/26e4fb5b6c57d75e945fbd06f334c5412c04aa17.png',},{imgSrc: 'http://i2.hdslb.com/bfs/archive/ffe2a3758e07429f89294316aa548bad79f06f80.png',}],
 })

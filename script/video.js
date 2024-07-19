@@ -23,6 +23,6 @@ if (!data) {
   throw ('视频加载错误');
 }
 data.time = timestampToTime(data.time);
-m({
+tao.v({
   bvData: data,
 });

@@ -3,7 +3,7 @@ const doms = {
 }
 const {friendLink} = requestData('home');
 const {myLink} = requestData('home');
-vFor({
+tao.for({
   friendLink: friendLink,
   myLink: myLink,
 });
