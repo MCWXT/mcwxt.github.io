@@ -25,7 +25,7 @@
       <div class="card-header">
         跳转外链
       </div>
-      <div m="link" data-in="link link" class="card-body h-auto">
+      <div v="link" data-in="link link" class="card-body h-auto">
         <h5 class="card-title">您确定跳转至:</h5>
         <p class="card-text">{{link}}</p>
         <a href="{{link}}" class="btn btn-primary position-absolute" style="right: 1rem;bottom: 1rem;">继续</a>
@@ -35,7 +35,7 @@
 </body>
 <script src="/script/script.js"></script>
 <script>
-  m({
+  tao.v({
     link: {
       link: getQueryString('link') || 'mcwxt.top'
     }
