@@ -1,4 +1,7 @@
 {
+  "/": {
+    "path": "/page/home.html"
+  },
   "/home": {
     "path": "/page/home.html"
   },

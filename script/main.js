@@ -1,3 +1,6 @@
+if (!getHash()[0].split('#')[1] || getHash()[0].split('#')[1] == '/') {
+  window.location.hash = '/home';
+}
 const getPage = () => {
   return getHash()[0].split('#')[1] || '/home';
 }
@@ -28,9 +31,12 @@ doms.header[0].style.height = doms.nav[0].offsetHeight + 'px';
 doms.iframe[0].style.minHeight = getMainHeight();
 setIframeHeight(getMainHeight());
 setAframeSrc(getPage());
-addEventListener("hashchange", () => {
+onhashchange = (event) => {
+  const newURL = new URL(event.newURL)
+  const oldURL = new URL(event.oldURL)
+  if (newURL.hash.indexOf('home') != -1 || newURL.hash.indexOf('/') != -1 && oldURL.hash == '' || oldURL.hash == '/') return;
   location.reload();
-});
+}
 const resizeIframe = () => {
   const iframeWindowHeight = doms.iframe[0].contentWindow.document.documentElement.scrollHeight;
   iframeWindowHeight > window.innerHeight ? setIframeHeight(iframeWindowHeight + 10 + "px") : '';

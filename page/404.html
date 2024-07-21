@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <base target="_parent">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="MCWXT的个人博客,MCWXT,Web,Blog,Personal blog">
+  <meta name="description" content="MCWXT的个人博客。友链，资源，论坛，文章，视频各种功能一应俱全！">
+  <link rel="stylesheet" href="/style/reset.css">
+  <link rel="stylesheet" href="/style/style.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+  <title>MCWXT的个人博客|404</title>
+</head>
+<style>
+
+</style>
+
+<body>
+  <div>
+    <div class="text-center mt-4 mx-2">
+      <h1 class="display-1">404</h1>
+      <h2>File not found</h2>
+      <p>你想要的页面走丢了呢！<br>If this is your site, make sure that the filename case matches the URL as well as any file permissions.For root URLs (like http://example.com/) you must provide an index.html file.</p>
+    </div>
+    <div class="text-center">
+      <div>
+        <span class="btn btn-warning" data-page="/home">返回首页</span>
+      </div>
+      <div>
+        <div class="mt-4">
+          <a class="bi {{icon}} text-secondary m-2 fs-2" v-for="myLink" data-in="icon link" href="{{link}}"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="/script/script.js"></script>
+<script>
+const { myLink } = requestData('home');
+  tao.for({
+    myLink: myLink
+  })
+</script>
+</html>
