@@ -2,7 +2,7 @@ const getPage = () => {
   return getHash()[0].split('#')[1] || '/home';
 }
 const setAframeSrc = (page) => {
-  doms.iframe[0].src = `/page${page}.html`;
+  doms.iframe[0].src = pathMap[page] ? pathMap[page].path : '/page/404.html';
 }
 const getMainHeight = () => {
   return window.innerHeight - 9 - doms.header[0].offsetHeight - doms.footer[0].offsetHeight + 'px';
@@ -11,6 +11,7 @@ const setIframeHeight = (height) => {
   doms.iframe[0].style.height = height;
 }
 const { nav } = requestData('main');
+const pathMap = requestData('path');
 const doms = {
   body: $('body'),
   main: $('main'),

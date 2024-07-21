@@ -1,0 +1,14 @@
+{
+  "/home": {
+    "path": "/page/home.html"
+  },
+  "/forum": {
+    "path": "/page/forum.html"
+  },
+  "/link": {
+    "path": "/page/link.html"
+  },
+  "/video": {
+    "path": "/page/video.html"
+  }
+}

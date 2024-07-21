@@ -6,7 +6,6 @@ const requestData = (dataName) => {
   }).responseText);
 }
 const getQueryString = (name) => {
-  console.log(getHash()[1])
   const search = '?' + getHash()[1];//模拟一个完整的search
   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
   var r = search.substr(1).match(reg);
