@@ -6,13 +6,13 @@ const requestData = (dataName) => {
   }).responseText);
 }
 const getQueryString = (name) => {
-  const search = '?' + getHash()[1];//模拟一个完整的search
+  const search = '?' + parent.window.location.hash.split('?')[1];//模拟一个完整的search
   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
   var r = search.substr(1).match(reg);
   return r ? unescape(r[2]) : null;
 }
 const getHash = () => {
-  return parent.window.location.hash.split('?');
+  return parent.window.location.hash.split('?')[0];
 }
 class For {
   constructor() {

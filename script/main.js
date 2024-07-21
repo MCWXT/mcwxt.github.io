@@ -1,8 +1,8 @@
-if (!getHash()[0].split('#')[1] || getHash()[0].split('#')[1] == '/') {
+if (!getHash().split('#')[1] || getHash().split('#')[1] == '/') {
   window.location.hash = '/home';
 }
 const getPage = () => {
-  return getHash()[0].split('#')[1] || '/home';
+  return getHash().split('#')[1] || '/home';
 }
 const setAframeSrc = (page) => {
   doms.iframe[0].src = pathMap[page] ? pathMap[page].path : '/page/404.html';
@@ -34,7 +34,7 @@ setAframeSrc(getPage());
 onhashchange = (event) => {
   const newURL = new URL(event.newURL)
   const oldURL = new URL(event.oldURL)
-  if (newURL.hash.indexOf('home') != -1 || newURL.hash.indexOf('/') != -1 && oldURL.hash == '' || oldURL.hash == '/') return;
+  if (newURL.hash == '#/home' && oldURL.hash == '#/' || oldURL.hash == '') return;
   location.reload();
 }
 const resizeIframe = () => {
