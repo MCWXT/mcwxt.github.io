@@ -11,5 +11,9 @@
     "page": "/forum",
     "icon": "bi-play-btn",
     "pageName": "视频"
+  },{
+    "page": "/mc/download",
+    "icon": "bi-cloud-download",
+    "pageName": "MC下载"
   }]
 }

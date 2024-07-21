@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <base target="_parent">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="MCWXT的个人博客,MCWXT,Web,Blog,Personal blog">
+  <meta name="description" content="MCWXT的个人博客。友链，资源，论坛，文章，视频各种功能一应俱全！">
+  <link rel="stylesheet" href="/style/reset.css">
+  <link rel="stylesheet" href="/style/style.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+  <title>MCWXT的个人博客|404</title>
+</head>
+<style>
+  .type .betaFalse{
+    background-color: green;
+  }
+  .type .betaFalse::after{
+    content: "正式版";
+  }
+  .type .betaTrue{
+    background-color: red;
+  }
+  .type .betaTrue::after{
+    content: "测试版";
+  }
+</style>
+
+<body>
+  <div class="m-2">
+    <h1 class="fs-2 text-center">MC基岩版全版本下载</h1>
+    <div class="m-3"><img src="https://s21.ax1x.com/2024/06/21/pkDdChF.png" alt=""></div>
+    <div class="alert alert-danger m-2">
+      <span>
+        <b>仅供体验，请支持正版</b><br>
+        正版购买：<a href="https://www.minecraft.net/zh-hans/store/minecraft-android" class="link-success text-decoration-none">官方页面<i class="bi bi-link-45deg"></i></a>
+      </span>
+    </div>
+    <div class="alert alert-warning m-2">
+      <span>刷新缓存，以获得最新版本</span>
+      <button id="refreshCache" class="btn btn-primary m-1 ms-0 p-1">清除缓存并刷新</button>
+    </div>
+  </div>
+  <div>
+    <div class="m-2">
+      <table class="table">
+        <thead class="border-bottom">
+          <tr>
+            <th scope="col">版本</th>
+            <th scope="col">类型</th>
+            <th scope="col">大小</th>
+            <th scope="col">下载</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-top" v-for="mcapksData" data-in="version beta size version info_key">
+            <td class="version">{{version}}</td>
+            <td class="type"><span class="badge beta{{beta}}"> </span></td>
+            <td class="size">{{size}}</td>
+            <td><a class="btn btn-success download" data-version="{{version}}" data-info_key="{{info_key}}"><i class="bi bi-download"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="d-none">
+    
+  </div>
+</body>
+<script src="/script/script.js"></script>
+<script src="/script/mcDownload.js"></script>
+
+</html>

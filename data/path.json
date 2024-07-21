@@ -13,5 +13,7 @@
   },
   "/video": {
     "path": "/page/video.html"
+  },"/mc/download": {
+    "path": "/page/mcDownload.html"
   }
 }
