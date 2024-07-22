@@ -17,8 +17,9 @@ $('#refreshCache').click(() => {
   parent.window.localStorage.removeItem('mcapks');
   parent.window.location.reload();
 })
+const mcapksData = requestMcapks();
 tao.for({
-  mcapksData: requestMcapks().message
+  mcapksData: mcapksData.message
 })
 $('.download *').css({ 'pointer-events': 'none' });
 $('.download').click((e) => {
