@@ -13,7 +13,11 @@
   },
   "/video": {
     "path": "/page/video.html"
-  },"/mc/download": {
+  },
+  "/mc/download": {
     "path": "/page/mcDownload.html"
+  },
+  "/dino": {
+    "path": "/page/dinosaurGame.html"
   }
 }
