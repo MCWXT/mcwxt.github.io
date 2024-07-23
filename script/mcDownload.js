@@ -33,6 +33,5 @@ $('.download').click((e) => {
   }).responseText;
   var Location = JumpPan.substr(JumpPan.indexOf("window.location.href='") + 22);
   var Location = Location.substr('',Location.indexOf("'"));
-  parent.window.location = Location;
-  //parent.window.location.href = 'https://mcapks.net/info/' + encodeURIComponent(btoa(e.target.dataset.version)) + '/' + e.target.dataset.info_key + '.html';
+  parent.window.location.href = Location || 'https://mcapks.net/info/' + encodeURIComponent(btoa(e.target.dataset.version)) + '/' + e.target.dataset.info_key + '.html';
 })
