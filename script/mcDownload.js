@@ -23,5 +23,16 @@ tao.for({
 })
 $('.download *').css({ 'pointer-events': 'none' });
 $('.download').click((e) => {
-  parent.window.location.href = 'https://mcapks.net/info/' + encodeURIComponent(btoa(e.target.dataset.version)) + '/' + e.target.dataset.info_key + '.html';
+  const JumpPan = $.ajax({
+    url: 'http://serzmqmtk3y03.sxq1.xyz/agentApi.php',
+    dataType: 'json',
+    data: {
+      api: 'https://mcapks.net/down.php?vs=' + e.target.dataset.version,
+    },
+    async: false,
+  }).responseText;
+  var Location = JumpPan.substr(JumpPan.indexOf("window.location.href='") + 22);
+  var Location = Location.substr('',Location.indexOf("'"));
+  parent.window.location = Location;
+  //parent.window.location.href = 'https://mcapks.net/info/' + encodeURIComponent(btoa(e.target.dataset.version)) + '/' + e.target.dataset.info_key + '.html';
 })
