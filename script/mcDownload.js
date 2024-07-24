@@ -24,7 +24,7 @@ tao.for({
 $('.download *').css({ 'pointer-events': 'none' });
 $('.download').click((e) => {
   const JumpPan = $.ajax({
-    url: 'http://serzmqmtk3y03.sxq1.xyz/agentApi.php',
+    url: 'https://serzmqmtk3y03.sxq1.xyz/agentApi.php',
     dataType: 'json',
     data: {
       api: 'https://mcapks.net/down.php?vs=' + e.target.dataset.version,
