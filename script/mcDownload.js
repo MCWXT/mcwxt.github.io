@@ -3,7 +3,7 @@ const requestMcapks = () => {
     return JSON.parse(parent.window.localStorage.getItem('mcapks'));
   }
   const mcapksData = $.parseJSON($.ajax({
-    url: 'http://serzmqmtk3y03.sxq1.xyz/agentApi.php',
+    url: 'https://serzmqmtk3y03.sxq1.xyz/agentApi.php',
     dataType: 'json',
     data: {
       api: 'https://mcapks.net/api/vs-list.php',
