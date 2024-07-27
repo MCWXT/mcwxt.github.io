@@ -35,7 +35,7 @@
     </div>
     <div  class="carousel-inner">
       <div v-for="carouselImg" data-in="imgSrc" class="carousel-item active">
-        <img src="{{imgSrc}}" class="d-block w-100" alt="">
+        <img src="{{imgSrc}}" class="d-block w-100" style="aspect-ratio: 16/9;" alt="">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -54,10 +54,10 @@
           <h3 class="card-title fs-6 textLineBreakHidden" style="--line: 3;">{{title}}</h3>
           <p class="card-text textLineBreakHidden" style="--line: 2;">{{content}}</p>
         </div>
-        <div class="card-footer p-1 m-0 w-100 position-absolute bottom-0" style="font-size: .5rem;height: 2rem;">
+        <div class="card-footer p-1 m-0 w-100 position-absolute bottom-0" style="font-size: .6rem;height: 1.8rem;color: #474747;">
           <span class="me-1">{{time}}</span>
-          <span class="me-1"><i class="bi bi-play-btn-fill"></i>{{view}}</span>
-          <span class="me-1"><i class="bi bi-heart-fill"></i>{{like}}</span>
+          <span class="me-1"><i class="bi bi-play-btn-fill" style="margin-right: .1rem;"></i>{{view}}</span>
+          <span class="me-1"><i class="bi bi-heart-fill" style="margin-right: .1rem;"></i>{{like}}</span>
         </div>
       </a>
     </div>

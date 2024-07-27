@@ -1,4 +1,16 @@
-const {bvid} = requestData('forum');
+const tranNumber = (num, point = 0) => {
+  let numStr = num.toString().split('.')[0];
+  if (numStr.length < 5) {
+    return numStr;
+  } else if (numStr.length >= 5 && numStr.length <= 8) {
+    let decimal = numStr.substring(numStr.length - 4, numStr.length - 4 + point)
+    return parseFloat(parseInt(num / 10000) + '.' + decimal) + '万'
+  } else if (numStr.length > 8) {
+    let decimal = numStr.substring(numStr.length - 8, numStr.length - 8 + point);
+    return parseFloat(parseInt(num / 100000000) + '.' + decimal) + '亿'
+  }
+}
+const { bvid } = requestData('forum');
 const getData = (bvid) => $.parseJSON($.ajax({
   url: "https://tenapi.cn/v2/bilivideo?url=https://www.bilibili.com/video/" + bvid,
   dataType: "json",
@@ -28,14 +40,14 @@ const bv = (bvid) => {
     bv.title = data.title;
     bv.content = data.detail;
     bv.time = timestampToTime(data.time);
-    bv.view = data.view;
-    bv.like = data.like;
+    bv.view = tranNumber(data.view);
+    bv.like = tranNumber(data.like);
     _bv[i] = bv;
   }
-  parent.window.localStorage.setItem('bv',JSON.stringify(_bv));
+  parent.window.localStorage.setItem('bv', JSON.stringify(_bv));
   return _bv;
 }
 tao.for({
   bvid: bv(bvid),
-  carouselImg: [{imgSrc: 'http://i0.hdslb.com/bfs/archive/b2e21d8ce1a8106bdd16f19e2eaac3fc3d9a27f2.jpg',},{imgSrc: 'http://i0.hdslb.com/bfs/archive/26e4fb5b6c57d75e945fbd06f334c5412c04aa17.png',},{imgSrc: 'http://i2.hdslb.com/bfs/archive/ffe2a3758e07429f89294316aa548bad79f06f80.png',}],
+  carouselImg: [{ imgSrc: 'https://i2.hdslb.com/bfs/archive/c96b635dcadbb30d5aa73a9efc532e3bb9d40d6e.jpg', }, { imgSrc: 'http://i0.hdslb.com/bfs/archive/26e4fb5b6c57d75e945fbd06f334c5412c04aa17.png', }, { imgSrc: 'http://i2.hdslb.com/bfs/archive/ffe2a3758e07429f89294316aa548bad79f06f80.png', }],
 })
