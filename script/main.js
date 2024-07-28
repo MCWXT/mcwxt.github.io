@@ -46,5 +46,5 @@ doms.iframe[0].onload = () => {
   doms.loading.hide();
 }
 if (navigator.userAgent.indexOf("MQQBrowser") > -1 || navigator.userAgent.indexOf("QQTheme") > -1) {
-  alert('建议使用浏览器，如chrome打开本网站');
+  alert('建议使用浏览如chrome打开本网站');
 }
