@@ -38,8 +38,7 @@ onhashchange = (event) => {
   location.reload();
 }
 const resizeIframe = () => {
-  const iframeWindowHeight = doms.iframe[0].contentWindow.document.documentElement.scrollHeight;
-  iframeWindowHeight > window.innerHeight ? setIframeHeight(iframeWindowHeight + 10 + "px") : '';
+  setIframeHeight(iframeWindowHeight = doms.iframe[0].contentWindow.document.documentElement.scrollHeight + 'px');
 }
 doms.iframe[0].onload = () => {
   resizeIframe();
