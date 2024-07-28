@@ -16,7 +16,7 @@ const data = $.parseJSON($.ajax({
   async: false,
 }).responseText).data;
 if (!data) {
-  toastr.error('三秒后返回上一页','视频加载错误');
+  parent.toastr.error('三秒后返回上一页','视频加载错误');
   setTimeout(() => {
     window.history.go(-1);
   }, 2000);

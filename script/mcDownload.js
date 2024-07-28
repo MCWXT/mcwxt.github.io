@@ -23,6 +23,7 @@ tao.for({
 })
 $('.download *').css({ 'pointer-events': 'none' });
 $('.download').click((e) => {
+  parent.toastr.success('即将跳转到下载页面','请求中……');
   const JumpPan = $.ajax({
     url: 'https://serzmqmtk3y03.sxq1.xyz/agentApi.php',
     dataType: 'json',

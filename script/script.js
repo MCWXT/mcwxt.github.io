@@ -114,6 +114,6 @@ window.onload = () => {
     parent.window.location.hash = obj.dataset.page;
   })
   $('[href]').click(() => {
-    toastr.warning('注意安全，已不在保护范围内', '跳转至外链')
+    parent.toastr.warning('注意安全，已不在保护范围内', '跳转至外链')
   })
 }
