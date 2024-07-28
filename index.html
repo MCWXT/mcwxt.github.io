@@ -27,16 +27,16 @@
           <img class="d-inline-block rounded-circle" style="width: 2.5rem;" src="/assets/logo.png" alt="">
           <h1 class="d-inline align-middle fs-5">MCWXT的个人博客</h1>
         </div>
-        <div class="">
+        <div class="dropdown">
           <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list"></i></button>
-          <ul class="dropdown-menu m-0">
+          <ul class="dropdown-menu dropdown-menu-end m-0 my-2">
             <li v-for="nav" data-in="page icon pageName"><a class="dropdown-item" data-page="{{page}}"><i class="bi {{icon}} me-2"></i>{{pageName}}</a></li>
           </ul>
         </div>
       </nav>
     </div>
   </header>
-  <div class="loading vh-100 vw-100 text-center fixed-top">
+  <div class="loading vh-100 vw-100 text-center fixed-top" style="background-color: #00000060;">
     <div class="d-inline-block" style="margin-top: 40vh;">
       <div class="">
         <div class="spinner-border" style="width: 3rem;height: 3rem;" role="status">
@@ -51,7 +51,7 @@
   </main>
   <footer class="text-bg-light">
     <div class="p-2 lh-1">
-      <span style="font-size: .8rem;">本网站由哔哩哔哩MCWXT制作，2024.7.9，感谢支持：REmcbbs DMX</span>
+      <span style="font-size: .8rem;color: #000000C8;">本网站由哔哩哔哩MCWXT制作，2024.7.9，感谢支持：REmcbbs DMX</span>
     </div>
   </footer>
 </body>
