@@ -13,6 +13,13 @@ const getMainHeight = () => {
 const setIframeHeight = (height) => {
   doms.iframe[0].style.height = height;
 }
+const setPage = (page) => {
+  doms.loading.show();
+  doms.header[0].style.height = doms.nav[0].offsetHeight + 'px';
+  doms.iframe[0].style.minHeight = getMainHeight();
+  setIframeHeight(getMainHeight());
+  setAframeSrc(page);
+}
 const { nav } = requestData('main');
 const pathMap = requestData('path');
 const doms = {
@@ -27,21 +34,15 @@ const doms = {
 tao.for({
   nav: nav,
 });
-doms.header[0].style.height = doms.nav[0].offsetHeight + 'px';
-doms.iframe[0].style.minHeight = getMainHeight();
-setIframeHeight(getMainHeight());
-setAframeSrc(getPage());
+setPage(getPage());
 onhashchange = (event) => {
-  const newURL = new URL(event.newURL)
-  const oldURL = new URL(event.oldURL)
+  const newURL = new URL(event.newURL);
+  const oldURL = new URL(event.oldURL);
   if (newURL.hash == '#/home' && oldURL.hash == '#/' || oldURL.hash == '') return;
-  location.reload();
-}
-const resizeIframe = () => {
-  setIframeHeight(iframeWindowHeight = doms.iframe[0].contentWindow.document.documentElement.scrollHeight + 'px');
+  setPage(getPage());
 }
 doms.iframe[0].onload = () => {
-  resizeIframe();
+  setIframeHeight(iframeWindowHeight = doms.iframe[0].contentWindow.document.documentElement.scrollHeight + 'px');
   doms.loading.hide();
 }
 if (navigator.userAgent.indexOf("MQQBrowser") > -1 || navigator.userAgent.indexOf("QQTheme") > -1) {
