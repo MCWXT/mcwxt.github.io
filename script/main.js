@@ -8,7 +8,7 @@ const setAframeSrc = (page) => {
   doms.iframe[0].src = pathMap[page] ? pathMap[page].path : '/page/404.html';
 }
 const getMainHeight = () => {
-  return window.innerHeight - 9 - doms.header[0].offsetHeight - doms.footer[0].offsetHeight + 'px';
+  return window.innerHeight - doms.header[0].offsetHeight - doms.footer[0].offsetHeight + 'px';
 }
 const setIframeHeight = (height) => {
   doms.iframe[0].style.height = height;
@@ -42,7 +42,7 @@ onhashchange = (event) => {
   setPage(getPage());
 }
 doms.iframe[0].onload = () => {
-  setIframeHeight(iframeWindowHeight = doms.iframe[0].contentWindow.document.documentElement.scrollHeight + 'px');
+  setIframeHeight(doms.iframe[0].contentWindow.document.documentElement.scrollHeight + 'px');
   doms.loading.hide();
 }
 if (navigator.userAgent.indexOf("MQQBrowser") > -1 || navigator.userAgent.indexOf("QQTheme") > -1) {
