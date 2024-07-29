@@ -49,5 +49,5 @@ const bv = (bvid) => {
 }
 tao.for({
   bvid: bv(bvid),
-  carouselImg: [{ imgSrc: 'https://i2.hdslb.com/bfs/archive/c96b635dcadbb30d5aa73a9efc532e3bb9d40d6e.jpg', }, { imgSrc: 'http://i0.hdslb.com/bfs/archive/26e4fb5b6c57d75e945fbd06f334c5412c04aa17.png', }, { imgSrc: 'http://i2.hdslb.com/bfs/archive/ffe2a3758e07429f89294316aa548bad79f06f80.png', }],
+  carouselImg: [{ imgSrc: '//i2.hdslb.com/bfs/archive/c96b635dcadbb30d5aa73a9efc532e3bb9d40d6e.jpg', }, { imgSrc: '//i0.hdslb.com/bfs/archive/26e4fb5b6c57d75e945fbd06f334c5412c04aa17.png', }, { imgSrc: '//i2.hdslb.com/bfs/archive/ffe2a3758e07429f89294316aa548bad79f06f80.png', }],
 })
