@@ -20,7 +20,7 @@ $('#refreshCache').click(() => {
 const mcapksData = requestMcapks();
 tao.for({
   mcapksData: mcapksData.message
-})
+});
 $('.download *').css({ 'pointer-events': 'none' });
 $('.download').click((e) => {
   parent.toastr.success('即将跳转到下载页面','请求中……');
