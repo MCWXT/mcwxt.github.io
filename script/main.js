@@ -17,6 +17,7 @@ const setIframeHeight = (height) => {
   doms.iframe[0].style.height = height;
 }
 const setPage = (page) => {
+  doms.main[0].style.minHeight = getMainHeight();
   doms.loading.show();
   setIframeHeight(getMainHeight());
   setAframeSrc(page);
@@ -37,7 +38,6 @@ const doms = {
   loading: $('.loading'),
 }
 doms.header[0].style.height = doms.nav[0].offsetHeight + 'px';
-doms.main[0].style.minHeight = getMainHeight();
 tao.for({
   nav: nav,
 });
