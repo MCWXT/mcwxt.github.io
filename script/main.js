@@ -1,10 +1,13 @@
-if (!getHash().split('#')[1] || getHash().split('#')[1] == '/') {
+if (!getHash() || getHash() == '/') {
   window.location.hash = '/home';
 }
 const getPage = () => {
-  return getHash().split('#')[1] || '/home';
+  return getHash() || '/home';
 }
 const setAframeSrc = (page) => {
+  doms.iframe.remove();
+  doms.main.html('<iframe class="w-100" scrolling="no" frameborder="0"></iframe>');
+  doms.iframe = $('main>iframe');
   doms.iframe[0].src = pathMap[page] ? pathMap[page].path : '/page/404.html';
 }
 const getMainHeight = () => {
@@ -15,10 +18,12 @@ const setIframeHeight = (height) => {
 }
 const setPage = (page) => {
   doms.loading.show();
-  doms.header[0].style.height = doms.nav[0].offsetHeight + 'px';
-  doms.iframe[0].style.minHeight = getMainHeight();
   setIframeHeight(getMainHeight());
   setAframeSrc(page);
+  doms.iframe[0].onload = () => {
+    setIframeHeight(doms.iframe[0].contentWindow.document.documentElement.scrollHeight + 'px');
+    doms.loading.hide();
+  }
 }
 const { nav } = requestData('main');
 const pathMap = requestData('path');
@@ -31,6 +36,8 @@ const doms = {
   footer: $('footer'),
   loading: $('.loading'),
 }
+doms.header[0].style.height = doms.nav[0].offsetHeight + 'px';
+doms.main[0].style.minHeight = getMainHeight();
 tao.for({
   nav: nav,
 });
@@ -40,10 +47,6 @@ onhashchange = (event) => {
   const oldURL = new URL(event.oldURL);
   if (newURL.hash == '#/home' && oldURL.hash == '#/' || oldURL.hash == '') return;
   setPage(getPage());
-}
-doms.iframe[0].onload = () => {
-  setIframeHeight(doms.iframe[0].contentWindow.document.documentElement.scrollHeight + 'px');
-  doms.loading.hide();
 }
 if (navigator.userAgent.indexOf("MQQBrowser") > -1 || navigator.userAgent.indexOf("QQTheme") > -1) {
   alert('建议使用浏览如chrome打开本网站');

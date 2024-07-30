@@ -12,7 +12,7 @@ const getQueryString = (name) => {
   return r ? unescape(r[2]) : null;
 }
 const getHash = () => {
-  return parent.window.location.hash.split('?')[0];
+  return parent.window.location.hash.split('?')[0].substring(1);
 }
 class For {
   constructor() {
