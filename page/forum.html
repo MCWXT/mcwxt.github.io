@@ -44,7 +44,7 @@
     </button>
   </div>
   <div class="d-flex justify-content-md-start justify-content-between flex-wrap p-1" style="gap: .25rem .25rem;">
-    <div v-for="bvid" data-in="id cover view like time title name id" class="position-relative shadow-sm rounded" style="width: calc(11rem - (.25rem / 2));overflow: hidden;aspect-ratio: 6/7;">
+    <div v-for="bvid" data-in="id cover view like time title name id" class="position-relative shadow-sm rounded bvCardWidth" style="width: calc(var(--bvCardWidth) - (.25rem / 2));overflow: hidden;aspect-ratio: 6/7;">
       <div data-page="/video?bvid={{id}}">
         <div class="position-relative" style="color: white;font-size: .7rem;">
           <img src="{{cover}}" style="aspect-ratio: 4/3;" onerror="this.src='https://imgs.mcwxt.top/i/2024/08/03/66addf2bc20a9.jpg'">
