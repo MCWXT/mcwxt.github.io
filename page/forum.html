@@ -15,25 +15,25 @@
   <title>MCWXT的个人博客|论坛</title>
 </head>
 <style>
-  .textLineBreakHidden{
-    overflow-y:hidden;
-    text-overflow:ellipsis ;		
+  .textLineBreakHidden {
+    overflow-y: hidden;
+    text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-box-orient:vertical;
-    -webkit-line-clamp:var(--line);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--line);
   }
 </style>
 
 <body>
-  <div id="carouselExample" class="carousel slide mb-2" data-bs-ride="carousel" style="height: 14rem;">
+  <div id="carouselExample" class="carousel slide m-1 rounded" data-bs-ride="carousel" style="overflow:hidden">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-    <div  class="carousel-inner">
+    <div class="carousel-inner">
       <div v-for="carouselImg" data-in="imgSrc" class="carousel-item active">
-        <img src="{{imgSrc}}" class="d-block w-100" style="aspect-ratio: 16/9;" alt="">
+        <img src="{{imgSrc}}" class="d-block w-100" style="aspect-ratio: 16/9;">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -43,21 +43,29 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
     </button>
   </div>
-
-  <div class="d-flex justify-content-md-start justify-content-center flex-wrap">
-    <div v-for="bvid" data-in="bvid cover title content time view like" class="card m-1 shadow-sm" style="width: 10rem;">
-      <a class="" data-page="/video?bvid={{bvid}}" style="aspect-ratio: 3/4;">
-        <img src="{{cover}}" class="card-img-top" loading="lazy" style="width: 10rem;aspect-ratio: 16/9;" alt="">
-        <div class="card-body p-0 m-1 lh-1" style="font-size: .6rem;">
-          <h3 class="card-title fs-6 textLineBreakHidden" style="--line: 3;">{{title}}</h3>
-          <p class="card-text textLineBreakHidden" style="--line: 2;">{{content}}</p>
+  <div class="d-flex justify-content-md-start justify-content-between flex-wrap p-1" style="gap: .25rem .25rem;">
+    <div v-for="bvid" data-in="id cover view like time title name id" class="position-relative shadow-sm rounded" style="width: calc(11rem - (.25rem / 2));overflow: hidden;aspect-ratio: 6/7;">
+      <div data-page="/video?bvid={{id}}">
+        <div class="position-relative" style="color: white;font-size: .7rem;">
+          <img src="{{cover}}" style="aspect-ratio: 4/3;" onerror="this.src='https://imgs.mcwxt.top/i/2024/08/03/66addf2bc20a9.jpg'">
+          <div style="box-shadow: 0 0 1.5rem .6rem black;transform: rotate(1turn);">
+            <div class="position-absolute bottom-0 start-0 m-1">
+              <span class="me-1"><i class="bi bi-heart"></i> {{like}}</span>
+              <span><i class="bi bi-play-btn"></i> {{view}}</span>
+            </div>
+            <span class="position-absolute bottom-0 end-0 m-1">{{time}}</span>
+          </div>
         </div>
-        <div class="card-footer p-1 m-0 w-100 position-absolute bottom-0" style="font-size: .6rem;height: 1.8rem;color: #000000C8;">
-          <span class="me-1">{{time}}</span>
-          <span class="me-1"><i class="bi bi-play-btn-fill" style="margin-right: .1rem;"></i>{{view}}</span>
-          <span class="me-1"><i class="bi bi-heart-fill" style="margin-right: .1rem;"></i>{{like}}</span>
+        <div class="p-1" style="background-color: white;transform: rotate(0);">
+          <h3 class="textLineBreakHidden" style="--line: 2;font-size: .9rem;">{{title}}</h3>
         </div>
-      </a>
+      </div>
+      <div class="position-absolute bottom-0 m-2" style="color: #00000068;font-size: .7rem;">
+        <span><i class="bi bi-person-fill"></i> {{name}}</span>
+      </div>
+      <div class="position-absolute bottom-0 end-0 m-2" style="color: #00000068;font-size: .7rem;">
+        <a href="https://bilibili.com/video/{{id}}"><i class="bi bi-share-fill"></i></a>
+      </div>
     </div>
   </div>
 </body>

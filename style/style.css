@@ -3,9 +3,12 @@
 @import url("https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.css");
 *{
   font-family: sans-serif;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 img{
   max-width: 100%;
+  object-fit: cover;
 }
 a{
   text-decoration: none;

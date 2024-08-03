@@ -21,9 +21,6 @@
     white-space: nowrap;
     font-size: .5rem;
   }
-  img{
-    object-fit: contain;
-  }
 </style>
 
 <body>
@@ -81,7 +78,7 @@
       <div class="d-flex justify-content-md-start justify-content-center flex-wrap">
         <a v-for="friendLink" data-in="link name icon brief" class="m-2 shadow-sm rounded d-flex" data-page="/link?url={{link}}" style="width: 22rem;">
           <div class="w-25">
-            <img class="rounded-circle m-2" loading="lazy" style="height: 3rem;width: 3rem;" src="{{icon}}" alt="">
+            <img class="rounded-circle m-2" loading="lazy" style="height: 3rem;width: 3rem;object-fit: contain;" src="{{icon}}" onerror="this.src='https://imgs.mcwxt.top/i/2024/08/03/66addf2bc20a9.jpg'">
           </div>
           <div class="lh-1 my-auto">
             <h3 class="fs-5 m-0">{{name}}</h3>

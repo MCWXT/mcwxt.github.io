@@ -28,24 +28,21 @@ const timestampToTime = (timestamp) => {
   return Y + M + D + h + m + s;
 }
 const bv = (bvid) => {
-  var _bv = [];
-  if (parent.window.localStorage.getItem('bv')) {
-    return JSON.parse(parent.window.localStorage.getItem('bv'));
+  if (parent.window.localStorage.getItem('bvData')) {
+    return JSON.parse(parent.window.localStorage.getItem('bvData'));
   }
-  for (var i = 0; i < bvid.length; i++) {
-    var data = getData(bvid[i]);
-    var bv = {};
-    bv.bvid = bvid[i];
-    bv.cover = data.cover;
-    bv.title = data.title;
-    bv.content = data.detail;
-    bv.time = timestampToTime(data.time);
-    bv.view = tranNumber(data.view);
-    bv.like = tranNumber(data.like);
-    _bv[i] = bv;
+  const bvData = [];
+  for (let i = 0; i < bvid.length; i++) {
+    let data = getData(bvid[i]);
+    bvData[i] = data;
   }
-  parent.window.localStorage.setItem('bv', JSON.stringify(_bv));
-  return _bv;
+  bvData.map(data => {
+    data.time = timestampToTime(data.time).split(' ')[0];
+    data.view = tranNumber(data.view);
+    data.like = tranNumber(data.like);
+  });
+  parent.window.localStorage.setItem('bvData', JSON.stringify(bvData));
+  return bvData;
 }
 tao.for({
   bvid: bv(bvid),
