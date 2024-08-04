@@ -22,7 +22,7 @@ if (!data) {
   }, 2000);
   throw ('视频加载错误');
 }
-data.time = timestampToTime(data.time);
-tao.v({
+data.time = timestampToTime(data.time).split(' ')[0];
+tao.replace({
   bvData: data,
 });

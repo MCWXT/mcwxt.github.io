@@ -1,4 +1,4 @@
-if (!getHash() || getHash() == '/') {
+if (!getHash() || getHash() == '' || getHash() == '/') {
   window.location.hash = '/home';
 }
 const getPage = () => {
@@ -27,6 +27,7 @@ const setPage = (page) => {
   }
 }
 const { nav } = requestData('main');
+const { myLink } = requestData('home');
 const pathMap = requestData('path');
 const doms = {
   body: $('body'),
@@ -40,6 +41,7 @@ const doms = {
 doms.header[0].style.height = doms.nav[0].offsetHeight + 'px';
 tao.for({
   nav: nav,
+  myLink: myLink,
 });
 setPage(getPage());
 onhashchange = (event) => {

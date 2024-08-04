@@ -32,7 +32,7 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div v-for="carouselImg" data-in="imgSrc" class="carousel-item active">
+      <div data-t-for="imgSrc In carouselImg" class="carousel-item active">
         <img src="{{imgSrc}}" class="d-block w-100" style="aspect-ratio: 16/9;">
       </div>
     </div>
@@ -44,10 +44,10 @@
     </button>
   </div>
   <div class="d-flex justify-content-md-start justify-content-between flex-wrap p-1" style="gap: .25rem .25rem;">
-    <div v-for="bvid" data-in="id cover view like time title name id" class="position-relative shadow-sm rounded bvCardWidth" style="width: calc(var(--bvCardWidth) - (.25rem / 2));overflow: hidden;aspect-ratio: 6/7;">
+    <div data-t-for="id cover view like time title name id In bvid" class="position-relative shadow-sm rounded bvCardWidth" style="width: calc(var(--bvCardWidth) - (.25rem / 2));overflow: hidden;aspect-ratio: 6/7;">
       <div data-page="/video?bvid={{id}}">
         <div class="position-relative" style="color: white;font-size: .7rem;">
-          <img src="{{cover}}" style="aspect-ratio: 4/3;" onerror="this.src='https://imgs.mcwxt.top/i/2024/08/03/66addf2bc20a9.jpg'">
+          <img src="{{cover}}" style="aspect-ratio: 4/3;">
           <div style="box-shadow: 0 0 1.5rem .6rem black;transform: rotate(1turn);">
             <div class="position-absolute bottom-0 start-0 m-1">
               <span class="me-1"><i class="bi bi-heart"></i> {{like}}</span>

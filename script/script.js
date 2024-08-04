@@ -14,95 +14,93 @@ const getQueryString = (name) => {
 const getHash = () => {
   return parent.window.location.hash.split('?')[0].substring(1);
 }
+class Replace {
+  constructor() {
+
+  }
+  get doms() {
+    return $('[data-t-replace]');
+  }
+  get Dom() {
+    return this.doms[0] || null;
+  }
+  get data() {
+    return this.Dom.dataset.tReplace;
+  }
+  get from() {
+    return this.data.split(' In ')[1];
+  }
+  get In() {
+    return this.data.split(' In ')[0].split(' ');
+  }
+  isTure() {
+    return this.Dom;
+  }
+  get replaceObject() {
+    return $(`[data-t-replace="${this.data}"]`);
+  }
+  render(data) {
+    if (!this.isTure()) return;
+    let element = '';
+    element = element + tao._templateReplace(data[this.from], this).replace(`data-t-replace="${this.data}"`, '');
+    this.replaceObject.after(element);
+    this.replaceObject.remove();
+  }
+}
 class For {
   constructor() {
 
   }
   get doms() {
-    return $('[v-for]');
+    return $('[data-t-for]');
   }
   get Dom() {
-    return this.doms[0] || undefined;
+    return this.doms[0] || null;
   }
-  get For() {
-    return this.Dom.getAttribute('v-for') || undefined;
+  get data() {
+    return this.Dom.dataset.tFor;
+  }
+  get from() {
+    return this.data.split(' In ')[1];
   }
   get In() {
-    return this.Dom.dataset.in.split(' ');
+    return this.data.split(' In ')[0].split(' ');
   }
   isTure() {
     return this.Dom;
   }
-  get forNow() {
-    return $(`[v-for="${this.For}"]`);
-  }
-  forIn(data, forElementSub) {
-    const { Dom, For, In } = this;
-    var inElement = Dom.outerHTML;
-    for (var i = 0; i < In.length; i++) {
-      inElement = inElement.replace(`{{${In[i]}}}`, data[forElementSub][In[i]]);
-    }
-    return inElement;
+  get forObject() {
+    return $(`[data-t-for="${this.data}"]`);
   }
   render(data) {
     if (!this.isTure()) return;
-    var forElement = '';
-    for (var i = 0; i < data[this.For].length; i++) {
-      forElement = forElement + this.forIn(data[this.For], i).replace(`v-for="${this.For}"`, '');
+    let element = '';
+    for (var i = 0; i < data[this.from].length; i++) {
+      element = element + tao._templateReplace(data[this.from][i], this).replace(`data-t-for="${this.data}"`, '');
     };
-    this.forNow.after(forElement);
-    this.forNow.remove();
+    this.forObject.after(element);
+    this.forObject.remove();
     this.render(data);
-  }
-}
-class V {
-  constructor() {
-
-  }
-  get doms() {
-    return $('[v]');
-  }
-  get Dom() {
-    return this.doms[0] || undefined;
-  }
-  get v() {
-    return this.Dom.getAttribute('v') || undefined;
-  }
-  get In() {
-    return this.Dom.dataset.in.split(' ');
-  }
-  isTure() {
-    return this.Dom;
-  }
-  get vNow() {
-    return $(`[v="${this.v}"]`);
-  }
-  vIn(data) {
-    const { Dom, For, In } = this;
-    var inElement = Dom.outerHTML;
-    for (var i = 0; i < In.length; i++) {
-      inElement = inElement.replace(`{{${In[i]}}}`, data[In[i]]);
-    }
-    return inElement;
-  }
-  render(data) {
-    if (!this.isTure()) return;
-    var vElement = '';
-    vElement = vElement + this.vIn(data[this.v]).replace(`v="${this.v}"`, '');
-    this.vNow.after(vElement);
-    this.vNow.remove();
   }
 }
 class Tao {
   constructor() {
     this.For = new For();
-    this.V = new V();
+    this.Replace = new Replace();
+  }
+  _templateReplace(data,these) {
+    const { Dom, For, In } = these;
+    let element = Dom.outerHTML;
+    for (var i = 0; i < In.length; i++) {
+      element = element.replace(`{{${In[i]}}}`, data[In[i]]);
+    }
+    return element;
+  }
+  replace(data) {
+    this.Replace.render(data);
   }
   for(data) {
     this.For.render(data);
-  }
-  v(data) {
-    this.V.render(data);
   }
 }
 const tao = new Tao();

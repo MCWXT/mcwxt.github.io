@@ -20,20 +20,26 @@
 </style>
 
 <body>
-  <div v="bvData" data-in="id name time view like coin title detail">
+  <div data-t-replace="id title name time view like coin detail In bvData">
     <div>
       <iframe class="w-100" style="aspect-ratio: 16/9;" src="//player.bilibili.com/player.html?bvid={{id}}" allowfullscreen="true" frameborder="0"></iframe>
     </div>
-    <div class="mx-2">
+    <div class="">
       <div>
-        <span class="fs-3 my-2 mx-1">{{name}}</span>
-        <div class="videoInformation my-2" style="font-size: .9rem;">
-          <span>{{time}}</span><span class=""><i class="bi bi-play-btn-fill"></i>{{view}}</span><span class=""><i class="bi bi-heart-fill"></i>{{like}}</span><span class=""><i class="bi">币</i>{{coin}}</span>
+        <div class="m-2">
+          <h2 class="fs-6">{{title}}</h2>
         </div>
-        <h2 class="fs-4 my-2">{{title}}</h2>
+        <div class="m-2 d-flex position-relative">
+          <div>
+            <span class="fs-6"><i class="bi bi-person"></i> {{name}}</span>
+          </div>
+          <div class="videoInformation position-absolute end-0" style="font-size: .8rem;">
+            <span>{{time}}</span><span><i class="bi bi-play-btn"></i> {{view}}</span><span><i class="bi bi-heart"></i> {{like}}</span><span><i class="bi">币</i>{{coin}}</span>
+          </div>
+        </div>
       </div>
-      <div class="w-100 my-4 text-body-secondary">
-        <p class="" style="word-break:break-all;">{{detail}}</p>
+      <div class="w-100 p-2 text-body-secondary">
+        <p class="" style="word-break:break-all;font-size: .8rem;">{{detail}}</p>
       </div>
     </div>
   </div>

@@ -17,10 +17,15 @@
   <title>MCWXT的个人博客</title>
 </head>
 <style>
-  iframe{
+  iframe {
     height: 0;
   }
+
+  footer * {
+    color: dimgray;
+  }
 </style>
+
 <body>
   <header>
     <div>
@@ -32,7 +37,7 @@
         <div class="dropdown">
           <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list"></i></button>
           <ul class="dropdown-menu dropdown-menu-end m-0 my-2">
-            <li v-for="nav" data-in="page icon pageName"><a class="dropdown-item" data-page="{{page}}"><i class="bi {{icon}} me-2"></i>{{pageName}}</a></li>
+            <li data-t-for="page icon pageName In nav"><a class="dropdown-item" data-page="{{page}}"><i class="bi {{icon}} me-2"></i>{{pageName}}</a></li>
           </ul>
         </div>
       </nav>
@@ -52,8 +57,37 @@
     <iframe class="w-100" scrolling="no" frameborder="0"></iframe>
   </main>
   <footer class="text-bg-light">
-    <div class="p-2 lh-1">
-      <span style="font-size: .8rem;color: #000000C8;">本网站由哔哩哔哩MCWXT制作，2024.7.9，感谢支持：REmcbbs DMX</span>
+    <div class="p-3">
+      <div>
+        <span class="fw-bold fs-4">MCWXT</span>
+      </div>
+      <div>
+        <span>感谢访问我的博客！</span>
+      </div>
+      <div class="my-3">
+        <i class="bi {{icon}} me-3 fs-4" data-t-for="icon In myLink"></i>
+      </div>
+      <div>
+        <span>感谢：</span>
+        <ul>
+          <li><a href="//remcbbs.com/">REmcbbs</a></li>
+          <li><a href="//github.com/">github</a></li>
+          <li><a href="//cloudflare.com/">cloudflare</a></li>
+          <li><a href="/bilibili.com">bilibili</a></li>
+        </ul>
+      </div>
+      <div class="border-top pt-2" style="font-size: .8rem;">
+        <div>
+          <ul>
+            <li><a href="https://www.w3.org/zh-hans/">w3c</a></li>
+            <li><a href="https://www.mozilla.org/privacy/websites/#cookies">cookie</a></li>
+            <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage">localStorage</a></li>
+          </ul>
+        </div>
+        <i class="bi bi-c-circle"></i>
+        <span>2024.5 -</span>
+        <span>本网站产权归bilibili MCWXT所有</span>
+      </div>
     </div>
   </footer>
 </body>
