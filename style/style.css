@@ -1,29 +1,37 @@
 @import url("https://cdn.bootcdn.net/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.css");
 @import url("https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css");
 @import url("https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.css");
-*{
+
+* {
   font-family: sans-serif;
   background-repeat: no-repeat;
   background-position: top;
 }
-img{
+
+img {
   max-width: 100%;
   object-fit: cover;
 }
-a{
+
+a {
   text-decoration: none;
   color: inherit;
   -webkit-tap-highlight-color: transparent;
 }
-a:hover{
+
+a:hover {
   text-decoration: underline;
 }
-a:active{
+
+a:active {
   text-decoration: underline;
 }
-button{
+
+button {
   -webkit-tap-highlight-color: transparent;
 }
-.btn:hover,.btn:active{
+
+.btn:hover,
+.btn:active {
   box-shadow: 1px 1px 8px -2px;
 }

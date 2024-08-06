@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="MCWXT的个人博客,MCWXT,Web,Blog,Personal blog">
   <meta name="description" content="MCWXT的个人博客。友链，资源，论坛，文章，视频各种功能一应俱全！">
-  <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="/style/reset.css">
   <link rel="stylesheet" href="/style/style.css">
   <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
@@ -31,7 +31,7 @@
     <div>
       <nav class="navbar position-fixed w-100 bg-body-tertiary p-1 z-1">
         <div class="rounded-circle">
-          <img class="d-inline-block rounded-circle" style="width: 2.5rem;" src="/assets/logo.png" alt="">
+          <img class="d-inline-block rounded-circle" style="width: 2.5rem;" src="/assets/img/logo.png" alt="">
           <h1 class="d-inline align-middle fs-5">MCWXT的个人博客</h1>
         </div>
         <div class="dropdown">
@@ -65,7 +65,7 @@
         <span>感谢访问我的博客！</span>
       </div>
       <div class="my-3">
-        <i class="bi {{icon}} me-3 fs-4" data-t-for="icon In myLink"></i>
+        <a href="{{link}}" data-t-for="link icon In myLink"><i class="bi {{icon}} me-3 fs-4"></i></a>
       </div>
       <div>
         <span>感谢：</span>

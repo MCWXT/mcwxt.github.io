@@ -30,17 +30,17 @@
     "icon": "//tenapi.cn/v2/groupimg?qun=716621671",
     "brief": "'良心'商家"
   }, {
-    "name": "黄大云",
-    "link": "//yun.wahd.fun/",
-    "icon": "//yun.wahd.fun/upload/logo.png",
-    "brief": "逆天小学生"
-  }, {
     "name": "Linine的茶歇室",
     "link": "//halo.nekoline.top",
     "icon": "//halo.nekoline.top/upload/-16450188106d3b71.jpg",
     "brief": "awa！"
   }],
   "myLink": [{
+    "type": "BiliBili",
+    "icon": "bi-play-btn",
+    "content": "MCWXT",
+    "link": "//space.bilibili.com/3493283118451294"
+  }, {
     "type": "QQ",
     "icon": "bi-tencent-qq",
     "content": "2775997367",
