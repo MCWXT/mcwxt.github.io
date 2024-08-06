@@ -1,23 +1,23 @@
 {
   "/": {
-    "path": "/page/home.html"
+    "location": "/page/home.html"
   },
   "/home": {
-    "path": "/page/home.html"
+    "location": "/page/home.html"
   },
   "/forum": {
-    "path": "/page/forum.html"
+    "location": "/page/forum.html"
   },
   "/link": {
-    "path": "/page/link.html"
+    "location": "/page/link.html"
   },
   "/video": {
-    "path": "/page/video.html"
+    "location": "/page/video.html"
   },
   "/mc/download": {
-    "path": "/page/mcDownload.html"
+    "location": "/page/mcDownload.html"
   },
   "/dino": {
-    "path": "/page/dinosaurGame.html"
+    "location": "/page/dinosaurGame.html"
   }
 }
