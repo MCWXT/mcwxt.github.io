@@ -6,9 +6,8 @@ const requestData = (dataName) => {
   }).responseText);
 }
 const getQueryString = (name) => {
-  const search = '?' + parent.window.location.hash.split('?')[1];//模拟一个完整的search
   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-  var r = search.substr(1).match(reg);
+  var r = parent.window.location.search.substr(1).match(reg);
   return r ? unescape(r[2]) : null;
 }
 class Replace {
