@@ -57,7 +57,8 @@ tao.for({
   myLink: myLink,
 });
 setPage(getPath());
-window.addEventListener('pushState',  (event) => setPage(getPath()));
+window.addEventListener('pushState',  () => setPage(getPath()));
+window.onpopstate = () => setPage(getPath());
 if (navigator.userAgent.indexOf("MQQBrowser") > -1 || navigator.userAgent.indexOf("QQTheme") > -1) {
   alert('建议使用浏览如chrome打开本网站');
 }

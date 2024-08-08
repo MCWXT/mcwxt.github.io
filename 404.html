@@ -4,17 +4,94 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="referrer" content="same-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="MCWXT的个人博客,MCWXT,Web,Blog,Personal blog">
   <meta name="description" content="MCWXT的个人博客。友链，资源，论坛，文章，视频各种功能一应俱全！">
-  <meta http-equiv="refresh" content="0;URL='/'">
+  <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="/style/reset.css">
+  <link rel="stylesheet" href="/style/style.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
   <title>MCWXT的个人博客</title>
-  <script>
-    sessionStorage.redirect = location.href;
-  </script>
 </head>
+<style>
+  iframe {
+    height: 0;
+  }
+
+  footer * {
+    color: dimgray;
+  }
+</style>
+
 <body>
-  
+  <header>
+    <div>
+      <nav class="navbar position-fixed w-100 bg-body-tertiary p-1 z-1">
+        <div class="rounded-circle">
+          <img class="d-inline-block rounded-circle" style="width: 2.5rem;" src="/assets/img/logo.png" alt="">
+          <h1 class="d-inline align-middle fs-5">MCWXT的个人博客</h1>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list"></i></button>
+          <ul class="dropdown-menu dropdown-menu-end m-0 my-2">
+            <li data-t-for="page icon pageName In nav"><a class="dropdown-item" data-page="{{page}}"><i class="bi {{icon}} me-2"></i>{{pageName}}</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="loading h-100 w-100 text-center fixed-top z-0" style="background-color: #E0E0E0;">
+    <div class="d-inline-block" style="transform: translate(0, calc(50vh - 50%));">
+      <div class="">
+        <div class="spinner-border" style="width: 3rem;height: 3rem;" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <span>Loading...</span>
+    </div>
+  </div>
+  <main>
+    <iframe class="w-100" scrolling="no" frameborder="0"></iframe>
+  </main>
+  <footer class="text-bg-light">
+    <div class="p-3">
+      <div>
+        <span class="fw-bold fs-4">MCWXT</span>
+      </div>
+      <div>
+        <span>感谢访问我的博客！</span>
+      </div>
+      <div class="my-3">
+        <a href="{{link}}" data-t-for="link icon In myLink"><i class="bi {{icon}} me-3 fs-4"></i></a>
+      </div>
+      <div>
+        <span>感谢：</span>
+        <ul>
+          <li><a href="//remcbbs.com/">REmcbbs</a></li>
+          <li><a href="//github.com/">github</a></li>
+          <li><a href="//cloudflare.com/">cloudflare</a></li>
+          <li><a href="/bilibili.com">bilibili</a></li>
+        </ul>
+      </div>
+      <div class="border-top pt-2" style="font-size: .8rem;">
+        <div>
+          <ul>
+            <li><a href="https://www.w3.org/zh-hans/">w3c</a></li>
+            <li><a href="https://www.mozilla.org/privacy/websites/#cookies">cookie</a></li>
+            <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage">localStorage</a></li>
+          </ul>
+        </div>
+        <i class="bi bi-c-circle"></i>
+        <span>2024.5 -</span>
+        <span>本网站产权归bilibili MCWXT所有</span>
+      </div>
+    </div>
+  </footer>
 </body>
+<script src="/script/script.js"></script>
+<script src="/script/main.js"></script>
 
 </html>
