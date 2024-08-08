@@ -11,9 +11,6 @@ const getQueryString = (name) => {
   var r = search.substr(1).match(reg);
   return r ? unescape(r[2]) : null;
 }
-const getHash = () => {
-  return parent.window.location.hash.split('?')[0].substring(1);
-}
 class Replace {
   constructor() {
 
@@ -104,14 +101,12 @@ class Tao {
   }
 }
 const tao = new Tao();
-
 window.onload = () => {
   $('[data-page] *').css({ 'pointer-events': 'none' });
   $('[data-page]').click((event) => {
-    const obj = event.target;
-    parent.window.location.hash = obj.dataset.page;
-  })
+    parent.history.pushState({}, '', event.target.dataset.page);
+  });
   $('[href]').click(() => {
     parent.toastr.warning('注意安全，已不在保护范围内', '跳转至外链')
-  })
+  });
 }

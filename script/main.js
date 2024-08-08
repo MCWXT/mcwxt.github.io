@@ -1,8 +1,21 @@
-if (!getHash() || getHash() == '' || getHash() == '/') {
-  window.location.hash = '/home';
+let pathName = location.pathname;
+if (!pathName || pathName == '' || pathName == '/') {
+  history.pushState({}, '', '/home');
 }
+const _wr = (type) => {
+  let orig = history[type];
+  return function() {
+    let rv = orig.apply(this, arguments);
+    let e = new Event(type);
+    e.arguments = arguments;
+    window.dispatchEvent(e);
+    return rv;
+  }
+}
+history.pushState = _wr('pushState');
+history.replaceState = _wr('replaceState');
 const getPath = () => {
-  return getHash() || '/home';
+  return location.pathname || '/home';
 }
 const setAframeSrc = (path) => {
   doms.iframe.remove();
@@ -44,12 +57,7 @@ tao.for({
   myLink: myLink,
 });
 setPage(getPath());
-onhashchange = (event) => {
-  const newURL = new URL(event.newURL);
-  const oldURL = new URL(event.oldURL);
-  if (newURL.hash == '#/home' && oldURL.hash == '#/' || oldURL.hash == '') return;
-  setPage(getPath());
-}
+window.addEventListener('pushState',  (event) => setPage(getPath()));
 if (navigator.userAgent.indexOf("MQQBrowser") > -1 || navigator.userAgent.indexOf("QQTheme") > -1) {
   alert('建议使用浏览如chrome打开本网站');
 }

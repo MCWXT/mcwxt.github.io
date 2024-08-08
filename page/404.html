@@ -18,7 +18,7 @@
 </style>
 
 <body>
-  <div style="margin-top: 5rem;">
+  <div style="margin: 5rem 0;">
     <div class="text-center m-2">
       <h1 class="display-1">404</h1>
       <h2>File not found</h2>
@@ -29,19 +29,15 @@
         <button class="btn btn-success" data-page="/dino">开始游戏</button>
         <button class="btn btn-warning" data-page="/home">返回首页</button>
       </div>
-      <div>
-        <div class="mt-4">
-          <a class="bi {{icon}} text-secondary m-2 fs-2" data-t-for="icon link In myLink" href="{{link}}"></a>
-        </div>
-      </div>
     </div>
   </div>
 </body>
 <script src="/script/script.js"></script>
 <script>
-const { myLink } = requestData('home');
+  const { myLink } = requestData('home');
   tao.for({
     myLink: myLink
   })
 </script>
+
 </html>
