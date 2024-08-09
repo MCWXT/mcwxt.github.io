@@ -19,5 +19,9 @@
   },
   "/dino": {
     "location": "/page/dinosaurGame.html"
+  },
+  "/dns": {
+    "historyGo": true,
+    "location": "https://120.26.212.118/"
   }
 }

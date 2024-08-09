@@ -15,5 +15,9 @@
     "page": "/mc/download",
     "icon": "bi-cloud-download",
     "pageName": "MC下载"
+  },{
+    "page": "/dns",
+    "icon": "bi-cloud",
+    "pageName": "二级域名分发"
   }]
 }

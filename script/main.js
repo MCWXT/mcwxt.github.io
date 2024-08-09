@@ -18,10 +18,12 @@ const getPath = () => {
   return location.pathname || '/home';
 }
 const setAframeSrc = (path) => {
+  const location = pathMap[path] ;
   doms.iframe.remove();
   doms.main.html('<iframe class="w-100" scrolling="no" frameborder="0"></iframe>');
   doms.iframe = $('main>iframe');
-  doms.iframe[0].src = pathMap[path] ? pathMap[path].location : '/page/404.html';
+  location && location.historyGo && (window.location.href = location.location);
+  doms.iframe[0].src = location ? location.location : '/page/404.html';
 }
 const getMainHeight = () => {
   return window.innerHeight - doms.header[0].offsetHeight - doms.footer[0].offsetHeight + 'px';
