@@ -22,7 +22,10 @@ $('.download *').css({ 'pointer-events': 'none' });
 $('.download').click((e) => {
   parent.toastr.success('即将跳转到下载页面','请求中……');
   const JumpPan = $.ajax({
-    url: 'https://proxy.mcwxt.top/https://mcapks.net/down.php?vs=' + e.target.dataset.version,
+    url: 'https://proxy.mcwxt.top/https://mcapks.net/down.php',
+    data: {
+      vs: e.target.dataset.version
+    },
     dataType: 'json',
     async: false,
   }).responseText;
