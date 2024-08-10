@@ -3,11 +3,8 @@ const requestMcapks = () => {
     return JSON.parse(parent.window.localStorage.getItem('mcapks'));
   }
   const mcapksData = $.parseJSON($.ajax({
-    url: 'https://serzmqmtk3y03.sxq1.xyz/agentApi.php',
+    url: 'https://proxy.mcwxt.top/https://mcapks.net/api/vs-list.php',
     dataType: 'json',
-    data: {
-      api: 'https://mcapks.net/api/vs-list.php',
-    },
     async: false,
   }).responseText);
   parent.window.localStorage.setItem('mcapks', JSON.stringify(mcapksData));
@@ -25,11 +22,8 @@ $('.download *').css({ 'pointer-events': 'none' });
 $('.download').click((e) => {
   parent.toastr.success('即将跳转到下载页面','请求中……');
   const JumpPan = $.ajax({
-    url: 'https://serzmqmtk3y03.sxq1.xyz/agentApi.php',
+    url: 'https://proxy.mcwxt.top/https://mcapks.net/down.php?vs=' + e.target.dataset.version,
     dataType: 'json',
-    data: {
-      api: 'https://mcapks.net/down.php?vs=' + e.target.dataset.version,
-    },
     async: false,
   }).responseText;
   var Location = JumpPan.substr(JumpPan.indexOf("window.location.href='") + 22);
