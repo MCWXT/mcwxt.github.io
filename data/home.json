@@ -53,8 +53,8 @@
   }, {
     "type": "Email",
     "icon": "bi-envelope-fill",
-    "content": "i@mcwxt.top",
-    "link": "mailto:i@mcwxt.top"
+    "content": "mcwxt@foxmail.com",
+    "link": "mailto:mcwxt@foxmail.com"
   }, {
     "type": "Github",
     "icon": "bi-github",
