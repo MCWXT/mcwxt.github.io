@@ -5,6 +5,9 @@
   "/home": {
     "location": "/page/home.html"
   },
+  "/bilibili": {
+    "location": "/page/bilibili.html"
+  },
   "/forum": {
     "location": "/page/forum.html"
   },
@@ -19,6 +22,9 @@
   },
   "/dino": {
     "location": "/page/dinosaurGame.html"
+  },
+  "/message": {
+    "location": "/page/message.html"
   },
   "/dns": {
     "historyGo": true,

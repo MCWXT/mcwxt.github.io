@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <base target="_parent">
   <meta name="referrer" content="same-origin">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/style/reset.css">
   <link rel="stylesheet" href="/style/style.css">
   <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
@@ -15,10 +15,16 @@
   <title>MCWXT的个人博客|论坛</title>
 </head>
 <style>
-
+  .textLineBreakHidden {
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--line);
+  }
 </style>
 
-<body class="mx-auto" style="max-width: 800px;">
+<body>
   <div id="carouselExample" class="carousel slide m-1 rounded" data-bs-ride="carousel" style="overflow:hidden">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -37,41 +43,33 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
     </button>
   </div>
-  <div>
-    <div class="m-1 rounded shadow-sm">
-      <div class="p-2">
-        <span><i class="bi bi-chat-left-text"></i> 论坛</span>
-      </div>
-      <hr class="m-0">
-      <div>
-        <div class="py-2" data-t-for="authorAvatar author html_url authorURI number title created_at comments cover In message">
-          <div class="position-relative">
-            <img class="m-1 rounded-circle" style="width: 1.8rem;" loading="lazy" src="https://proxy.mcwxt.top/{{authorAvatar}}">
-            <span style="color: #555555">{{author}}</span>
-            <div class="dropdown position-absolute end-0 top-0 m-1 mx-2">
-              <i class="bi bi-three-dots-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
-              <ul class="dropdown-menu dropdown-menu-end" style="font-size: .8rem;">
-                <li><a class="dropdown-item" href="{{html_url}}">github原文</a></li>
-                <li><a class="dropdown-item" href="{{authorURI}}">作者主页</a></li>
-              </ul>
+  <div class="d-flex justify-content-md-start justify-content-between flex-wrap p-1" style="gap: .25rem .25rem;">
+    <div data-t-for="id cover view like time title name id In bvid" class="position-relative shadow-sm rounded bvCardWidth" style="width: calc(var(--bvCardWidth) - (.25rem / 2));overflow: hidden;aspect-ratio: 6/7;">
+      <div data-page="/video?bvid={{id}}">
+        <div class="position-relative" style="color: white;font-size: .7rem;">
+          <img src="{{cover}}" style="aspect-ratio: 4/3;">
+          <div style="box-shadow: 0 0 1.5rem .6rem black;transform: rotate(1turn);">
+            <div class="position-absolute bottom-0 start-0 m-1">
+              <span class="me-1"><i class="bi bi-heart"></i> {{like}}</span>
+              <span><i class="bi bi-play-btn"></i> {{view}}</span>
             </div>
-          </div>
-          <div data-page="/message?number={{number}}">
-            <div class="position-relative d-flex" style="height: 5rem;">
-              <div>
-                <h3 class="fs-6 mx-2">{{title}}</h3>
-                <span class="position-absolute bottom-0 mx-2 text-secondary" style="font-size: .8rem;">{{created_at}} {{comments}}评论</span>
-              </div>
-              <img class="mx-3 rounded position-absolute top-0 end-0" style="width: 5rem;aspect-ratio: 1/1;" loading="lazy" src="{{cover}}">
-            </div>
+            <span class="position-absolute bottom-0 end-0 m-1">{{time}}</span>
           </div>
         </div>
+        <div class="p-1" style="height: 3rem;background-color: white;transform: rotate(0);">
+          <h3 class="textLineBreakHidden" style="--line: 2;font-size: .9rem;">{{title}}</h3>
+        </div>
+      </div>
+      <div class="position-absolute bottom-0 m-2" style="color: #00000068;font-size: .7rem;">
+        <span><i class="bi bi-person-fill"></i> {{name}}</span>
+      </div>
+      <div class="position-absolute bottom-0 end-0 m-2" style="color: #00000068;font-size: .7rem;">
+        <a href="https://bilibili.com/video/{{id}}"><i class="bi bi-three-dots-vertical"></i></a>
       </div>
     </div>
   </div>
-  </div>
 </body>
 <script src="/script/script.js"></script>
-<script src="/script/forum.js"></script>
+<script src="/script/bilibili.js"></script>
 
 </html>

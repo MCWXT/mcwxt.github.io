@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <base target="_parent">
+  <meta name="referrer" content="same-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/style/reset.css">
+  <link rel="stylesheet" href="/style/style.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/markdown.js/0.5.0/markdown.min.js"></script>
+  <title>MCWXT的个人博客|帖子</title>
+</head>
+<style>
+
+</style>
+<body>
+  <div data-t-replace="title state created_at comments authorAvatar author authorURI MDHTML In message">
+    <div class="mt-4">
+      <h1 class="fs-4 m-2">{{title}}</h1>
+      <span class="badge text-bg-success m-2 mt-0 fs-6">{{state}}</span>
+      <div class="m-2" style="font-size: .8rem;"><span class="text-secondary">
+          <span class="me-2"><i class="bi bi-clock"></i> {{created_at}}</span>
+          <span><i class="bi bi-chat-left-text"></i> {{comments}}</span></span>
+      </div>
+      <div class="m-2 my-3 position-relative">
+        <img class="rounded-circle" style="width: 2rem;" src="{{authorAvatar}}">
+        <span class="mx-2">{{author}}</span>
+        <a class="btn btn-outline-danger btn-sm position-absolute end-0 me-4" href="{{authorURI}}">关注</a>
+      </div>
+    </div>
+    <hr class="mx-2">
+    <div class="p-2">
+      {{MDHTML}}
+    </div>
+  </div>
+</body>
+<script src="/script/script.js"></script>
+<script src="/script/messege.js"></script>
+
+</html>
