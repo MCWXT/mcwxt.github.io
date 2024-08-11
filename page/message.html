@@ -19,27 +19,58 @@
 
 </style>
 <body>
-  <div data-t-replace="title state created_at comments authorAvatar author authorURI MDHTML In message">
+  <div data-t-replace="title state created_at updated_at comments authorAvatar author authorURI MDHTML In message">
     <div class="mt-4">
       <h1 class="fs-4 m-2">{{title}}</h1>
       <span class="badge text-bg-success m-2 mt-0 fs-6">{{state}}</span>
       <div class="m-2" style="font-size: .8rem;"><span class="text-secondary">
-          <span class="me-2"><i class="bi bi-clock"></i> {{created_at}}</span>
+          <span class="me-1"><i class="bi bi-clock"></i> {{created_at}}</span>
+          <span class="me-1">更新 {{updated_at}}</span>
           <span><i class="bi bi-chat-left-text"></i> {{comments}}</span></span>
       </div>
       <div class="m-2 my-3 position-relative">
         <img class="rounded-circle" style="width: 2rem;" src="{{authorAvatar}}">
         <span class="mx-2">{{author}}</span>
-        <a class="btn btn-outline-danger btn-sm position-absolute end-0 me-4" href="{{authorURI}}">关注</a>
+        <a class="btn btn-outline-danger btn-sm position-absolute end-0 me-4" href="{{authorURI}}" role="button">关注</a>
       </div>
     </div>
     <hr class="mx-2">
-    <div class="p-2">
+    <div class="p-2" id="md">
       {{MDHTML}}
     </div>
   </div>
+  <div class="m-1 rounded shadow-sm">
+      <div class="p-2">
+        <span><i class="bi bi-chat-left-text"></i> 评论</span>
+      </div>
+      <div>
+        <div data-t-for="authorAvatar author authorURI body updated_at In comments">
+          <hr class="m-0">
+          <div class="py-2">
+            <div class="position-relative">
+              <img class="m-1 rounded-circle" style="width: 1.8rem;" loading="lazy" src="https://proxy.mcwxt.top/{{authorAvatar}}">
+              <span style="color: #555555">{{author}}</span>
+              <div class="dropdown position-absolute end-0 top-0 m-1 mx-2">
+                <i class="bi bi-three-dots-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                <ul class="dropdown-menu dropdown-menu-end" style="font-size: .8rem;">
+                  <li><a class="dropdown-item" href="{{authorURI}}">作者主页</a></li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div class="position-relative">
+                <div class="p-2">
+                  <p class="mx-2">{{body}}</p>
+                  <span class="position-absolute bottom-0 mx-2 text-secondary" style="font-size: .8rem;">{{updated_at}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="position-fixed btn btn-dark" style="bottom: 2rem;right: 2rem;" data-t-replace="messageUrl In messageUrl" type="button" onclick="parent.window.location = '{{messageUrl}}'"><span><i class="bi bi-chat-left"></i> 评论</span></button>
 </body>
 <script src="/script/script.js"></script>
 <script src="/script/messege.js"></script>
-
 </html>
