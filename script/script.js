@@ -80,6 +80,7 @@ class For {
   }
 }
 class Tao {
+  proxyUrl = 'https://proxy.mcwxt.top/';
   constructor() {
     this.For = new For();
     this.Replace = new Replace();
@@ -98,12 +99,18 @@ class Tao {
   for(data) {
     this.For.render(data);
   }
+  HTTPproxy(url) {
+    return this.proxyUrl + url;
+  }
+  set page(path) {
+    parent.history.pushState({}, '', path);
+  }
 }
 const tao = new Tao();
 window.onload = () => {
   $('[data-page] *').css({ 'pointer-events': 'none' });
   $('[data-page]').click((event) => {
-    parent.history.pushState({}, '', event.target.dataset.page);
+    tao.page = event.target.dataset.page;
   });
   $('[href]').click(() => {
     parent.toastr.warning('注意安全，已不在保护范围内', '跳转至外链')

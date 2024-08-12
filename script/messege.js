@@ -1,5 +1,5 @@
 const message = JSON.parse($.ajax({
-  url: 'https://api.github.com/repos/MCWXT/mcwxt.github.io/issues/' + (getQueryString('number') || 3),
+  url: github.issueApi(getQueryString('number') || (tao.page = '/404')),
   dataType: 'json',
   async: false
 }).responseText);
@@ -13,10 +13,13 @@ message.authorURI = message.user.html_url;
 message.authorAvatar = message.user.avatar_url;
 message.MDHTML = markdown.toHTML(message.body);
 tao.replace({
-  message: message
+  message: message,
+  messageUrl: {
+    messageUrl: message.html_url
+  }
 });
 $('#md img').prop('src',(index,currentvalue) => {
-  return 'https://proxy.mcwxt.top/' + currentvalue;
+  return  tao.HTTPproxy(currentvalue);
 });
 comments.map(comment => {
   comment.author = comment.user.login;
@@ -26,8 +29,3 @@ comments.map(comment => {
 tao.for({
   comments: comments
 });
-tao.replace({
-  messageUrl: {
-    messageUrl: message.html_url
-  }
-})

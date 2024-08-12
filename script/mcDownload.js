@@ -3,7 +3,7 @@ const requestMcapks = () => {
     return JSON.parse(parent.window.localStorage.getItem('mcapks'));
   }
   const mcapksData = $.parseJSON($.ajax({
-    url: 'https://proxy.mcwxt.top/https://mcapks.net/api/vs-list.php',
+    url: tao.HTTPproxy`https://mcapks.net/api/vs-list.php`,
     dataType: 'json',
     async: false,
   }).responseText);
@@ -22,7 +22,7 @@ $('.download *').css({ 'pointer-events': 'none' });
 $('.download').click((e) => {
   parent.toastr.success('即将跳转到下载页面','请求中……');
   const JumpPan = $.ajax({
-    url: 'https://proxy.mcwxt.top/https://mcapks.net/down.php',
+    url: tao.HTTPproxy`https://mcapks.net/down.php`,
     data: {
       vs: e.target.dataset.version
     },

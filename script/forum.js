@@ -1,5 +1,5 @@
 const messages = JSON.parse($.ajax({
-  url: 'https://api.github.com/repos/mcwxt/mcwxt.github.io/issues',
+  url: github.issuesApi,
   dataType: 'json',
   async: false
 }).responseText);
