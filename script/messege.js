@@ -11,7 +11,7 @@ const comments = JSON.parse($.ajax({
 message.author = message.user.login;
 message.authorURI = message.user.html_url;
 message.authorAvatar = message.user.avatar_url;
-message.MDHTML = markdown.toHTML(message.body);
+message.MDHTML = marked.parse(message.body);
 tao.replace({
   message: message,
   messageUrl: {
