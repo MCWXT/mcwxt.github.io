@@ -7,9 +7,6 @@ class Github {
     this.issuesApi = this.apiInterface + 'issues';
     this.issuesHTML = this.html + 'issues';
   }
-  issueHTML(num) {
-    return this.issuesHTML + '/' + num;
-  }
   issueApi(num) {
     return this.issuesApi + '/' + num;
   }
