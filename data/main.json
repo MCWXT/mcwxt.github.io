@@ -17,11 +17,15 @@
     "pageName": "MC下载"
   },{
     "page": "/dns",
-    "icon": "bi-cloud",
+    "icon": "bi-database",
     "pageName": "域名网"
   },{
     "page": "/forum",
     "icon": "bi-chat-left-text",
     "pageName": "论坛"
+  },{
+    "page": "/cloud",
+    "icon": "bi-cloud",
+    "pageName": "MC云"
   }]
 }
