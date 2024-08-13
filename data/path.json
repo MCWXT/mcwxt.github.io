@@ -28,6 +28,10 @@
   },
   "/dns": {
     "historyGo": true,
-    "location": "http://120.26.212.118/"
+    "location": "http://dns.mcwxt.top/"
+  },
+  "/cloud": {
+    "historyGo": true,
+    "location": "https://cloud.mcwxt.top/"
   }
 }
