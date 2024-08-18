@@ -11,4 +11,4 @@ class Github {
     return this.issuesApi + '/' + num;
   }
 }
-const github = new Github();
+export const github = new Github();

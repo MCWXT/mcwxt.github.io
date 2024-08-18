@@ -1,8 +1,11 @@
-const doms = {
-  
-}
-const { friendLink, myLink } = requestData('home');
-tao.for({
-  friendLink: friendLink,
-  myLink: myLink,
-});
+import { requestData } from 'tao';
+import { createApp, ref } from 'vue';
+createApp({
+  setup() {
+    const { friendLink, myLink } = requestData('home');
+    return {
+      friendLink,
+      myLink
+    }
+  }
+}).mount('#app');

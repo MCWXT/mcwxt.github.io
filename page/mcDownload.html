@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -13,22 +12,18 @@
   <script src="//unpkg.com/toastr@2.1.4/toastr.js"></script>
   <title>MCWXT的个人博客|404</title>
 </head>
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js",
+      "tao": "/script/script.js"
+    }
+  }
+</script>
 <style>
-  .type .betaFalse{
-    background-color: green;
-  }
-  .type .betaFalse::after{
-    content: "正式版";
-  }
-  .type .betaTrue{
-    background-color: red;
-  }
-  .type .betaTrue::after{
-    content: "测试版";
-  }
+  
 </style>
-
-<body>
+<body id="app">
   <div class="m-2">
     <h1 class="fs-2 text-center">MC基岩版全版本下载</h1>
     <div class="m-3"><img src="/assets/img/remcbbsBT.png" alt=""></div>
@@ -55,11 +50,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="border-top" data-t-for="version beta size version info_key In mcapksData">
-            <td class="version">{{version}}</td>
-            <td class="type"><span class="badge beta{{beta}}"> </span></td>
-            <td class="size">{{size}}</td>
-            <td><a class="btn btn-success download" data-version="{{version}}" data-info_key="{{info_key}}"><i class="bi bi-download"></i></a></td>
+          <tr class="border-top" v-for="data in mcapksData">
+            <td class="version">{{data.version}}</td>
+            <td class="type">
+              <span class="badge" v-if="data.beta == 'True'" style="background-color: red;">测试版</span>
+              <span class="badge" v-else style="background-color: green;">正式版</span>
+            </td>
+            <td class="size">{{data.size}}</td>
+            <td><a class="btn btn-success download" :data-version="data.version" :data-info_key="info_key"><i class="bi bi-download"></i></a></td>
           </tr>
         </tbody>
       </table>
@@ -69,7 +67,5 @@
     
   </div>
 </body>
-<script src="/script/script.js"></script>
-<script src="/script/mcDownload.js"></script>
-
+<script src="/script/mcDownload.js" type="module"></script>
 </html>

@@ -13,11 +13,18 @@
   <script src="//unpkg.com/toastr@2.1.4/toastr.js"></script>
   <title>MCWXT的个人博客|404</title>
 </head>
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js",
+      "tao": "/script/script.js"
+    }
+  }
+</script>
 <style>
 
 </style>
-
-<body>
+<body id="app">
   <div style="margin: 5rem 0;">
     <div class="text-center m-2">
       <h1 class="display-1">404</h1>
@@ -32,12 +39,15 @@
     </div>
   </div>
 </body>
-<script src="/script/script.js"></script>
-<script>
-  const { myLink } = requestData('home');
-  tao.for({
-    myLink: myLink
-  })
+<script type="module">
+  import { createApp, ref } from 'vue';
+  createApp({
+    setup() {
+      return {
+        
+      }
+    }
+  }).mount('#app');
 </script>
 
 </html>

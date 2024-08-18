@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -14,11 +13,19 @@
   <script src="//unpkg.com/toastr@2.1.4/toastr.js"></script>
   <title>MCWXT的个人博客|论坛</title>
 </head>
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js",
+      "tao": "/script/script.js",
+      "githubApi": "/script/githubRepositoryApi.js"
+    }
+  }
+</script>
 <style>
 
 </style>
-
-<body class="mx-auto" style="max-width: 800px;">
+<body id="app" class="mx-auto" style="max-width: 800px;">
   <div id="carouselExample" class="carousel slide m-1 rounded" data-bs-ride="carousel" style="overflow:hidden">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -26,8 +33,8 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div data-t-for="imgSrc In carouselImg" class="carousel-item active">
-        <img src="{{imgSrc}}" class="d-block w-100" style="aspect-ratio: 16/9;">
+      <div v-for="{ imgSrc } in carouselImg" class="carousel-item active">
+        <img :src="imgSrc" class="d-block w-100" style="aspect-ratio: 16/9;">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -51,27 +58,27 @@
         <button class="m-1 btn btn-outline-danger btn-sm rounded" onclick="parent.window.location = 'https://github.com/MCWXT/mcwxt.github.io/issues/new/'"><i class="bi bi-plus-lg"></i> 发布</button>
       </div>
       <div>
-        <div data-t-for="authorAvatar author html_url authorURI number title created_at comments cover In message">
+        <div v-for="message in messages">
           <hr class="m-0">
           <div class="py-2">
             <div class="position-relative">
-              <img class="m-1 rounded-circle" style="width: 1.8rem;aspect-ratio:1/1;" loading="lazy" src="https://proxy.mcwxt.top/{{authorAvatar}}">
-              <span style="color: #555555">{{author}}</span>
+              <img class="m-1 rounded-circle" style="width: 1.8rem;aspect-ratio:1/1;" loading="lazy" :src="message.authorAvatar">
+              <span style="color: #555555">{{message.author}}</span>
               <div class="dropdown position-absolute end-0 top-0 m-1 mx-2">
                 <i class="bi bi-three-dots-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
                 <ul class="dropdown-menu dropdown-menu-end" style="font-size: .8rem;">
-                  <li><a class="dropdown-item" href="{{html_url}}">github原文</a></li>
-                  <li><a class="dropdown-item" href="{{authorURI}}">作者主页</a></li>
+                  <li><a class="dropdown-item" :href="message.html_url">github原文</a></li>
+                  <li><a class="dropdown-item" :href="message.authorURI">作者主页</a></li>
                 </ul>
               </div>
             </div>
-            <div data-page="/message?number={{number}}">
+            <div :data-page="`/message?number=${message.number}`">
               <div class="position-relative d-flex" style="height: 5rem;">
                 <div>
-                  <h3 class="fs-6 mx-2">{{title}}</h3>
-                  <span class="position-absolute bottom-0 mx-2 text-secondary" style="font-size: .8rem;">{{created_at}} {{comments}}评论</span>
+                  <h3 class="fs-6 mx-2">{{message.title}}</h3>
+                  <span class="position-absolute bottom-0 mx-2 text-secondary" style="font-size: .8rem;">{{message.created_at}} {{message.comments}}评论</span>
                 </div>
-                <img class="mx-3 rounded position-absolute top-0 end-0" style="width: 5rem;aspect-ratio: 1/1;" loading="lazy" src="https://proxy.mcwxt.top/{{cover}}" onerror="this.src='/assets/img/error.svg'">
+                <img class="mx-3 rounded position-absolute top-0 end-0" style="width: 5rem;aspect-ratio: 1/1;" loading="lazy" :src="message.cover" onerror="this.src='/assets/img/error.svg'">
               </div>
             </div>
           </div>
@@ -80,8 +87,5 @@
     </div>
   </div>
 </body>
-<script src="/script/script.js"></script>
-<script src="/script/githubRepositoryApi.js"></script>
-<script src="/script/forum.js"></script>
-
+<script src="/script/forum.js" type="module"></script>
 </html>

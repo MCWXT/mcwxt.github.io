@@ -14,6 +14,14 @@
   <script src="//unpkg.com/toastr@2.1.4/toastr.js"></script>
   <title>MCWXT的个人博客|主页</title>
 </head>
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js",
+      "tao": "/script/script.js"
+    }
+  }
+</script>
 <style>
   .information>div>span{
     line-height: 1rem;
@@ -24,7 +32,7 @@
   }
 </style>
 
-<body>
+<body id="app">
   <div>
     <div class="" style="height:8rem;background: url('/assets/img/background.jpg') 0 -3.5rem no-repeat;background-size: cover;">
 
@@ -77,13 +85,13 @@
         <h2 class="d-inline fs-4">友链</h2>
       </div>
       <div class="d-flex justify-content-md-start justify-content-center flex-wrap">
-        <a data-t-for="link name icon brief In friendLink" class="m-2 shadow-sm rounded d-flex" data-page="/link?url={{link}}" style="width: 22rem;">
+        <a v-for="link in friendLink" class="m-2 shadow-sm rounded d-flex" :data-page="`/link?url=${link.link}`" style="width: 22rem;">
           <div class="w-25">
-            <img class="rounded-circle m-2" loading="lazy" style="height: 3rem;width: 3rem;object-fit: contain;" src="{{icon}}" onerror="this.src='/assets/img/error.svg'">
+            <img class="rounded-circle m-2" loading="lazy" style="height: 3rem;width: 3rem;object-fit: contain;" :src="link.icon" onerror="this.src='/assets/img/error.svg'">
           </div>
           <div class="lh-1 my-auto">
-            <h3 class="fs-5 m-0">{{name}}</h3>
-            <span class="text-black-50" style="font-size: .7rem">{{brief}}</span>
+            <h3 class="fs-5 m-0">{{link.name}}</h3>
+            <span class="text-black-50" style="font-size: .7rem">{{link.brief}}</span>
           </div>
         </a>
         <a class="bg-secondary-subtle m-2 shadow-sm rounded d-flex" style="width: 22rem;" href="//github.com/MCWXT">
@@ -97,18 +105,17 @@
 
   </div>
   <div class="d-flex justify-content-md-start justify-content-center flex-wrap mt-5">
-    <a data-t-for="link icon type content In myLink" class="m-2 shadow-sm rounded" style="width: 22rem;" href="{{link}}">
+    <a v-for="link in myLink" class="m-2 shadow-sm rounded" style="width: 22rem;" :href="link.linkimgSrc">
       <div class="d-flex">
         <div class="w-25 mx-2">
-          <i class="bi {{icon}}" style="font-size: 4rem;"></i>
+          <i :class="`bi ${link.icon}`" style="font-size: 4rem;"></i>
         </div>
         <div class="my-auto">
-          <span class="fs-5"><span class="text-primary">{{type}}：</span>{{content}}</span>
+          <span class="fs-5"><span class="text-primary">{{link.type}}：</span>{{link.content}}</span>
         </div>
       </div>
     </a>
   </div>
 </body>
-<script src="/script/script.js"></script>
-<script src="/script/home.js"></script>
+<script src="/script/home.js" type="module"></script>
 </html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -13,38 +12,43 @@
   <script src="//unpkg.com/toastr@2.1.4/toastr.js"></script>
   <title>MCWXT的个人博客|视频</title>
 </head>
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js",
+      "tao": "/script/script.js"
+    }
+  }
+</script>
 <style>
   .videoInformation span {
     margin-right: .8rem;
   }
 </style>
-
-<body>
-  <div data-t-replace="id title name time view like coin detail In bvData">
+<body id="app">
+  <div>
     <div>
-      <iframe class="w-100" style="aspect-ratio: 16/9;" src="//player.bilibili.com/player.html?bvid={{id}}" allowfullscreen="true" frameborder="0"></iframe>
+      <iframe class="w-100" style="aspect-ratio: 16/9;" :src="`//player.bilibili.com/player.html?bvid=${data.id}`" allowfullscreen="true" frameborder="0"></iframe>
     </div>
-    <div class="">
+    <div>
       <div>
         <div class="m-2">
-          <h2 class="fs-6">{{title}}</h2>
+          <h2 class="fs-6">{{data.title}}</h2>
         </div>
         <div class="m-2 d-flex position-relative">
           <div>
-            <span class="fs-6"><i class="bi bi-person"></i> {{name}}</span>
+            <span class="fs-6"><i class="bi bi-person"></i> {{data.name}}</span>
           </div>
           <div class="videoInformation position-absolute end-0" style="font-size: .8rem;">
-            <span>{{time}}</span><span><i class="bi bi-play-btn"></i> {{view}}</span><span><i class="bi bi-heart"></i> {{like}}</span><span><i class="bi">币</i>{{coin}}</span>
+            <span>{{data.time}}</span><span><i class="bi bi-play-btn"></i> {{data.view}}</span><span><i class="bi bi-heart"></i> {{data.like}}</span><span><i class="bi">币</i>{{data.coin}}</span>
           </div>
         </div>
       </div>
       <div class="w-100 p-2 text-body-secondary">
-        <p class="" style="word-break:break-all;font-size: .8rem;">{{detail}}</p>
+        <p class="" style="word-break:break-all;font-size: .8rem;">{{data.detail}}</p>
       </div>
     </div>
   </div>
 </body>
-<script src="/script/script.js"></script>
-<script src="/script/video.js"></script>
-
+<script src="/script/video.js" type="module"></script>
 </html>

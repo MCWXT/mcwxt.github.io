@@ -1,3 +1,15 @@
+import { requestData, tao } from 'tao';
+import { createApp, ref } from 'vue';
+createApp({
+  setup() {
+    const { nav } = requestData('main');
+    const { myLink } = requestData('home');
+    return {
+      nav,
+      myLink
+    }
+  }
+}).mount('#app');
 let pathName = location.pathname;
 if (!pathName || pathName == '' || pathName == '/') {
   history.pushState({}, '', '/home');
@@ -18,7 +30,7 @@ const getPath = () => {
   return location.pathname || '/home';
 }
 const setAframeSrc = (path) => {
-  const location = pathMap[path] ;
+  const location = pathMap[path];
   doms.iframe.remove();
   doms.main.html('<iframe class="w-100" scrolling="no" frameborder="0"></iframe>');
   doms.iframe = $('main>iframe');
@@ -39,10 +51,16 @@ const setPage = (page) => {
   doms.iframe[0].onload = () => {
     setIframeHeight(doms.iframe[0].contentWindow.document.documentElement.scrollHeight + 'px');
     doms.loading.hide();
+    const Cwin = doms.iframe[0].contentWindow;
+    Cwin.$('[data-page] *').css({ 'pointer-events': 'none' });
+    Cwin.$('[data-page]').click((event) => {
+      tao.page = event.target.dataset.page;
+    });
+    Cwin.$('[href]').click(() => {
+      parent.toastr.warning('注意安全，已不在保护范围内', '跳转至外链')
+    });
   }
 }
-const { nav } = requestData('main');
-const { myLink } = requestData('home');
 const pathMap = requestData('path');
 const doms = {
   body: $('body'),
@@ -54,13 +72,18 @@ const doms = {
   loading: $('.loading'),
 }
 doms.header[0].style.height = doms.nav[0].offsetHeight + 'px';
-tao.for({
-  nav: nav,
-  myLink: myLink,
-});
 setPage(getPath());
-window.addEventListener('pushState',  () => setPage(getPath()));
+window.addEventListener('pushState', () => setPage(getPath()));
 window.onpopstate = () => setPage(getPath());
 if (navigator.userAgent.indexOf("MQQBrowser") > -1 || navigator.userAgent.indexOf("QQTheme") > -1) {
   alert('建议使用浏览如chrome打开本网站');
+}
+window.onload = () => {
+  $('[data-page] *').css({ 'pointer-events': 'none' });
+  $('[data-page]').click((event) => {
+    tao.page = event.target.dataset.page;
+  });
+  $('[href]').click(() => {
+    parent.toastr.warning('注意安全，已不在保护范围内', '跳转至外链')
+  });
 }

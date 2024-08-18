@@ -13,30 +13,40 @@
   <script src="//unpkg.com/toastr@2.1.4/toastr.js"></script>
   <title>MCWXT的个人博客|跳转</title>
 </head>
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js",
+      "tao": "/script/script.js"
+    }
+  }
+</script>
 <style>
 
 </style>
-
-<body>
+<body id="app">
   <div>
     <div class="card mx-auto" style="height: 13rem; width: 15rem;margin: 7rem 0;">
       <div class="card-header">
         跳转外链
       </div>
-      <div data-t-replace="link link In link" class="card-body h-auto">
+      <div class="card-body h-auto">
         <h5 class="card-title">您确定跳转至:</h5>
         <p class="card-text">{{link}}</p>
-        <a href="{{link}}" class="btn btn-primary position-absolute" style="right: 1rem;bottom: 1rem;">继续</a>
+        <a :href="link" class="btn btn-primary position-absolute" style="right: 1rem;bottom: 1rem;">继续</a>
       </div>
     </div>
   </div>
 </body>
-<script src="/script/script.js"></script>
-<script>
-  tao.replace({
-    link: {
+<script type="module">
+import { createApp, ref } from 'vue';
+import { getQueryString } from 'tao';
+createApp({
+  setup() {
+    return {
       link: new URL(getQueryString('url') || '','https://mcwxt.top/')
     }
-  })
+  }
+}).mount('#app');
 </script>
 </html>

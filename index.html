@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -16,6 +15,14 @@
   <script src="//unpkg.com/toastr@2.1.4/toastr.js"></script>
   <title>MCWXT的个人博客</title>
 </head>
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js",
+      "tao": "/script/script.js"
+    }
+  }
+</script>
 <style>
   iframe {
     height: 0;
@@ -25,8 +32,7 @@
     color: dimgray;
   }
 </style>
-
-<body>
+<body id="app">
   <header>
     <div>
       <nav class="navbar position-fixed w-100 bg-body-tertiary p-1 z-1">
@@ -37,7 +43,10 @@
         <div class="dropdown">
           <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list"></i></button>
           <ul class="dropdown-menu dropdown-menu-end m-0 my-2">
-            <li data-t-for="page icon pageName In nav"><a class="dropdown-item" data-page="{{page}}"><i class="bi {{icon}} me-2"></i>{{pageName}}</a></li>
+            <li v-for="item in nav">
+              <a class="dropdown-item" :data-page="item.page">
+              <i :class="`bi ${item.icon} me-2`"></i>{{item.pageName}}</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -65,7 +74,7 @@
         <span>感谢访问我的博客！</span>
       </div>
       <div class="my-3">
-        <a href="{{link}}" data-t-for="link icon In myLink"><i class="bi {{icon}} me-3 fs-4"></i></a>
+        <a :href="link.link" v-for="link in myLink"><i :class="`bi ${link.icon} me-3 fs-4`"></i></a>
       </div>
       <div>
         <span>感谢：</span>
@@ -92,7 +101,5 @@
     </div>
   </footer>
 </body>
-<script src="/script/script.js"></script>
-<script src="/script/main.js"></script>
-
+<script src="/script/main.js" type="module"></script>
 </html>
