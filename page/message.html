@@ -40,13 +40,13 @@
           <span><i class="bi bi-chat-left-text"></i> {{message.comments}}</span></span>
       </div>
       <div class="m-2 my-3 position-relative">
-        <img class="rounded-circle" style="width: 2rem;" :src="message.authorAvatar">
-        <span class="mx-2">{{message.author}}</span>
-        <a class="btn btn-outline-danger btn-sm position-absolute end-0 me-4" :href="message.authorURI" role="button">关注</a>
+        <img class="rounded-circle" style="width: 2rem;" :src="tao.HTTPproxy(message.user.avatar_url)">
+        <span class="mx-2">{{message.user.login}}</span>
+        <a class="btn btn-outline-danger btn-sm position-absolute end-0 me-4" :href="message.user.html_url" role="button">关注</a>
       </div>
     </div>
     <hr class="mx-2">
-    <div class="p-2" id="md" v-html="message.MDHTML">
+    <div class="p-2" id="md" v-html="marked.parse(message.body)">
       
     </div>
   </div>
@@ -60,12 +60,12 @@
           <hr class="m-0">
           <div class="py-2">
             <div class="position-relative">
-              <img class="m-1 rounded-circle" style="width: 1.8rem;" loading="lazy" :src="comment.authorAvatar">
-              <span style="color: #555555">{{comment.author}}</span>
+              <img class="m-1 rounded-circle" style="width: 1.8rem;" loading="lazy" :src="tao.HTTPproxy(comment.user.avatar_url)">
+              <span style="color: #555555">{{comment.user.login}}</span>
               <div class="dropdown position-absolute end-0 top-0 m-1 mx-2">
                 <i class="bi bi-three-dots-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
                 <ul class="dropdown-menu dropdown-menu-end" style="font-size: .8rem;">
-                  <li><a class="dropdown-item" :href="comment.authorURI">作者主页</a></li>
+                  <li><a class="dropdown-item" :href="comment.user.html_url">作者主页</a></li>
                 </ul>
               </div>
             </div>

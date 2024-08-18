@@ -13,16 +13,9 @@ createApp({
       dataType: 'json',
       async: false
     }).responseText);
-    message.author = message.user.login;
-    message.authorURI = message.user.html_url;
-    message.authorAvatar = tao.HTTPproxy(message.user.avatar_url);
-    message.MDHTML = marked.parse(message.body);
-    comments.map(comment => {
-      comment.author = comment.user.login;
-      comment.authorURI = comment.user.html_url;
-      comment.authorAvatar = tao.HTTPproxy(comment.user.avatar_url);
-    });
     return {
+      tao,
+      marked,
       message,
       comments
     }
