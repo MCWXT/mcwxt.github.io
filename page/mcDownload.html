@@ -35,7 +35,7 @@
     </div>
     <div class="alert alert-warning m-2">
       <span>刷新缓存，以获得最新版本</span>
-      <button id="refreshCache" class="btn btn-primary m-1 ms-0 p-1">清除缓存并刷新</button>
+      <button @click="refreshCache(e)" class="btn btn-primary m-1 ms-0 p-1">清除缓存并刷新</button>
     </div>
   </div>
   <div>
@@ -57,7 +57,7 @@
               <span class="badge" v-else style="background-color: green;">正式版</span>
             </td>
             <td class="size">{{data.size}}</td>
-            <td><a class="btn btn-success download" :data-version="data.version" :data-info_key="info_key"><i class="bi bi-download"></i></a></td>
+            <td><a class="btn btn-success download" @click="download(data.version, data.info_key)"><i class="bi bi-download"></i></a></td>
           </tr>
         </tbody>
       </table>

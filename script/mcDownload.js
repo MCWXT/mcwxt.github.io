@@ -15,27 +15,29 @@ createApp({
       return mcapksData;
     }
     const mcapksData = requestMcapks();
+    const download = (version,info_key) => {
+      parent.toastr.success('即将跳转到下载页面', '请求中……');
+      const JumpPan = $.ajax({
+        url: tao.HTTPproxy`https://mcapks.net/down.php`,
+        data: {
+          vs: version
+        },
+        dataType: 'json',
+        async: false,
+      }).responseText;
+      var Location = JumpPan.substr(JumpPan.indexOf("window.location.href='") + 22);
+      var Location = Location.substr('', Location.indexOf("'"));
+      parent.window.location.href = Location || 'https://mcapks.net/info/' + encodeURIComponent(btoa(version)) + '/' + info_key + '.html';
+    }
+    const refreshCache = () => {
+      parent.window.localStorage.removeItem('mcapks');
+      parent.window.location.reload();
+    }
     return {
-      mcapksData: requestMcapks().message
+      mcapksData: requestMcapks().message,
+      download,
+      refreshCache
     }
   }
 }).mount('#app');
 $('.download *').css({ 'pointer-events': 'none' });
-$('.download').click((e) => {
-  parent.toastr.success('即将跳转到下载页面', '请求中……');
-  const JumpPan = $.ajax({
-    url: tao.HTTPproxy`https://mcapks.net/down.php`,
-    data: {
-      vs: e.target.dataset.version
-    },
-    dataType: 'json',
-    async: false,
-  }).responseText;
-  var Location = JumpPan.substr(JumpPan.indexOf("window.location.href='") + 22);
-  var Location = Location.substr('', Location.indexOf("'"));
-  parent.window.location.href = Location || 'https://mcapks.net/info/' + encodeURIComponent(btoa(e.target.dataset.version)) + '/' + e.target.dataset.info_key + '.html';
-})
-$('#refreshCache').click(() => {
-  parent.window.localStorage.removeItem('mcapks');
-  parent.window.location.reload();
-});
