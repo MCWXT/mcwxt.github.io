@@ -24,8 +24,8 @@
     "icon": "bi-chat-left-text",
     "pageName": "论坛"
   },{
-    "page": "/cloud",
+    "page": "/pan",
     "icon": "bi-cloud",
-    "pageName": "MC云"
+    "pageName": "MC盘"
   }]
 }
