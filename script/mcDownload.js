@@ -14,10 +14,6 @@ createApp({
       parent.window.localStorage.setItem('mcapks', JSON.stringify(mcapksData));
       return mcapksData;
     }
-    $('#refreshCache').click(() => {
-      parent.window.localStorage.removeItem('mcapks');
-      parent.window.location.reload();
-    })
     const mcapksData = requestMcapks();
     return {
       mcapksData: requestMcapks().message
@@ -39,3 +35,7 @@ $('.download').click((e) => {
   var Location = Location.substr('', Location.indexOf("'"));
   parent.window.location.href = Location || 'https://mcapks.net/info/' + encodeURIComponent(btoa(e.target.dataset.version)) + '/' + e.target.dataset.info_key + '.html';
 })
+$('#refreshCache').click(() => {
+  parent.window.localStorage.removeItem('mcapks');
+  parent.window.location.reload();
+});
