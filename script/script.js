@@ -11,17 +11,9 @@ export const getQueryString = (name) => {
   return r ? unescape(r[2]) : null;
 }
 class Tao {
-  proxyUrl = 'https://proxy.mcwxt.top/';
+  proxyUrl = `https://proxy.${location.hostname}/`;
   constructor() {
     
-  }
-  _templateReplace(data,these) {
-    const { Dom, For, In } = these;
-    let element = Dom.outerHTML;
-    for (var i = 0; i < In.length; i++) {
-      element = element.replace(`{{${In[i]}}}`, data[In[i]]);
-    }
-    return element;
   }
   HTTPproxy(url) {
     return this.proxyUrl + url;
