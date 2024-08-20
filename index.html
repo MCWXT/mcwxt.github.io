@@ -47,13 +47,16 @@
           <img class="d-inline-block rounded-circle" style="width: 2.5rem;" src="/assets/img/logo.png" alt="">
         </div>
         <div class="offcanvas offcanvas-start w-50" tabindex="-1" id="offcanvasExample" data-bs-scroll="true" aria-labelledby="offcanvasExampleLabel">
-          <div class="offcanvas-header p-0 border-bottom" :style="`height: ${headerHeight}px;`">
-            <span class="offcanvas-title m-auto" id="offcanvasExampleLabel">MCWXT的个人博客</span>
+          <div class="offcanvas-header p-0 border-bottom text-bg-dark" :style="`height: ${headerHeight}px;`">
+            <div class="fs-5 mx-auto fw-bolder" style="font-family: sans-serif!important;">
+              <span>MC</span>
+              <span class="px-1 rounded-1 text-black" style="background-color: #FE9900;">WXT</span>
+            </div>
           </div>
           <div class="offcanvas-body p-2">
-            <div class="list-tao-group">
-              <a class="list-tao-item ps-4 py-1" v-for="item in nav" data-bs-dismiss="offcanvas" aria-label="Close" :data-page="item.page">
-                <i :class="`bi ${item.icon} me-4`"></i>{{item.pageName}}
+            <div class="list-tao-group mt-4">
+              <a class="list-tao-item ps-3 py-1" v-for="item in nav" data-bs-dismiss="offcanvas" aria-label="Close" :data-page="item.page">
+                <i :class="`bi ${item.icon} me-3 fs-5`"></i><span>{{item.pageName}}</span>
               </a>
             </div>
           </div>
