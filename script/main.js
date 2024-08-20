@@ -1,12 +1,18 @@
 import { requestData, tao } from 'tao';
-import { createApp, ref } from 'vue';
+import { createApp, ref, onMounted } from 'vue';
+const headerHeight = document.querySelector('nav').offsetHeight;
 createApp({
   setup() {
     const { nav } = requestData('main');
     const { myLink } = requestData('home');
+    const isBrowser = navigator.userAgent.indexOf('MQQBrowser') > -1 || navigator.userAgent.indexOf('QQTheme') > -1;
+    const IsBrowserModal = ref(isBrowser);
     return {
       nav,
-      myLink
+      myLink,
+      headerHeight,
+      isBrowser,
+      IsBrowserModal
     }
   }
 }).mount('#app');
@@ -26,6 +32,15 @@ const _wr = (type) => {
 }
 history.pushState = _wr('pushState');
 history.replaceState = _wr('replaceState');
+const doms = {
+  body: $('body'),
+  main: $('main'),
+  iframe: $('main>iframe'),
+  header: $('header'),
+  nav: $('nav'),
+  footer: $('footer'),
+  loading: $('.loading'),
+}
 const getPath = () => {
   return location.pathname || '/home';
 }
@@ -62,22 +77,9 @@ const setPage = (page) => {
   }
 }
 const pathMap = requestData('path');
-const doms = {
-  body: $('body'),
-  main: $('main'),
-  iframe: $('main>iframe'),
-  header: $('header'),
-  nav: $('nav'),
-  footer: $('footer'),
-  loading: $('.loading'),
-}
-doms.header[0].style.height = doms.nav[0].offsetHeight + 'px';
 setPage(getPath());
 window.addEventListener('pushState', () => setPage(getPath()));
 window.onpopstate = () => setPage(getPath());
-if (navigator.userAgent.indexOf("MQQBrowser") > -1 || navigator.userAgent.indexOf("QQTheme") > -1) {
-  alert('建议使用浏览如chrome打开本网站');
-}
 window.onload = () => {
   $('[data-page] *').css({ 'pointer-events': 'none' });
   $('[data-page]').click((event) => {

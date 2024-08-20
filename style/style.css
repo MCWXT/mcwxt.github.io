@@ -35,3 +35,21 @@ button {
 .btn:active {
   box-shadow: 1px 1px 8px -2px;
 }
+
+.bg-w {
+  background-color: white;
+}
+
+.list-tao-group .list-tao-item {
+  display: block;
+  text-decoration: none;
+  border-radius: .2em;
+}
+
+.list-tao-group .list-tao-item:hover {
+  background-color: var(--bs-tertiary-bg);
+}
+
+.list-tao-group .list-tao-item:active {
+  background-color: var(--bs-tertiary-bg);
+}

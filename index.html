@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -27,27 +28,35 @@
   iframe {
     height: 0;
   }
-
   footer * {
     color: dimgray;
   }
 </style>
+
 <body id="app">
-  <header>
+  <header :style="`height: ${headerHeight}px;`">
     <div>
-      <nav class="navbar position-fixed w-100 bg-body-tertiary p-1 z-1">
-        <div class="rounded-circle">
-          <img class="d-inline-block rounded-circle" style="width: 2.5rem;" src="/assets/img/logo.png" alt="">
-          <h1 class="d-inline align-middle fs-5">MCWXT的个人博客</h1>
+      <nav class="navbar position-fixed w-100 border-bottom bg-w p-1 z-1">
+        <div>
+          <button class="fs-3 mx-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            <i class="bi bi-list"></i>
+          </button>
+          <h1 class="d-inline-block align-middle fs-6">MCWXT的个人博客</h1>
         </div>
-        <div class="dropdown">
-          <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list"></i></button>
-          <ul class="dropdown-menu dropdown-menu-end m-0 my-2">
-            <li v-for="item in nav">
-              <a class="dropdown-item" :data-page="item.page">
-              <i :class="`bi ${item.icon} me-2`"></i>{{item.pageName}}</a>
-            </li>
-          </ul>
+        <div>
+          <img class="d-inline-block rounded-circle" style="width: 2.5rem;" src="/assets/img/logo.png" alt="">
+        </div>
+        <div class="offcanvas offcanvas-start w-50" tabindex="-1" id="offcanvasExample" data-bs-scroll="true" aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas-header p-0 border-bottom" :style="`height: ${headerHeight}px;`">
+            <span class="offcanvas-title m-auto" id="offcanvasExampleLabel">MCWXT的个人博客</span>
+          </div>
+          <div class="offcanvas-body p-2">
+            <div class="list-tao-group">
+              <a class="list-tao-item ps-4 py-1" v-for="item in nav" data-bs-dismiss="offcanvas" aria-label="Close" :data-page="item.page">
+                <i :class="`bi ${item.icon} me-4`"></i>{{item.pageName}}
+              </a>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -60,6 +69,22 @@
         </div>
       </div>
       <span>Loading...</span>
+    </div>
+  </div>
+  <div class="modal" :class="{ 'd-block': IsBrowserModal }" v-if="isBrowser" ref="exampleModal" tabindex="-1">
+    <div class="modal-dialog mx-auto" style="top: 8rem;width: 20rem;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-6">MCWXT的个人博客</h5>
+          <button type="button" class="btn-close" @click="IsBrowserModal = !IsBrowserModal" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body py-5">
+          <p>建议您使用浏览器如chrome打开</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-sm" @click="IsBrowserModal = !IsBrowserModal" data-bs-dismiss="modal">我知道了</button>
+        </div>
+      </div>
     </div>
   </div>
   <main>
@@ -102,4 +127,5 @@
   </footer>
 </body>
 <script src="/script/main.js" type="module"></script>
+
 </html>
