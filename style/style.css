@@ -53,3 +53,9 @@ button {
 .list-tao-group .list-tao-item:active {
   background-color: var(--bs-tertiary-bg);
 }
+.fs-7 {
+  font-size: .8rem;
+}
+.fs-8 {
+  font-size: .6rem;
+}

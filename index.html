@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -24,6 +23,7 @@
     }
   }
 </script>
+<!-- prod.js -->
 <style>
   iframe {
     height: 0;
@@ -36,7 +36,7 @@
 <body id="app">
   <header :style="`height: ${headerHeight}px;`">
     <div>
-      <nav class="navbar position-fixed w-100 border-bottom bg-w p-1 z-1">
+      <nav class="navbar position-fixed w-100 border-bottom bg-w p-1 z-2">
         <div>
           <button class="fs-3 mx-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
             <i class="bi bi-list"></i>
@@ -64,9 +64,9 @@
       </nav>
     </div>
   </header>
-  <div class="loading h-100 w-100 text-center fixed-top z-0" style="background-color: #E0E0E0;">
+  <div class="loading h-100 w-100 text-center fixed-top z-1" :class="{ 'd-none': !isLoading}" style="background-color: #F0F0F0;">
     <div class="d-inline-block" style="transform: translate(0, calc(50vh - 50%));">
-      <div class="">
+      <div>
         <div class="spinner-border" style="width: 3rem;height: 3rem;" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
@@ -90,8 +90,8 @@
       </div>
     </div>
   </div>
-  <main>
-    <iframe class="w-100" scrolling="no" frameborder="0"></iframe>
+  <main :style="`min-height: ${mainMinHeight}px;height: ${mainHeight}px;`">
+    <iframe class="w-100 h-100 d-block" :onload="mainOnload" :key="mainSrc" :src="mainSrc" scrolling="no" frameborder="0"></iframe>
   </main>
   <footer class="text-bg-light">
     <div class="p-3">
@@ -101,10 +101,10 @@
       <div>
         <span>感谢访问我的博客！</span>
       </div>
-      <div class="my-3">
-        <a :href="link.link" v-for="link in myLink"><i :class="`bi ${link.icon} me-3 fs-4`"></i></a>
+      <div class="my-3 fs-4">
+        ​<a :href="link.link" v-for="link in myLink"><i :class="`bi ${link.icon} me-3`"></i></a>
       </div>
-      <div>
+      <div class="fs-7">
         <span>感谢：</span>
         <ul>
           <li><a href="//halo.nekoline.top/">离散的流云</a></li>
@@ -114,7 +114,8 @@
           <li><a href="//bilibili.com">bilibili</a></li>
         </ul>
       </div>
-      <div class="border-top pt-2" style="font-size: .8rem;">
+      <hr class="my-1" />
+      <div class="fs-7">
         <div>
           <ul>
             <li><a href="https://www.w3.org/zh-hans/">w3c</a></li>
@@ -130,5 +131,4 @@
   </footer>
 </body>
 <script src="/script/main.js" type="module"></script>
-
 </html>

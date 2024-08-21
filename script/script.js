@@ -10,6 +10,16 @@ export const getQueryString = (name) => {
   var r = parent.window.location.search.substr(1).match(reg);
   return r ? unescape(r[2]) : null;
 }
+export const _wr = (type) => {
+  let orig = history[type];
+  return function() {
+    let rv = orig.apply(this, arguments);
+    let e = new Event(type);
+    e.arguments = arguments;
+    window.dispatchEvent(e);
+    return rv;
+  }
+}
 class Tao {
   proxyUrl = `https://proxy.${location.hostname}/`;
   constructor() {
