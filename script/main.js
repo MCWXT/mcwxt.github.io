@@ -9,6 +9,7 @@ createApp({
     const routes = requestData('routes');
     const locationPathName = ref(window.location.pathname);
     (!locationPathName.value || locationPathName.value == '' || locationPathName.value == '/') && (tao.page = '/home');
+    routes[locationPathName.value].historyGo && (window.location.href = routes[locationPathName].location);
     const mainSrc = ref(routes[locationPathName.value] ? routes[locationPathName.value].location : '/page/404.html');
     const { nav } = requestData('main');
     const { myLink } = requestData('home');
@@ -22,7 +23,8 @@ createApp({
     watch(locationPathName, (locationPathName) => {
       isLoading.value = true;
       mainHeight.value = 0;
-      mainSrc.value = routes[locationPathName].location;
+      routes[locationPathName].historyGo && (window.location.href = routes[locationPathName].location);
+      mainSrc.value = routes[locationPathName] ? routes[locationPathName].location : '/page/404.html';
       mainMinHeight.value = window.innerHeight - unMainHeight;
     });
     onMounted(() => {
