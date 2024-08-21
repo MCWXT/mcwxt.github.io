@@ -31,7 +31,7 @@ createApp({
     }
     const refreshCache = () => {
       parent.window.localStorage.removeItem('mcapks');
-      parent.window.location.reload();
+      window.location.reload();
     }
     return {
       mcapksData: requestMcapks().message,
@@ -40,4 +40,3 @@ createApp({
     }
   }
 }).directive('tao', tao.directive).mount('#app');
-$('.download *').css({ 'pointer-events': 'none' });

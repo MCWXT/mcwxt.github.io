@@ -1,5 +1,5 @@
 import { github } from 'githubApi';
-import { createApp, ref } from 'vue';
+import { createApp, ref, onMounted } from 'vue';
 import { tao, getQueryString } from 'tao';
 createApp({
   setup() {
@@ -13,6 +13,11 @@ createApp({
       dataType: 'json',
       async: false
     }).responseText);
+    onMounted(() => {
+      $('#md img').prop('src', (index, currentvalue) => {
+        return tao.HTTPproxy(currentvalue);
+      });
+    });
     return {
       tao,
       marked,
@@ -21,6 +26,3 @@ createApp({
     }
   }
 }).directive('tao', tao.directive).mount('#app');
-$('#md img').prop('src', (index, currentvalue) => {
-  return tao.HTTPproxy(currentvalue);
-});

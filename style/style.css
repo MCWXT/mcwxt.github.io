@@ -59,6 +59,6 @@ button {
 .fs-8 {
   font-size: .6rem;
 }
-[v-page] {
+[v-page] * {
   pointer-events: none;
 }
