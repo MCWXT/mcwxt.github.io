@@ -20,7 +20,7 @@ createApp({
       comments
     }
   }
-}).mount('#app');
+}).directive('tao', tao.directive).mount('#app');
 $('#md img').prop('src', (index, currentvalue) => {
   return tao.HTTPproxy(currentvalue);
 });

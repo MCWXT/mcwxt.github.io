@@ -31,4 +31,4 @@ createApp({
       data
     }
   }
-}).mount('#app');
+}).directive('tao', tao.directive).mount('#app');

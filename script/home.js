@@ -1,4 +1,4 @@
-import { requestData } from 'tao';
+import { requestData, tao } from 'tao';
 import { createApp, ref } from 'vue';
 createApp({
   setup() {
@@ -8,4 +8,4 @@ createApp({
       myLink
     }
   }
-}).mount('#app');
+}).directive('tao', tao.directive).mount('#app');

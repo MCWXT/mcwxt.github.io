@@ -22,8 +22,15 @@ export const _wr = (type) => {
 }
 class Tao {
   proxyUrl = `https://proxy.${location.hostname}/`;
+  directive = {
+    mounted(el, binding, vnode) {
+      el.onclick = () => {
+        tao[binding.arg] = binding.value;
+      }
+    }
+  }
   constructor() {
-    
+
   }
   HTTPproxy(url) {
     return this.proxyUrl + url;

@@ -16,4 +16,4 @@ createApp({
       messages
     }
   }
-}).mount('#app');
+}).directive('tao', tao.directive).mount('#app');

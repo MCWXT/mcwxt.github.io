@@ -39,5 +39,5 @@ createApp({
       refreshCache
     }
   }
-}).mount('#app');
+}).directive('tao', tao.directive).mount('#app');
 $('.download *').css({ 'pointer-events': 'none' });

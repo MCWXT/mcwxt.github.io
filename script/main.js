@@ -26,22 +26,14 @@ createApp({
       mainMinHeight.value = window.innerHeight - unMainHeight;
     });
     onMounted(() => {
-      $('[data-page] *').css({ 'pointer-events': 'none' });
-      $('[data-page]').click((event) => {
-        tao.page = event.target.dataset.page;
-      });
       $('[href]').click(() => {
-        parent.toastr.warning('注意安全，已不在保护范围内', '跳转至外链');
+        toastr.warning('注意安全，已不在保护范围内', '跳转至外链');
       });
     });
     const mainOnload = (event) => {
       const win = event.target.contentWindow;
       mainHeight.value = win.document.documentElement.scrollHeight;
       isLoading.value = false;
-      win.$('[data-page] *').css({ 'pointer-events': 'none' });
-      win.$('[data-page]').click((event) => {
-        tao.page = event.target.dataset.page;
-      });
       win.$('[href]').click(() => {
         parent.toastr.warning('注意安全，已不在保护范围内', '跳转至外链');
       });
@@ -59,4 +51,4 @@ createApp({
       mainOnload
     }
   }
-}).mount('#app');
+}).directive('tao', tao.directive).mount('#app');

@@ -55,7 +55,7 @@ createApp({
         { imgSrc: '//i2.hdslb.com/bfs/archive/ffe2a3758e07429f89294316aa548bad79f06f80.png' }]
     }
   }
-}).mount('#app');
+}).directive('tao', tao.directive).mount('#app');
 
 if (/mobile/i.test(navigator.userAgent)) {
   $('.bvCardWidth').css({ '--bvCardWidth': '50%' });

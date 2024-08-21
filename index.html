@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -28,6 +29,7 @@
   iframe {
     height: 0;
   }
+
   footer * {
     color: dimgray;
   }
@@ -55,7 +57,7 @@
           </div>
           <div class="offcanvas-body p-2">
             <div class="list-tao-group mt-4">
-              <a class="list-tao-item ps-3 py-1" v-for="item in nav" data-bs-dismiss="offcanvas" aria-label="Close" :data-page="item.page">
+              <a class="list-tao-item ps-3 py-1" v-for="item in nav" v-tao:page="item.page" data-bs-dismiss="offcanvas" aria-label="Close">
                 <i :class="`bi ${item.icon} me-3 fs-5`"></i><span>{{item.pageName}}</span>
               </a>
             </div>
@@ -64,7 +66,7 @@
       </nav>
     </div>
   </header>
-  <div class="loading h-100 w-100 text-center fixed-top z-1" :class="{ 'd-none': !isLoading}" style="background-color: #F0F0F0;">
+  <div class="loading h-100 w-100 text-center fixed-top z-1" v-if="isLoading" style="background-color: #F0F0F0;">
     <div class="d-inline-block" style="transform: translate(0, calc(50vh - 50%));">
       <div>
         <div class="spinner-border" style="width: 3rem;height: 3rem;" role="status">
@@ -131,4 +133,5 @@
   </footer>
 </body>
 <script src="/script/main.js" type="module"></script>
+
 </html>
