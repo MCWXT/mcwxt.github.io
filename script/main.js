@@ -8,9 +8,11 @@ createApp({
     history.replaceState = _wr('replaceState');
     const routes = requestData('routes');
     const locationPathName = ref(window.location.pathname);
-    (!locationPathName.value || locationPathName.value == '' || locationPathName.value == '/') && (tao.page = '/home');
-    routes[locationPathName.value].historyGo && (window.location.href = routes[locationPathName].location);
-    const mainSrc = ref(routes[locationPathName.value] ? routes[locationPathName.value].location : '/page/404.html');
+    if (!locationPathName.value || locationPathName.value == '' || locationPathName.value == '/') {
+      tao.page = '/home';
+      locationPathName.value = window.location.pathname;
+    };
+    const mainSrc = ref(routes[locationPathName.value] ? routes[locationPathName.value].historyGo && (window.location.href = routes[locationPathName].location) || routes[locationPathName.value].location : '/page/404.html');
     const { nav } = requestData('main');
     const { myLink } = requestData('home');
     const isBrowser = navigator.userAgent.indexOf('MQQBrowser') > -1 || navigator.userAgent.indexOf('QQTheme') > -1;
@@ -48,6 +50,7 @@ createApp({
       IsBrowserModal,
       mainMinHeight,
       mainHeight,
+      locationPathName,
       mainSrc,
       isLoading,
       mainOnload

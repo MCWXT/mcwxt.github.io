@@ -4,10 +4,6 @@
     "icon": "bi-house",
     "pageName": "主页"
   },{
-    "page": "/home",
-    "icon": "bi-link-45deg",
-    "pageName": "友链"
-  },{
     "page": "/bilibili",
     "icon": "bi-play-btn",
     "pageName": "视频"
