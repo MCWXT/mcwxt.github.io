@@ -71,7 +71,7 @@
                 </ul>
               </div>
             </div>
-            <div v-tao:page="`/message?number=${message.number}`">
+            <a :href="`/message?number=${message.number}`">
               <div class="position-relative d-flex" style="height: 5rem;">
                 <div>
                   <h3 class="fs-6 mx-2">{{message.title}}</h3>
@@ -79,7 +79,7 @@
                 </div>
                 <img class="mx-3 rounded position-absolute top-0 end-0" style="width: 5rem;aspect-ratio: 1/1;" loading="lazy" :src="tao.HTTPproxy(message.body.match(/(https?:\/\/)?(([0-9a-z.]+\.[a-z]+)|(([0-9]{1,3}\.){3}[0-9]{1,3}))(:[0-9]+)?(\/[0-9a-z%/.\-_]*)?(\?[0-9a-z=&%_\-]*)?(\#[0-9a-z=&%_\-]*)?/ig)[0])" onerror="this.src='/assets/img/error.svg'">
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>

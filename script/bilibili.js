@@ -14,7 +14,7 @@ createApp({
         return parseFloat(parseInt(num / 100000000) + '.' + decimal) + '亿'
       }
     }
-    const { bvid } = requestData('video');
+    const bvid = requestData('video').bvid;
     const getData = (bvid) => $.parseJSON($.ajax({
       url: "https://tenapi.cn/v2/bilivideo?url=https://www.bilibili.com/video/" + bvid,
       dataType: "json",

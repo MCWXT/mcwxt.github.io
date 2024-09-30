@@ -4,19 +4,17 @@ const headerHeight = $('nav')[0].offsetHeight;
 const unMainHeight = headerHeight + $('footer')[0].offsetHeight;
 createApp({
   setup() {
-    history.pushState = _wr('pushState');
-    history.replaceState = _wr('replaceState');
-    const routes = requestData('routes');
     const locationPathName = ref(window.location.pathname);
     if (!locationPathName.value || locationPathName.value == '' || locationPathName.value == '/') {
       tao.page = '/home';
       locationPathName.value = window.location.pathname;
     };
+    const routes = requestData('routes');
+    const nav = requestData('nav');
+    const myLink = requestData('myLink');
+    history.pushState = _wr('pushState');
+    history.replaceState = _wr('replaceState');
     const mainSrc = ref(routes[locationPathName.value] ? routes[locationPathName.value].historyGo && (window.location.href = routes[locationPathName].location) || routes[locationPathName.value].location : '/page/404.html');
-    const { nav } = requestData('main');
-    const { myLink } = requestData('home');
-    const isBrowser = navigator.userAgent.indexOf('MQQBrowser') > -1 || navigator.userAgent.indexOf('QQTheme') > -1;
-    const IsBrowserModal = ref(isBrowser);
     const mainHeight = ref(0);
     const mainMinHeight = ref(window.innerHeight - unMainHeight);
     const isLoading = ref(true);
@@ -30,24 +28,25 @@ createApp({
       mainMinHeight.value = window.innerHeight - unMainHeight;
     });
     onMounted(() => {
-      $('[href]').click(() => {
-        toastr.warning('注意安全，已不在保护范围内', '跳转至外链');
-      });
+      
     });
     const mainOnload = (event) => {
-      const win = event.target.contentWindow;
-      mainHeight.value = win.document.documentElement.scrollHeight;
+      const win = event.target.contentWindow.document;
+      mainHeight.value = win.documentElement.scrollHeight;
+      win.onclick = onclick;
       isLoading.value = false;
-      win.$('[href]').click(() => {
-        parent.toastr.warning('注意安全，已不在保护范围内', '跳转至外链');
-      });
+    }
+    onclick = (e) => {
+      if (e.target.nodeName.toLocaleLowerCase() === 'a' && e.target.href.indexOf(location.origin) != -1) {
+        e.preventDefault();
+        const url = new URL(e.target.href);
+        tao.page = url.pathname + url.search;
+      }
     }
     return {
       nav,
       myLink,
       headerHeight,
-      isBrowser,
-      IsBrowserModal,
       mainMinHeight,
       mainHeight,
       locationPathName,
@@ -56,4 +55,4 @@ createApp({
       mainOnload
     }
   }
-}).directive('tao', tao.directive).mount('#app');
+}).mount('#app');

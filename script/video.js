@@ -4,7 +4,6 @@ createApp({
   setup() {
     const bvid = getQueryString('bvid');
     if (!bvid) {
-      parent.toastr.error('三秒后返回上一页', '视频加载错误');
       setTimeout(() => {
         window.history.go(-1);
       }, 2000);

@@ -11,9 +11,8 @@
   <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="/style/reset.css">
   <link rel="stylesheet" href="/style/style.css">
-  <script src="//unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="//unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
   <script src="//unpkg.com/jquery@3.7.1/dist/jquery.min.js"></script>
-  <script src="//unpkg.com/toastr@2.1.4/toastr.js"></script>
   <title>MCWXT的个人博客</title>
 </head>
 <script type="importmap">
@@ -57,7 +56,7 @@
           </div>
           <div class="offcanvas-body p-2">
             <div class="list-tao-group mt-4">
-              <a class="list-tao-item ps-3 py-1 my-1" :class="{ 'bg-primary-subtle': locationPathName == item.page }" v-for="item in nav" v-tao:page="item.page" data-bs-dismiss="offcanvas" aria-label="Close">
+              <a class="list-tao-item ps-3 py-1 my-1" :class="{ 'bg-primary-subtle': locationPathName == item.page }" v-for="item in nav" :href="item.page" data-bs-dismiss="offcanvas" aria-label="Close">
                 <i :class="`bi ${item.icon} me-3 fs-5`"></i><span>{{item.pageName}}</span>
               </a>
             </div>
@@ -74,22 +73,6 @@
         </div>
       </div>
       <span>Loading...</span>
-    </div>
-  </div>
-  <div class="modal" :class="{ 'd-block': IsBrowserModal }" v-if="isBrowser" ref="exampleModal" tabindex="-1">
-    <div class="modal-dialog mx-auto" style="top: 8rem;width: 20rem;">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fs-6">MCWXT的个人博客</h5>
-          <button type="button" class="btn-close" @click="IsBrowserModal = !IsBrowserModal" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body py-5">
-          <p>建议您使用浏览器如chrome打开</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary btn-sm" @click="IsBrowserModal = !IsBrowserModal" data-bs-dismiss="modal">我知道了</button>
-        </div>
-      </div>
     </div>
   </div>
   <main :style="`min-height: ${mainMinHeight}px;height: ${mainHeight}px;`">

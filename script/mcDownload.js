@@ -16,7 +16,6 @@ createApp({
     }
     const mcapksData = requestMcapks();
     const download = (version,info_key) => {
-      parent.toastr.success('即将跳转到下载页面', '请求中……');
       const JumpPan = $.ajax({
         url: tao.HTTPproxy`https://mcapks.net/down.php`,
         data: {

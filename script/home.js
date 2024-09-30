@@ -2,10 +2,9 @@ import { requestData, tao } from 'tao';
 import { createApp, ref } from 'vue';
 createApp({
   setup() {
-    const { friendLink, myLink } = requestData('home');
     return {
-      friendLink,
-      myLink
+      friendLink: requestData('friendLink'),
+      myLink: requestData('myLink')
     }
   }
 }).directive('tao', tao.directive).mount('#app');

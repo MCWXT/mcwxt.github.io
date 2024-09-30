@@ -1,6 +1,5 @@
-@import url("https://cdn.bootcdn.net/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.css");
-@import url("https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css");
-@import url("https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.css");
+@import url("https://unpkg.com/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url("https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css");
 
 * {
   font-family: sans-serif;
@@ -59,6 +58,6 @@ button {
 .fs-8 {
   font-size: .6rem;
 }
-[v-page] * {
+[href] * {
   pointer-events: none;
 }
