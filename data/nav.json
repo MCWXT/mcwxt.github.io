@@ -11,10 +11,6 @@
   "icon": "bi-cloud-download",
   "pageName": "MC下载"
   }, {
-  "page": "/dns",
-  "icon": "bi-database",
-  "pageName": "域名网"
-  }, {
   "page": "/forum",
   "icon": "bi-chat-left-text",
   "pageName": "论坛"

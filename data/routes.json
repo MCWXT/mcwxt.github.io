@@ -5,6 +5,9 @@
   "/home": {
     "location": "/page/home.html"
   },
+  "/login": {
+    "location": "/page/login.html"
+  },
   "/bilibili": {
     "location": "/page/bilibili.html"
   },
@@ -33,5 +36,8 @@
   "/pan": {
     "historyGo": true,
     "location": "https://pan.mcwxt.top/"
+  },
+  "/github/callback": {
+    "location": "/page/githubCallback.html"
   }
 }

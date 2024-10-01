@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <base target="_parent">
+  <meta name="referrer" content="same-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/style/reset.css">
+  <link rel="stylesheet" href="/style/style.css">
+  <script src="//unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+  <script src="//unpkg.com/jquery@3.7.1/dist/jquery.min.js"></script>
+  <title>MCWXT的个人博客|正在加载…</title>
+</head>
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js",
+      "tao": "/script/script.js"
+    }
+  }
+</script>
+<body id="app">
+  <div class="text-center my-5">
+    <h1 v-if="isSuccessful">登录成功，即将返回</h1>
+    <h1 v-else>登录失败，请重新登录 <a href="/home">home</a></h1>
+  </div>
+</body>
+<script src="/script/githubCallback.js" type="module"></script>
+</html>
