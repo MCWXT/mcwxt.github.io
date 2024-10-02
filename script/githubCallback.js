@@ -5,7 +5,7 @@ createApp({
     const isSuccessful = ref(false);
     if (getQueryString('code'), getQueryString('state') == 'MCWXT') {
       const access_token = $.parseJSON($.ajax({
-        url: tao.HTTPproxy`https://github.com/login/oauth/access_token`,
+        url: `https://github.com/login/oauth/access_token`,
         type: 'POST',
         dataType: "json",
         data: {
