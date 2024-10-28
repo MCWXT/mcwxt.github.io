@@ -16,8 +16,7 @@
   {
     "imports": {
       "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js",
-      "tao": "/script/script.js",
-      "githubApi": "/script/githubRepositoryApi.js"
+      "tao": "/script/script.js"
     }
   }
 </script>
@@ -25,59 +24,30 @@
 
 </style>
 <body id="app" class="mx-auto" style="max-width: 800px;">
-  <div id="carouselExample" class="carousel slide m-1 rounded" data-bs-ride="carousel" style="overflow:hidden">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div v-for="{ imgSrc } in carouselImg" class="carousel-item active">
-        <img :src="imgSrc" class="d-block w-100" style="aspect-ratio: 16/9;">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
-  </div>
-  <div class="m-1">
-    <div class="alert alert-info" role="alert">
-      github提供支持，本网站支持<a class="alert-link" href="https://markdown.com.cn/">Markdown</a>语法 <br>
-      首行的图片即为封面，格式如下：<br>
-      <code>![cover](https://图片链接)</code>
-    </div>
+  <div class="position-relative" style="height: 20rem;background: url('/assets/img/forum.png') 0 -3.5rem;background-size: cover;" class="w-100 border rounded">
+    <h1 style="font-size: 5rem;letter-spacing: 1rem;" class="position-absolute top-50 translate-middle-y mx-4 text-light fw-bold">Halo</h1>
   </div>
   <div>
-    <div class="m-1 rounded shadow-sm">
-      <div class="d-flex justify-content-between">
-        <span class="my-auto mx-1"><i class="bi bi-chat-left-text"></i> 论坛</span>
-        <button class="m-1 btn btn-outline-danger btn-sm rounded" onclick="parent.window.location = 'https://github.com/MCWXT/mcwxt.github.io/issues/new/'"><i class="bi bi-plus-lg"></i> 发布</button>
-      </div>
+    <div class="m-2">
       <div>
-        <div v-for="message in messages">
-          <hr class="m-0">
+        <div class="rounded-4 bg-light my-2" v-for="message in messages">
           <div class="py-2">
-            <div class="position-relative">
-              <img class="m-1 rounded-circle" style="width: 1.8rem;aspect-ratio:1/1;" loading="lazy" :src="tao.HTTPproxy(message.user.avatar_url)">
-              <span style="color: #555555">{{message.user.login}}</span>
-              <div class="dropdown position-absolute end-0 top-0 m-1 mx-2">
-                <i class="bi bi-three-dots-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu dropdown-menu-end" style="font-size: .8rem;">
-                  <li><a class="dropdown-item" :href="message.html_url">github原文</a></li>
-                  <li><a class="dropdown-item" :href="message.user.html_url">作者主页</a></li>
-                </ul>
+            <div class="position-relative" style="color: #555555;">
+              <a class="mx-2" :href="`//halo.mcwxt.top/authors/${message.spec.owner}`">{{message.spec.owner}}</a>
+              <div class="mx-2 d-inline">
+                <a v-for="category in message.categories" :href="`//halo.mcwxt.top${category.status.permalink}`" style="font-size: .8rem;">{{category.spec.displayName}}</a>
               </div>
             </div>
-            <a :href="`/message?number=${message.number}`">
+            <a :href="`//halo.mcwxt.top/archives/${message.spec.slug}`">
               <div class="position-relative d-flex" style="height: 5rem;">
                 <div>
-                  <h3 class="fs-6 mx-2">{{message.title}}</h3>
-                  <span class="position-absolute bottom-0 mx-2 text-secondary" style="font-size: .8rem;">{{message.created_at}} {{message.comments}}评论</span>
+                  <div class="my-2">
+                    <h3 class="fs-6 mx-2">{{message.spec.title}}</h3>
+                    <p class="mx-2" style="font-size: .8rem;">{{message.status.excerpt}}</p>
+                  </div>
+                  <span class="position-absolute bottom-0 mx-2 text-secondary" style="font-size: .8rem;">发布于{{timeFormat(message.spec.publishTime)}} 访问{{message.stats.visit}}</span>
                 </div>
-                <img class="mx-3 rounded position-absolute top-0 end-0" style="width: 5rem;aspect-ratio: 1/1;" loading="lazy" :src="tao.HTTPproxy(message.body.match(/(https?:\/\/)?(([0-9a-z.]+\.[a-z]+)|(([0-9]{1,3}\.){3}[0-9]{1,3}))(:[0-9]+)?(\/[0-9a-z%/.\-_]*)?(\?[0-9a-z=&%_\-]*)?(\#[0-9a-z=&%_\-]*)?/ig)[0])" onerror="this.src='/assets/img/error.svg'">
+                <img class="mx-3 rounded position-absolute top-0 end-0" style="width: 5rem;aspect-ratio: 1/1;" loading="lazy" :src="`//halo.mcwxt.top${message.spec.cover}`" onerror="this.remove()">
               </div>
             </a>
           </div>
