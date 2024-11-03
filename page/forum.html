@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -23,6 +24,7 @@
 <style>
 
 </style>
+
 <body id="app" class="mx-auto" style="max-width: 800px;">
   <div class="position-relative" style="height: 20rem;background: url('/assets/img/forum.png') 0 -3.5rem;background-size: cover;" class="w-100 border rounded">
     <h1 style="font-size: 5rem;letter-spacing: 1rem;" class="position-absolute top-50 translate-middle-y mx-4 text-light fw-bold">Halo</h1>
@@ -38,16 +40,14 @@
                 <a v-for="category in message.categories" :href="`//halo.mcwxt.top${category.status.permalink}`" style="font-size: .8rem;">{{category.spec.displayName}}</a>
               </div>
             </div>
-            <a :href="`//halo.mcwxt.top/archives/${message.spec.slug}`">
-              <div class="position-relative d-flex" style="height: 5rem;">
-                <div>
-                  <div class="my-2">
-                    <h3 class="fs-6 mx-2">{{message.spec.title}}</h3>
-                    <p class="mx-2 text-truncate" style="font-size: .8rem;">{{message.status.excerpt}}</p>
-                  </div>
-                  <span class="position-absolute bottom-0 mx-2 text-secondary" style="font-size: .8rem;">发布于{{timeFormat(message.spec.publishTime)}} 访问{{message.stats.visit}}</span>
+            <a class="d-block" :href="`//halo.mcwxt.top/archives/${message.spec.slug}`">
+              <div class="d-flex justify-content-between" style="height: 5rem;">
+                <div class="my-2 px-2" style="width: 65%;">
+                  <h3 class="fs-6 text-truncate">{{message.spec.title}}</h3>
+                  <p class="text-truncate mb-2 d-block" style="font-size: .8rem;">{{message.status.excerpt}}</p>
+                  <span style="font-size: .8rem;">发布于{{timeFormat(message.spec.publishTime)}} 访问{{message.stats.visit}}</span>
                 </div>
-                <img class="mx-3 rounded position-absolute top-0 end-0" style="width: 5rem;aspect-ratio: 1/1;" loading="lazy" :src="`//halo.mcwxt.top${message.spec.cover}`" onerror="this.remove()">
+                <img class="mx-3 rounded d-block" style="width: 5rem;aspect-ratio: 1/1;" loading="lazy" :src="`//halo.mcwxt.top${message.spec.cover}`" onerror="this.remove()">
               </div>
             </a>
           </div>
@@ -57,4 +57,5 @@
   </div>
 </body>
 <script src="/script/forum.js" type="module"></script>
+
 </html>
