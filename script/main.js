@@ -1,32 +1,29 @@
 import { requestData, tao, _wr } from 'tao';
 import { createApp, ref, onMounted, watch } from 'vue';
+import { Router } from '/script/router.js';
 const headerHeight = $('nav')[0].offsetHeight;
 const unMainHeight = headerHeight + $('footer')[0].offsetHeight;
 createApp({
   setup() {
-    const locationPathName = ref(window.location.pathname);
-    if (!locationPathName.value || locationPathName.value == '' || locationPathName.value == '/') {
-      tao.page = '/home';
-      locationPathName.value = window.location.pathname;
-    };
-    const routes = requestData('routes');
+    const router = new Router({
+      routes: requestData('routes'),
+      defaultPath: '/',
+      404: '/page/404.html',
+      update: () => {
+        isLoading.value = true;
+        mainHeight.value = 0;
+        mainMinHeight.value = window.innerHeight - unMainHeight;
+      }
+    });
     const nav = requestData('nav');
     const myLink = requestData('myLink');
     history.pushState = _wr('pushState');
-    history.replaceState = _wr('replaceState');
-    const mainSrc = ref(routes[locationPathName.value] ? routes[locationPathName.value].historyGo && (window.location.href = routes[locationPathName].location) || routes[locationPathName.value].location : '/page/404.html');
+    const mainSrc = ref(router.location);
     const mainHeight = ref(0);
     const mainMinHeight = ref(window.innerHeight - unMainHeight);
     const isLoading = ref(true);
-    window.addEventListener('pushState', () => locationPathName.value = location.pathname);
-    window.onpopstate = () => locationPathName.value = location.pathname;
-    watch(locationPathName, (locationPathName) => {
-      isLoading.value = true;
-      mainHeight.value = 0;
-      routes[locationPathName].historyGo && (window.location.href = routes[locationPathName].location);
-      mainSrc.value = routes[locationPathName] ? routes[locationPathName].location : '/page/404.html';
-      mainMinHeight.value = window.innerHeight - unMainHeight;
-    });
+    window.addEventListener('pushState', () => router.path.value = location.pathname);
+    window.onpopstate = () => router.path.value = location.pathname;
     onMounted(() => {
       
     });
@@ -49,7 +46,7 @@ createApp({
       headerHeight,
       mainMinHeight,
       mainHeight,
-      locationPathName,
+      locationPathName: router.path.value,
       mainSrc,
       isLoading,
       mainOnload
