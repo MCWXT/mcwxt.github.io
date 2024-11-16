@@ -2,8 +2,8 @@ import { ref, watch } from 'vue';
 export class Router {
   constructor(config = {}) {
     this.routes = config.routes;
-    this.location = ref(this.routes[this.path] ? this.routes[this.path].location : config[404]);
     this.path = ref(window.location.pathname || (window.location.pathname = config.defaultPath));
+    this.location = ref(this.routes[this.path.value] ? this.routes[this.path.value].location : config[404]);
     watch(this.path, (path) => this.update(this.routes, path));
     this.config = config;
   }
