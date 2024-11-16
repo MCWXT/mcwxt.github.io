@@ -1,6 +1,7 @@
 import { github } from 'githubApi';
 import { createApp, ref, onMounted } from 'vue';
-import { tao, getQueryString } from 'tao';
+import { tao, getQueryString } from '/script/script.js';
+import '//unpkg.com/jquery@3.7.1/dist/jquery.min.js';
 createApp({
   setup() {
     const message = JSON.parse($.ajax({

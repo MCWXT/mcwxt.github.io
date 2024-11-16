@@ -1,6 +1,7 @@
-import { requestData, tao, _wr } from 'tao';
+import { requestData, tao, _wr } from '/script/script.js';
 import { createApp, ref, onMounted, watch } from 'vue';
 import { Router } from '/script/router.js';
+import '//unpkg.com/jquery@3.7.1/dist/jquery.min.js';
 const headerHeight = $('nav')[0].offsetHeight;
 const unMainHeight = headerHeight + $('footer')[0].offsetHeight;
 createApp({
