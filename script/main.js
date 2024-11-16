@@ -47,7 +47,7 @@ createApp({
       headerHeight,
       mainMinHeight,
       mainHeight,
-      locationPathName: router.path.value,
+      locationPathName: router.path,
       mainSrc,
       isLoading,
       mainOnload
