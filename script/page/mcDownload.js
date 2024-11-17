@@ -1,5 +1,5 @@
 import { createApp, ref } from 'vue';
-import { tao } from '/script/script.js';
+import { httproxy } from '/script/script.js';
 import '//unpkg.com/jquery@3.7.1/dist/jquery.min.js'
 createApp({
   setup() {
@@ -8,7 +8,7 @@ createApp({
         return JSON.parse(parent.window.localStorage.getItem('mcapks'));
       }
       const mcapksData = $.parseJSON($.ajax({
-        url: tao.HTTPproxy`https://mcapks.net/api/vs-list.php`,
+        url: httproxy`https://mcapks.net/api/vs-list.php`,
         dataType: 'json',
         async: false,
       }).responseText);
@@ -18,7 +18,7 @@ createApp({
     const mcapksData = requestMcapks();
     const download = (version,info_key) => {
       const JumpPan = $.ajax({
-        url: tao.HTTPproxy`https://mcapks.net/down.php`,
+        url: httproxy`https://mcapks.net/down.php`,
         data: {
           vs: version
         },

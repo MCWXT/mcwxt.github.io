@@ -1,5 +1,5 @@
 import { createApp, ref } from 'vue';
-import { requestData, tao } from '/script/script.js';
+import { requestData } from '/script/script.js';
 import '//unpkg.com/jquery@3.7.1/dist/jquery.min.js';
 createApp({
   setup() {

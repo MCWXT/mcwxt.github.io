@@ -1,4 +1,4 @@
-import { requestData, tao, _wr } from '/script/script.js';
+import { requestData } from '/script/script.js';
 import { createApp, ref, onMounted, watch } from 'vue';
 import { Router } from '/script/router.js';
 import '//unpkg.com/jquery@3.7.1/dist/jquery.min.js';
@@ -18,13 +18,10 @@ createApp({
     });
     const nav = requestData('nav');
     const myLink = requestData('myLink');
-    history.pushState = _wr('pushState');
     const mainSrc = ref(router.location);
     const mainHeight = ref(0);
     const mainMinHeight = ref(window.innerHeight - unMainHeight);
     const isLoading = ref(true);
-    window.addEventListener('pushState', () => router.path.value = location.pathname);
-    window.onpopstate = () => router.path.value = location.pathname;
     onMounted(() => {
       
     });
@@ -33,13 +30,6 @@ createApp({
       mainHeight.value = win.documentElement.scrollHeight;
       win.onclick = onclick;
       isLoading.value = false;
-    }
-    onclick = (e) => {
-      if (e.target.nodeName.toLocaleLowerCase() === 'a' && e.target.href.indexOf(location.origin) != -1) {
-        e.preventDefault();
-        const url = new URL(e.target.href);
-        tao.page = url.pathname + url.search;
-      }
     }
     return {
       nav,

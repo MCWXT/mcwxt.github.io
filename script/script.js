@@ -20,23 +20,7 @@ export const _wr = (type) => {
     return rv;
   }
 }
-class Tao {
-  proxyUrl = `https://proxy.${location.hostname}/`;
-  directive = {
-    mounted(el, binding, vnode) {
-      el.onclick = () => {
-        tao[binding.arg] = binding.value;
-      }
-    }
-  }
-  constructor() {
-
-  }
-  HTTPproxy(url) {
-    return this.proxyUrl + url;
-  }
-  set page(path) {
-    parent.history.pushState({}, '', path);
-  }
-}
-export const tao = new Tao();
+export const httproxy = (url) => {
+  const proxyServer = 'https://proxy.mcwxt.top/';
+  return proxyServer + url;
+};

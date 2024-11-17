@@ -1,5 +1,4 @@
 import { createApp, ref } from 'vue';
-import { tao } from '/script/script.js';
 import '//unpkg.com/jquery@3.7.1/dist/jquery.min.js';
 createApp({
   setup() {
@@ -12,7 +11,6 @@ createApp({
       return str.slice(0, str.indexOf('T'));
     }
     return {
-      tao,
       messages,
       timeFormat
     }
