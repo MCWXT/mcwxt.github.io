@@ -31,7 +31,7 @@ createApp({
     }
     const refreshCache = () => {
       parent.window.localStorage.removeItem('mcapks');
-      window.location.reload();
+      parent.window.location.reload();
     }
     return {
       mcapksData: requestMcapks().message,
