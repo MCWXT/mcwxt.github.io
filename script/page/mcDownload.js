@@ -34,7 +34,7 @@ createApp({
       parent.window.location.reload();
     }
     return {
-      mcapksData: requestMcapks().message,
+      mcapksData: mcapksData.message,
       download,
       refreshCache
     }
