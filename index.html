@@ -102,8 +102,8 @@
       <div>
         <span>感谢访问我的博客！</span>
       </div>
-      <div class="my-3 fs-4">
-        ​<a :href="link.link" v-for="link in myLink"><i :class="`bi ${link.icon} me-3`"></i></a>
+      <div class="my-3 ps-1 fs-4">
+        <a :href="link.link" v-for="link in myLink"><i class="bi me-3" :class="link.icon"></i></a>
       </div>
       <div class="fs-7">
         <span>感谢：</span>

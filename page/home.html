@@ -101,17 +101,13 @@
     </div>
   </div>
   <div class="d-flex list-tao-group justify-content-md-start justify-content-center flex-wrap mt-5">
-    <a v-for="link in myLink" class="m-2 shadow-sm rounded list-tao-item" style="width: 22rem;height: 4rem;" :href="link.linkimgSrc">
-      <div class="d-flex">
-        <div class="w-25">
-          <i class="mx-2" :class="`bi ${link.icon}`" style="font-size: 3rem;"></i>
-        </div>
-        <div class="my-auto">
-          <div>
-            <span class="text-primary">{{link.type}}：</span>
-            <span class="fs-5">{{link.content}}</span>
-          </div>
-        </div>
+    <a v-for="link in myLink" class="m-2 shadow-sm rounded d-flex list-tao-item" :href="link.link" style="width: 22rem;height: 4rem;">
+      <div class="w-25">
+        <i class="rounded-circle m-2 bi" :class="link.icon" style="height: 3rem;width: 3rem;font-size: 2.8rem;"></i>
+      </div>
+      <div class="lh-1 my-auto">
+        <h3 class="fs-5 m-0">{{link.content}}</h3>
+        <span class="text-black-50" style="font-size: .7rem">{{link.type}}</span>
       </div>
     </a>
   </div>
