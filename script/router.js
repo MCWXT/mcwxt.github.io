@@ -10,12 +10,13 @@ export class Router {
     history.pushState = _wr('pushState');
     window.addEventListener('pushState', () => this.update());
     window.onpopstate = () => this.update();
-    onclick = (e) => {
-      if (e.target.nodeName.toLocaleLowerCase() === 'a' && e.target.href.indexOf(location.origin) != -1) {
+    onclick = (e) => this.onclick(e);
+  }
+  onclick(e) {
+    if (e.target.nodeName.toLocaleLowerCase() === 'a' && e.target.href.indexOf(location.origin) != -1) {
         e.preventDefault();
         this.to(new URL(e.target.href));
       }
-    }
   }
   push(path) {
     this.location.value = this.routes[path] ? this.routes[path].location : this.config[404];

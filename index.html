@@ -12,6 +12,7 @@
   <link rel="manifest" href="/data/manifest.json" />
   <link rel="stylesheet" href="/style/reset.css">
   <link rel="stylesheet" href="/style/style.css">
+  <link rel="stylesheet" href="/style/loading.css">
   <script src="//unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
   <script src="//unpkg.com/jquery@3.7.1/dist/jquery.min.js"></script>
   <title>MCWXT的个人博客</title>
@@ -32,12 +33,16 @@
   footer * {
     color: dimgray;
   }
+
+  .navHeight {
+    height: 3rem;
+  }
 </style>
 
 <body id="app">
-  <header :style="`height: ${headerHeight}px;`">
-    <div>
-      <nav class="navbar position-fixed w-100 border-bottom bg-w p-1 z-2">
+  <header>
+    <div class="navHeight">
+      <nav class="navbar fixed-top w-100 border-bottom bg-w p-1 z-2 navHeight">
         <div>
           <button class="fs-3 mx-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
             <i class="bi bi-list"></i>
@@ -47,17 +52,18 @@
         <div>
           <a href="/login"><img class="d-inline-block rounded-circle" style="width: 2.5rem;aspect-ratio: 1/1;" src="/assets/img/logo.png" alt=""></a>
         </div>
-        <div class="offcanvas offcanvas-start w-50" tabindex="-1" id="offcanvasExample" data-bs-scroll="true" aria-labelledby="offcanvasExampleLabel">
-          <div class="offcanvas-header p-0 border-bottom" :style="`height: ${headerHeight}px;`">
+        <div class="offcanvas offcanvas-start w-75" tabindex="-1" id="offcanvasExample" data-bs-scroll="true" aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas-header">
             <div class="fs-5 mx-auto fw-bolder" style="font-family: sans-serif!important;">
               <span>MC</span>
               <span class="px-1 rounded-1 text-light" style="background-color: #FE9900;">WXT</span>
             </div>
           </div>
-          <div class="offcanvas-body p-2">
+          <hr class="mx-4 my-0">
+          <div class="offcanvas-body p-2 px-4">
             <div class="list-tao-group mt-4">
-              <a class="list-tao-item ps-3 py-1 my-1" :class="{ 'bg-primary-subtle': locationPathName == item.page }" v-for="item in nav" :href="item.page" data-bs-dismiss="offcanvas" aria-label="Close">
-                <i :class="`bi ${item.icon} me-3 fs-5`"></i><span>{{item.pageName}}</span>
+              <a class="list-tao-item ps-3 py-1 my-1 link-secondary" :class="{ 'bg-body-tertiary': app.router.path == item.page }" v-for="item in nav" :href="item.page" data-bs-dismiss="offcanvas" aria-label="Close">
+                <span>{{item.pageName}}</span>
               </a>
             </div>
           </div>
@@ -65,18 +71,28 @@
       </nav>
     </div>
   </header>
-  <div class="loading h-100 w-100 text-center fixed-top z-1" v-if="isLoading" style="background-color: #F0F0F0;">
-    <div class="d-inline-block" style="transform: translate(0, calc(50vh - 50%));">
-      <div>
-        <div class="spinner-border" style="width: 3rem;height: 3rem;" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-      </div>
-      <span>Loading...</span>
+  <div class="h-100 w-100 fixed-top text-center z-1 text-bg-light" v-show="app.loading">
+    <div class="loading">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   </div>
-  <main :style="`min-height: ${mainMinHeight}px;height: ${mainHeight}px;`">
-    <iframe class="w-100 h-100 d-block" :onload="mainOnload" :key="mainSrc" :src="mainSrc" scrolling="no" frameborder="0"></iframe>
+  <main :style="`min-height: 80vh;height: ${app.height}px;`">
+    <iframe class="w-100 h-100" :onload="onload" :key="app.src" :src="app.src" scrolling="no" frameborder="0"></iframe>
   </main>
   <footer class="text-bg-light">
     <div class="p-3">
