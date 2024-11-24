@@ -8,9 +8,16 @@ export class App {
     this.height = 0;
   }
   onload(e) {
+    window.scroll({
+      top: 0,
+      behavior: 'instant'
+    });
     const win = e.target.contentWindow.document;
     this.height = win.documentElement.scrollHeight;
     win.onclick = (e) => this.router.onclick(e);
     this.loading = false;
+  }
+  stopScroll(e) {
+    e.preventDefault();
   }
 }
