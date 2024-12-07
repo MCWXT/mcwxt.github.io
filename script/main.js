@@ -1,21 +1,11 @@
-import { requestData } from '/script/script.js';
-import { createApp, ref, reactive, watch } from 'vue';
+import { createApp, ref, reactive } from 'vue';
 import { App } from '/script/app.js';
-import '//unpkg.com/jquery@3.7.1/dist/jquery.min.js';
+import routerConfig from '/data/router.js';
+import nav from '/data/nav.js';
+import myLink from '/data/myLink.js';
 createApp({
   setup() {
-    const routerConfig = {
-      routes: requestData('routes'),
-      defaultPath: '/',
-      404: '/page/404.html',
-      update: () => {
-        app.loading = true;
-        app.height = 0;
-      }
-    }
     const app = reactive(new App(routerConfig));
-    const nav = requestData('nav');
-    const myLink = requestData('myLink');
     return {
       nav,
       myLink,

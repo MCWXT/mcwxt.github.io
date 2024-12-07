@@ -61,3 +61,6 @@ button {
 [href] * {
   pointer-events: none;
 }
+.btn {
+  text-decoration: none!important;
+}

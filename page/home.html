@@ -72,7 +72,7 @@
   <div>
     <ul class="nav border-top border-bottom">
       <li class="nav-item"><a class="nav-link active p-0 mx-3" href="/bilibili">视频</a></li>
-      <li class="nav-item"><a class="nav-link p-0 mx-3" href="/forum">论坛</a></li>
+      <li class="nav-item"><a class="nav-link p-0 mx-3" href="/discussions">讨论</a></li>
     </ul>
   </div>
   <div>
@@ -94,14 +94,14 @@
         <a class="bg-secondary-subtle m-2 shadow-sm rounded d-flex" style="width: 22rem;" href="//github.com/MCWXT">
           <div class="my-2" style="height: 3rem;"></div>
           <div class="lh-1 m-auto">
-            <span class="fs-5">Join me!点击加入</span>
+            <span class="fs-5">Join me!点击加入</span>''
           </div>
         </a>
       </div>
     </div>
   </div>
   <div class="d-flex list-tao-group justify-content-md-start justify-content-center flex-wrap mt-5">
-    <a v-for="link in myLink" class="m-2 shadow-sm rounded d-flex list-tao-item" :href="link.link" style="width: 22rem;height: 4rem;">
+    <a v-for="link in myLink" class="m-2 shadow-sm rounded d-flex list-tao-item" :href="link.location" style="width: 22rem;height: 4rem;">
       <div class="w-25">
         <i class="rounded-circle m-2 bi" :class="link.icon" style="height: 3rem;width: 3rem;font-size: 2.8rem;"></i>
       </div>

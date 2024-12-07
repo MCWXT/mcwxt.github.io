@@ -1,11 +1,12 @@
 import { createApp, ref } from 'vue';
-import { requestData } from '/script/script.js';
 import '//unpkg.com/jquery@3.7.1/dist/jquery.min.js';
+import myLink from '/data/myLink.js';
+import friendLink from '/data/friendLink.js';
 createApp({
   setup() {
     return {
-      friendLink: requestData('friendLink'),
-      myLink: requestData('myLink')
+      friendLink,
+      myLink,
     }
   }
 }).mount('#app');

@@ -9,7 +9,7 @@
   <meta name="keywords" content="MCWXT的个人博客,MCWXT,Web,Blog,Personal blog">
   <meta name="description" content="MCWXT的个人博客。友链，资源，论坛，文章，视频各种功能一应俱全！">
   <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
-  <link rel="manifest" href="/data/manifest.json" />
+  <link rel="manifest" href="/data/json/manifest.json" />
   <link rel="stylesheet" href="/style/reset.css">
   <link rel="stylesheet" href="/style/style.css">
   <link rel="stylesheet" href="/style/loading.css">
@@ -50,7 +50,7 @@
           <h1 class="d-inline-block align-middle fs-6">MCWXT的个人博客</h1>
         </div>
         <div>
-          <a href="/login"><img class="d-inline-block rounded-circle" style="width: 2.5rem;aspect-ratio: 1/1;" src="/assets/img/logo.png" alt=""></a>
+          <img class="d-inline-block rounded-circle" style="width: 2.5rem;aspect-ratio: 1/1;" src="/assets/img/logo.png" alt="">
         </div>
         <div class="offcanvas offcanvas-start w-75" tabindex="-1" id="offcanvasExample" data-bs-scroll="true" aria-labelledby="offcanvasExampleLabel">
           <div class="offcanvas-header">
@@ -62,8 +62,8 @@
           <hr class="mx-4 my-0">
           <div class="offcanvas-body p-2 px-4">
             <div class="list-tao-group mt-4">
-              <a class="list-tao-item ps-3 py-1 my-1 link-secondary" :class="{ 'bg-body-tertiary': app.router.path == item.page }" v-for="item in nav" :href="item.page" data-bs-dismiss="offcanvas" aria-label="Close">
-                <span>{{item.pageName}}</span>
+              <a class="list-tao-item ps-3 py-1 my-1 link-secondary" :class="{ 'bg-body-tertiary': app.router.path == item.location }" v-for="item in nav" :href="item.location" data-bs-dismiss="offcanvas" aria-label="Close">
+                <span>{{item.name}}</span>
               </a>
             </div>
           </div>
@@ -92,7 +92,7 @@
     </div>
   </div>
   <main :style="`min-height: 20rem;height: ${app.height}px;`">
-    <iframe class="w-100 h-100" :onload="onload" :key="app.src" :src="app.src" scrolling="no" frameborder="0"></iframe>
+    <iframe class="w-100 h-100" :onload="onload" :key="app.router.route.name" :src="app.router.config.location + app.router.route.component + '.html'" scrolling="no" frameborder="0"></iframe>
   </main>
   <footer class="text-bg-light">
     <div class="p-3">
@@ -103,7 +103,7 @@
         <span>感谢访问我的博客！</span>
       </div>
       <div class="my-3 ps-1 fs-4">
-        <a :href="link.link" v-for="link in myLink"><i class="bi me-3" :class="link.icon"></i></a>
+        <a :href="link.location" v-for="link in myLink"><i class="bi me-3" :class="link.icon"></i></a>
       </div>
       <div class="fs-7">
         <span>感谢：</span>

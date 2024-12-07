@@ -1,6 +1,6 @@
 import { createApp, ref } from 'vue';
-import { requestData } from '/script/script.js';
 import '//unpkg.com/jquery@3.7.1/dist/jquery.min.js';
+import bv from '/data/video.js';
 createApp({
   setup() {
     const tranNumber = (num, point = 0) => {
@@ -15,7 +15,7 @@ createApp({
         return parseFloat(parseInt(num / 100000000) + '.' + decimal) + '亿'
       }
     }
-    const bvid = requestData('video').bvid;
+    const bvid = bv.bvid;
     const getData = (bvid) => $.parseJSON($.ajax({
       url: "https://tenapi.cn/v2/bilivideo?url=https://www.bilibili.com/video/" + bvid,
       dataType: "json",

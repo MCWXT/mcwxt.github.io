@@ -1,10 +1,3 @@
-export const requestData = (dataName) => {
-  return $.parseJSON($.ajax({
-    url: '/data/' + dataName + '.json',
-    dataType: 'json',
-    async: false
-  }).responseText);
-}
 export const getQueryString = (name) => {
   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
   var r = parent.window.location.search.substr(1).match(reg);
@@ -24,3 +17,10 @@ export const httproxy = (url) => {
   const proxyServer = 'https://proxy.mcwxt.top/';
   return proxyServer + url;
 };
+export const cache = {
+  set: (key, content) => {
+    parent.window.localStorage.setItem(key, JSON.stringify(content));
+    return content;
+  },
+  get: (key) => JSON.parse(parent.window.localStorage.getItem(key))
+}
