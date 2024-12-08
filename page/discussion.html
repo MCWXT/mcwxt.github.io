@@ -48,7 +48,7 @@
         <div class="py-2 position-relative">
           <span class="m-3">评论</span>
           <span class="text-dark-emphasis">{{discussion.comments}}</span>
-          <a class="btn btn-success position-absolute end-0 top-50 translate-middle" role="button" :href="'//github.com/MCWXT/mcwxt.github.io/discussions/' + number">新评论</a>
+          <a class="btn btn-success btn-sm position-absolute end-0 top-50 translate-middle" role="button" :href="'//github.com/MCWXT/mcwxt.github.io/discussions/' + number">新评论</a>
         </div>
         <div class="m-2 border rounded" v-if="comments[0]" v-for="comment in comments">
           <div class="py-2">
@@ -57,7 +57,7 @@
             <span class="my-2 ms-2 text-dark-emphasis">{{comment.updated_at}}</span>
           </div>
           <div class="p-2">
-            <span>{{comment.body}}</span>
+            <span class="mx-2">{{comment.body}}</span>
           </div>
         </div>
       </div>
