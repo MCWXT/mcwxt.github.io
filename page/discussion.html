@@ -37,7 +37,7 @@
           <span>{{discussion.user.login}}</span>
         </div>
         <div class="p-2">
-          <div class="mx-2" v-html="discussion.body">
+          <div class="mx-2" v-html="marked.parse(discussion.body)">
 
           </div>
         </div>
