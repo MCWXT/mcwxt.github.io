@@ -39,7 +39,7 @@
   }
 </style>
 
-<body id="app">
+<body class="text-bg-light" id="app">
   <header>
     <div class="navHeight">
       <nav class="navbar fixed-top w-100 border-bottom bg-w p-1 z-2 navHeight">
@@ -93,7 +93,7 @@
       <div></div>
     </div>
   </div>
-  <main :style="`min-height: 20rem;height: ${app.height}px;`">
+  <main :style="`min-height: 28rem;height: ${app.height}px;`">
     <iframe class="w-100 h-100" :onload="onload" :key="app.router.route.name" :src="app.router.config.location + app.router.route.component + '.html'" scrolling="no" frameborder="0"></iframe>
   </main>
   <footer class="text-bg-light">
@@ -104,21 +104,7 @@
       <div>
         <span>感谢访问我的博客！</span>
       </div>
-      <div class="my-3 ps-1 fs-4">
-        <a :href="link.location" v-for="link in myLink"><i class="bi me-3" :class="link.icon"></i></a>
-      </div>
-      <div class="fs-7">
-        <span>感谢：</span>
-        <ul>
-          <li><a href="//halo.nekoline.top/">离散的流云</a></li>
-          <li><a href="//remcbbs.com/">REmcbbs</a></li>
-          <li><a href="//github.com/">github</a></li>
-          <li><a href="//cloudflare.com/">cloudflare</a></li>
-          <li><a href="//bilibili.com">bilibili</a></li>
-        </ul>
-      </div>
-      <hr class="my-1" />
-      <div class="fs-7">
+      <div class="fs-7 mt-2">
         <div>
           <ul>
             <li><a href="https://www.w3.org/zh-hans/">w3c</a></li>

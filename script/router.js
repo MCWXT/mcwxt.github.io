@@ -38,6 +38,7 @@ export class Router {
             params[param] = match[index + 1];
           });
         }
+        route.path = path;
         route.params = params;
         return route;
       }
