@@ -59,7 +59,9 @@
               <span class="px-1 rounded-1 text-light" style="background-color: #FE9900;">WXT</span>
             </div>
           </div>
-          <hr class="mx-4 my-0">
+          <div class="my-2 mx-3">
+            <input class="form-control" v-model="path" @keyup.enter="app.router.to(path)" :placeholder="app.router.route.path" :value="app.router.route.path">
+          </div>
           <div class="offcanvas-body p-2 px-4">
             <div class="list-tao-group mt-4">
               <a class="list-tao-item ps-3 py-1 my-1 link-secondary" :class="{ 'bg-body-tertiary': app.router.path == item.location }" v-for="item in nav" :href="item.location" data-bs-dismiss="offcanvas" aria-label="Close">

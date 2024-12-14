@@ -1,6 +1,7 @@
 import { ref, reactive, watch } from 'vue';
 import { _wr } from '/script/script.js';
 export class Router {
+  baseUrl = 'https://mcwxt.top';
   constructor(config = {}) {
     this.path = ref(window.location.pathname || (window.location.pathname = config.defaultPath));
     this.route = reactive({path: this.path.value, component: config[404], name: 'Not Found', params: {}});
@@ -16,7 +17,7 @@ export class Router {
   click(e) {
     if (e.target.nodeName.toLocaleLowerCase() === 'a' && e.target.href.indexOf(window.location.origin) != -1) {
       e.preventDefault();
-      this.to(new URL(e.target.href));
+      this.to(e.target.href);
     }
   }
   match(path) {
@@ -55,7 +56,8 @@ export class Router {
       function: this.config.update(this.route),
     }
   }
-  to(url) {
+  to(path) {
+    const url = new URL(path, this.baseUrl);
     parent.history.pushState({}, '', url.pathname + url.hash + url.search);
   }
 }

@@ -2,7 +2,7 @@ export default [
   {
     name: 'REmcbbs',
     link: '//remcbbs.com/',
-    icon: '//tenapi.cn/v2/groupimg?qun=652973775',
+    icon: '//remcbbs.com/data/attachment/common/template/boardimg_20240325p0e983p4.png',
     brief: '新一届MC论坛'
   }, {
     name: '朝阳云',
@@ -21,13 +21,13 @@ export default [
     brief: '静态之王'
   }, {
     name: '辽阔域名',
-    link: '//lkdns.us.kg/',
-    icon: '//tenapi.cn/v2/groupimg?qun=233148186',
+    link: '//lkdns.org/',
+    icon: '//lkdns.org/q.jpg',
     brief: '公益发放域名'
   }, {
-    name: '绮云数据',
-    link: '//epmb.asia/',
-    icon: '//tenapi.cn/v2/groupimg?qun=716621671',
+    name: '蜜蜂云',
+    link: '//cloud.beecld.com',
+    icon: '//cloud.beecld.com/beecld.png',
     brief: '"良心"商家'
   }, {
     name: 'Linine的茶歇室',
