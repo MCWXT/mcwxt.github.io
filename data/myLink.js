@@ -18,7 +18,7 @@ export default [
     type: 'Email',
     icon: 'bi-envelope-fill',
     content: 'mcwxt@foxmail.com',
-    location: 'mailto:mcwxt@foxmail.com'
+    location: 'mailto:mail@mcwxt.top'
   }, {
     type: 'Github',
     icon: 'bi-github',
