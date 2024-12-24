@@ -14,5 +14,7 @@ export default {
     { path: '/pan', link: 'https://pan.mcwxt.top/' },
     { path: '/dino', name: '恐龙游戏', component: 'dinosaurGame' },
     { path: '/mc/download', name: '我的世界下载', component: 'mcDownload' },
+    { path: '/login', name: '登录', component: 'login/request' },
+    { path: '/login/callback', name: '授权成功', component: 'login/callback' }
   ]
 }

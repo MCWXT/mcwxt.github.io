@@ -1,4 +1,4 @@
-import { ref, watch } from 'vue';
+import { ref, watch } from '/cdn_modules/vue@3.5.13/vue.esm-browser.prod.min.js';
 import { Router } from '/script/router.js';
 export class App {
   constructor(routerConfig) {
@@ -16,9 +16,13 @@ export class App {
       top: 0,
       behavior: 'instant'
     });
-    const win = e.target.contentWindow.document;
-    this.height = win.documentElement.scrollHeight;
-    win.onclick = (e) => this.router.click(e);
+    const iframeDocument = e.target.contentWindow.document;
+    //this.height = iframeDocument.documentElement.offsetHeight;
+    iframeDocument.onclick = (e) => this.router.click(e);
+    const resizeObserver = new ResizeObserver((entries) => {
+      this.height = entries[0].contentRect.height;
+    });
+    resizeObserver.observe(iframeDocument.documentElement);
     this.loading = false;
   }
   stopScroll(e) {

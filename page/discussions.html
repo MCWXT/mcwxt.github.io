@@ -36,7 +36,7 @@
         <a class="btn btn-success btn-sm position-absolute end-0 top-50 translate-middle" role="button" href="//github.com/MCWXT/mcwxt.github.io/discussions/new/choose">新讨论</a>
       </div>
     </div>
-    <div class="m-3">
+    <div v-if="discussions" class="m-3">
       <div class="list-tao-group rounded-2 overflow-hidden">
         <a class="list-tao-item border-top rounded-0" v-for="discussion in discussions" :href="'/discussion/' + discussion.number">
           <div class="p-2">

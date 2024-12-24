@@ -1,4 +1,4 @@
-import { ref, reactive, watch } from 'vue';
+import { ref, reactive, watch } from '/cdn_modules/vue@3.5.13/vue.esm-browser.prod.min.js';
 import { _wr } from '/script/script.js';
 export class Router {
   baseUrl = 'https://mcwxt.top';

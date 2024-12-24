@@ -34,7 +34,7 @@
     </div>
     <div class="alert alert-warning m-2">
       <span>刷新缓存，以获得最新版本</span><br>
-      <span class="link-warning" @click="refreshCache(e)">点击刷新</span>
+      <span class="link-warning" @click="refresh()">点击刷新</span>
     </div>
   </div>
   <div>
@@ -48,15 +48,15 @@
             <th scope="col">下载</th>
           </tr>
         </thead>
-        <tbody>
-          <tr class="border-top" v-for="data in mcapksData">
-            <td class="version">{{data.version}}</td>
+        <tbody v-if="data">
+          <tr class="border-top" v-for="apk in data">
+            <td class="version">{{apk.version}}</td>
             <td class="type">
-              <span class="badge" v-if="data.beta == 'True'" style="background-color: red;">测试版</span>
+              <span class="badge" v-if="apk.beta == 'True'" style="background-color: red;">测试版</span>
               <span class="badge" v-else style="background-color: green;">正式版</span>
             </td>
-            <td class="size">{{data.size}}</td>
-            <td><a class="btn btn-success download" @click="download(data.version, data.info_key)"><i class="bi bi-download"></i></a></td>
+            <td class="size">{{apk.size}}</td>
+            <td><a class="btn btn-success download" @click="download(apk.version, apk.info_key)"><i class="bi bi-download"></i></a></td>
           </tr>
         </tbody>
       </table>
