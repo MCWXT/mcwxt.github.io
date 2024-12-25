@@ -1,6 +1,6 @@
 export async function onRequestPost(context) {
   const request = context.request;
-  // const data = JSON.parse(request.body);
+  const data = request.body;
   // const githubRequest = new Request('https://github.com/login/oauth/access_token', {
   //   method: 'POST',
   //   body: {
@@ -10,5 +10,5 @@ export async function onRequestPost(context) {
   //   }
   // });
   // const githubResponse = await fetch(githubRequest);
-  return new Response('6');
+  return new Response(data);
 }
