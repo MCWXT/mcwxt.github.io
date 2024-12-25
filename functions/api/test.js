@@ -1,3 +1,3 @@
-export function onRequest(context) {
+export function onRequestPost(context) {
   return new Response(context.env.githubAppClientSecret)
 }
