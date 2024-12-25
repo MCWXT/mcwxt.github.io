@@ -1,5 +1,5 @@
 import { Axios } from '/cdn_modules/axios@1.7.8/esm/axios.min.js';
-export async const onRequestPost = (context) => {
+export async function onRequestPost(context) {
   const request = context.request;
   const data = JSON.parse(request.body);
   const asset = axios.post('https://github.com/login/oauth/access_token', {
