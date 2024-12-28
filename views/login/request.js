@@ -1,9 +1,9 @@
 import { ref } from 'vue';
-import { getTemplate } from 'tao';
+import { getTemplate, cache } from 'tao';
 export default {
   setup() {
     const isLogged = ref(false);
-    parent.window.localStorage.getItem('access_token') && (isLogged.value = true);
+    cache.get('access_token') && (isLogged.value = true);
     return {
       isLogged
     }

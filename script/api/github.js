@@ -10,7 +10,7 @@ const getHeaders = () => {
 }
 const github = new Axios({
   baseURL: 'https://api.github.com/',
-  headers: getHeaders,
+  headers: getHeaders(),
   transformResponse: (data) => {
     if (typeof data != 'object') {
       return JSON.parse(data);
