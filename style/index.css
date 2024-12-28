@@ -1,0 +1,63 @@
+@import url("/style/reset.css");
+@import url("https://unpkg.com/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url("https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css");
+
+* {
+  font-family: sans-serif !important;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+a,
+button {
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.textLineBreakHidden {
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--line);
+}
+
+.list-tao-group .list-tao-item {
+  display: block;
+  text-decoration: none;
+  border-radius: .2em;
+}
+
+.list-tao-group .list-tao-item:hover {
+  background-color: var(--bs-tertiary-bg);
+}
+
+.list-tao-group .list-tao-item:active {
+  background-color: var(--bs-tertiary-bg);
+}
+
+.list-tao-group .list-tao-item:first-of-type {
+  border: none !important;
+}
+
+.fs-7 {
+  font-size: .8rem;
+}
+
+.fs-8 {
+  font-size: .6rem;
+}
+
+.fs-9 {
+  font-size: .4rem;
+}
+
+.fs-10 {
+  font-size: .2rem;
+}

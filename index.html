@@ -10,115 +10,29 @@
   <meta name="description" content="MCWXT的个人博客。友链，资源，论坛，文章，视频各种功能一应俱全！">
   <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
   <link rel="manifest" href="/data/json/manifest.json" />
-  <link rel="stylesheet" href="/style/reset.css">
-  <link rel="stylesheet" href="/style/style.css">
-  <link rel="stylesheet" href="/style/loading.css">
-  <!-- <script src="//unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script> -->
+  <link rel="stylesheet" href="/style/index.css">
   <script src="//unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
   <title>MCWXT的个人博客</title>
 </head>
 <script type="importmap">
   {
-    "imports": {
-      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js"
-    }
+  "imports": {
+    "vue": "/cdn_modules/vue@3.5.13/vue.esm-browser.prod.min.js",
+    "vue-router": "/cdn_modules/vue-router@4.5.0/vue-router.esm-browser.prod.min.js",
+    "@vue/devtools-api": "https://unpkg.com/@vue/devtools-api@6.6.4/lib/esm/index.js",
+    "tao": "/script/index.js"
   }
+}
 </script>
-<!-- prod.js -->
 <style>
-  iframe {
-    height: 0;
-  }
-
-  footer * {
-    color: dimgray;
-  }
-
   .navHeight {
     height: 3rem;
   }
 </style>
 
-<body class="text-bg-light" id="app">
-  <header>
-    <div class="navHeight">
-      <nav class="navbar fixed-top w-100 border-bottom bg-w p-1 z-2 navHeight">
-        <div>
-          <button class="fs-3 mx-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-            <i class="bi bi-list"></i>
-          </button>
-          <h1 class="d-inline-block align-middle fs-6">MCWXT的个人博客</h1>
-        </div>
-        <div>
-          <img class="d-inline-block rounded-circle" style="width: 2.5rem;aspect-ratio: 1/1;" src="/assets/img/logo.png" alt="">
-        </div>
-        <div class="offcanvas offcanvas-start w-75" tabindex="-1" id="offcanvasExample" data-bs-scroll="true" aria-labelledby="offcanvasExampleLabel">
-          <div class="offcanvas-header">
-            <div class="fs-5 mx-auto fw-bolder" style="font-family: sans-serif!important;">
-              <span class="me-1">MC</span>
-              <span class="px-1 rounded-1 text-light" style="background-color: #FE9900;">WXT</span>
-            </div>
-          </div>
-          <div class="my-2 mx-3">
-            <input class="form-control" v-model="path" @keyup.enter="app.router.to(path)" :placeholder="app.router.route.path" :value="app.router.route.path">
-          </div>
-          <div class="offcanvas-body p-2 px-4">
-            <div class="list-tao-group mt-4">
-              <a class="list-tao-item ps-3 py-1 my-1 link-secondary" :class="{ 'bg-body-tertiary': app.router.path == item.location }" v-for="item in nav" :href="item.location" data-bs-dismiss="offcanvas" aria-label="Close">
-                <span>{{item.name}}</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <div class="h-100 w-100 fixed-top text-center z-1 text-bg-light" @touchmove="app.stopScroll" v-show="app.loading">
-    <div class="loading">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <main :style="`min-height: 28rem;height: ${app.height}px;`">
-    <iframe class="w-100 h-100" :onload="onload" :key="app.router.route.name" :src="app.router.config.location + app.router.route.component + '.html'" scrolling="no" frameborder="0"></iframe>
-  </main>
-  <footer class="text-bg-light">
-    <div class="p-3">
-      <div>
-        <span class="fw-bold fs-4">MCWXT</span>
-      </div>
-      <div>
-        <span>感谢访问我的博客！</span>
-      </div>
-      <div class="fs-7 mt-2">
-        <div>
-          <ul>
-            <li><a href="https://www.w3.org/zh-hans/">w3c</a></li>
-            <li><a href="https://www.mozilla.org/privacy/websites/#cookies">cookie</a></li>
-            <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage">localStorage</a></li>
-          </ul>
-        </div>
-        <i class="bi bi-c-circle"></i>
-        <span>2024.5 -</span>
-        <span>本网站产权归bilibili MCWXT所有</span>
-      </div>
-    </div>
-  </footer>
+<body id="app">
+  
 </body>
-<script src="/script/main.js" type="module"></script>
+<script src="/main.js" type="module"></script>
 
 </html>

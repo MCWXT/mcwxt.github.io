@@ -1,0 +1,57 @@
+<div>
+  <div class="" style="height:8rem;background: url('/assets/img/background.jpg') 0 -3.5rem no-repeat;background-size: cover;"></div>
+  <div class="d-flex">
+    <div>
+      <img class="rounded-circle ms-2 position-relative" src="/assets/img/logo.png" style="height: 8rem;top: -.5rem;" alt="">
+      <div class="text-center ms-2" style="width: 8rem;">
+        <span class="lh-1" style="font-size: 2.2rem">MCWXT</span>
+      </div>
+    </div>
+    <div class="w-100" style="max-width: 15rem;">
+      <div class="" style="margin: 2rem 0;">
+        <div class="d-flex justify-content-center mb-2">
+          <div class="border-end text-center px-2">
+            <span class="fs-4">3466</span>
+            <span class="d-block lh-1 fs-8">粉丝</span>
+          </div>
+          <div class="border-end text-center px-2">
+            <span class="fs-4">221</span>
+            <span class="d-block lh-1 fs-8">关注</span>
+          </div>
+          <div class="text-center px-2">
+            <span class="fs-4">2万</span>
+            <span class="d-block lh-1 fs-8">获赞</span>
+          </div>
+        </div>
+        <div class="text-center w-100">
+          <a class="btn btn-secondary btn-sm w-75 border-0" href="https://m.bilibili.com/space/3493283118451294"><span class="text-light">关注</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="p-2 lh-1 text-black-50" style="font-size: .9rem;">
+      <span>努力成为一个大UP主ing。感谢您来我的博客站，本人也参与开发：DMX梦幻服，<a href="//remcbbs.top/">REmcbbs论坛</a>……也欢迎大家来我其他开发的站点</span>
+    </div>
+  </div>
+</div>
+<div>
+  <ul class="nav border-top border-bottom">
+    <li class="nav-item"><a class="nav-link active p-0 mx-3" href="/bilibili">视频</a></li>
+    <li class="nav-item"><a class="nav-link p-0 mx-3" href="/discussions">讨论</a></li>
+  </ul>
+</div>
+<div>
+  <div>
+    <div class="m-2">
+      <i class="bi bi-link-45deg fs-3"></i>
+      <h2 class="d-inline fs-4">友链</h2>
+    </div>
+    <div class="d-flex justify-content-md-start justify-content-center flex-wrap list-tao-group">
+      <link-card class="m-2 shadow-sm rounded d-flex list-tao-item" v-for="item in friendLink" :href="item.link" :name="item.name" :icon="item.icon" :content="item.brief"></link-card>
+    </div>
+  </div>
+</div>
+<div class="d-flex list-tao-group justify-content-md-start justify-content-center flex-wrap mt-5">
+  <link-card class="m-2 shadow-sm rounded d-flex list-tao-item" v-for="item in myLink" :href="item.location" :name="item.type" :icon="item.icon" :content="item.content" type="i"></link-card>
+</div>

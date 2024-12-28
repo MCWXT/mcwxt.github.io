@@ -1,0 +1,31 @@
+<nav class="navbar fixed-top w-100 border-bottom bg-white p-1 z-2 navHeight">
+  <div>
+    <button class="fs-3 mx-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+      <i class="bi bi-list"></i>
+    </button>
+    <h1 class="d-inline-block align-middle fs-6">MCWXT的个人博客</h1>
+  </div>
+  <div>
+    <router-link to="/login">
+      <img class="d-inline-block rounded-circle" style="width: 2.5rem;aspect-ratio: 1/1;" src="/assets/img/logo.png" alt="">
+    </router-link>
+  </div>
+  <div class="offcanvas offcanvas-start w-75" tabindex="-1" id="offcanvas" data-bs-scroll="true" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-header">
+      <div class="fs-5 mx-auto fw-bolder" style="font-family: sans-serif!important;">
+        <span class="me-1">MC</span>
+        <span class="px-1 rounded-1 text-light" style="background-color: #FE9900;">WXT</span>
+      </div>
+    </div>
+    <div class="py-3 px-4 border-top border-bottom" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <span class="text-secondary-emphasis">{{$route.path}}</span>
+    </div>
+    <div class="offcanvas-body p-2 px-4">
+      <div class="list-tao-group mt-4" data-bs-dismiss="offcanvas" aria-label="Close">
+        <router-link class="list-tao-item ps-3 py-1 my-1 link-secondary" :to="item.location" :class="{ 'bg-body-tertiary': $route.path == item.location }" v-for="item in nav">
+          <span>{{item.name}}</span>
+        </router-link>
+      </div>
+    </div>
+  </div>
+</nav>

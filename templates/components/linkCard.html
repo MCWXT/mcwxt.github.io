@@ -1,0 +1,10 @@
+<router-link :to="{ path: '/link', query: { url: href } }" style="width: 22rem;height: 4rem;">
+  <div class="w-25">
+    <i class="rounded-circle m-2 bi" :class="icon" style="height: 3rem;width: 3rem;font-size: 2.8rem;" v-if="type == 'i'"></i>
+    <img class="rounded-circle m-2" loading="lazy" style="height: 3rem;width: 3rem;object-fit: contain;" :src="icon" v-else />
+  </div>
+  <div class="lh-1 my-auto">
+    <h3 class="fs-5 m-0">{{name}}</h3>
+    <span class="text-black-50" style="font-size: .7rem">{{content}}</span>
+  </div>
+</router-link>
