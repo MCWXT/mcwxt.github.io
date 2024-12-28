@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { getTemplate } from 'tao';
+import { getTemplate, cache } from 'tao';
 import { Axios } from '/cdn_modules/axios@1.7.8/esm/axios.min.js';
 export default {
   setup() {
