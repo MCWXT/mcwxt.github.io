@@ -4,7 +4,7 @@ const github_access = cache.get('github_access');
 const getHeaders = () => {
   const headers = {};
   if (github_access && github_access.access_token) {
-    headers.Authorization = github_access.token_type + github_access.scope + github_access.access_token;
+    headers.Authorization = 'Bearer ' + github_access.access_token;
   }
   return headers;
 }
