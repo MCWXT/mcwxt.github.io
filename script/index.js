@@ -9,11 +9,11 @@ export const httproxy = (url) => {
 };
 export const cache = {
   set: (key, content) => {
-    parent.window.localStorage.setItem(key, typeof content == 'string' ? content : JSON.stringify(content));
+    localStorage.setItem(key, typeof content == 'string' ? content : JSON.stringify(content));
     return content;
   },
   get: (key) => {
-    const content = parent.window.localStorage.getItem(key);
+    const content = localStorage.getItem(key);
     return content && content.indexOf('{') != -1 ? JSON.parse(content) : content;
   }
 }
