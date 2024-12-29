@@ -15,19 +15,27 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Debug GitHub Context
+      run: |
+        echo "Repository: ${{ github.repository }}"
+        echo "Event: ${{ github.event_name }}"
+
     - name: Fetch issues from GitHub API
       id: fetch_issues
       run: |
         echo "Fetching issues from GitHub API..."
         curl -s -H "Accept: application/vnd.github.v3+json" \
-        "https://api.github.com/repos/${{ github.repository }}/issues?state=open&labels=友链提交" \
+        "https://api.github.com/repos/${{ github.repository }}/issues?state=open&labels=$(echo -ne "\u53cb\u94fe\u63d0\u4ea4")" \
         -o issues.json
         
         echo "Fetched issues content:"
         cat issues.json
-        
+
         echo "Parsing issues JSON..."
-        cat issues.json | jq '[.[] | .body]' > parsed_issues.json
+        cat issues.json | jq . > parsed_issues.json
+
+        echo "Parsed issues JSON content:"
+        cat parsed_issues.json
 
     - name: Save issues to JSON file
       run: |
