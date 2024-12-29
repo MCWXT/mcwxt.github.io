@@ -28,7 +28,7 @@ jobs:
         cat issues.json
 
         echo "Parsing issues JSON..."
-        cat issues.json | jq '[.[] | .body]' > parsed_issues.json
+        cat issues.json | jq '[.[] | {body: .body}]' > parsed_issues.json
 
         echo "Parsed issues JSON content:"
         cat parsed_issues.json

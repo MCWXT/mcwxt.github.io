@@ -48,10 +48,11 @@
       <h2 class="d-inline fs-4">友链</h2>
     </div>
     <div class="d-flex justify-content-md-start justify-content-center flex-wrap list-tao-group">
-      <link-card class="m-2 shadow-sm rounded d-flex list-tao-item" v-for="item in friendLink" :href="item.link" :name="item.name" :icon="item.icon" :content="item.brief"></link-card>
+      <link-card class="m-2 shadow-sm rounded d-flex list-tao-item" v-for="item in friendLink" :href="item.url" :title="item.title" :icon="item.icon" :content="item.brief"></link-card>
+      <link-card class="m-2 shadow-sm rounded d-flex list-tao-item" v-for="item in issuesFriendLink" :href="item.url" :title="item.title" :icon="item.icon" :content="item.brief"></link-card>
     </div>
   </div>
 </div>
 <div class="d-flex list-tao-group justify-content-md-start justify-content-center flex-wrap mt-5">
-  <link-card class="m-2 shadow-sm rounded d-flex list-tao-item" v-for="item in myLink" :href="item.location" :name="item.type" :icon="item.icon" :content="item.content" type="i"></link-card>
+  <link-card class="m-2 shadow-sm rounded d-flex list-tao-item" v-for="item in myselfLink" :href="item.location" :title="item.type" :icon="item.icon" :content="item.content" type="i"></link-card>
 </div>

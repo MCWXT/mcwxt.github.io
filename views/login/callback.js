@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { getTemplate, cache } from 'tao';
-import { Axios } from '/cdn_modules/axios@1.7.8/esm/axios.min.js';
+import { Axios } from 'axios';
 export default {
   setup() {
     const route = useRoute();

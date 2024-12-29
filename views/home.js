@@ -1,14 +1,18 @@
 import { ref } from 'vue';
 import { getTemplate } from 'tao';
-import myLink from '/data/myLink.js';
+import { Axios } from 'axios';
+import myselfLink from '/data/myselfLink.js';
 import friendLink from '/data/friendLink.js';
 import LinkCard from '/components/linkCard.js';
 export default {
   setup() {
-    
+    const axios = new Axios({});
+    const issuesFriendLink = ref();
+    axios.get('/data/json/issues.json').then((response) => issuesFriendLink.value = JSON.parse(response.data));
     return {
-      myLink,
-      friendLink
+      myselfLink,
+      friendLink,
+      issuesFriendLink
     }
   },
   components: {

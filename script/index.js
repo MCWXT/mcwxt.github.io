@@ -1,4 +1,4 @@
-import { Axios } from '/cdn_modules/axios@1.7.8/esm/axios.min.js';
+import { Axios } from 'axios';
 const axios = new Axios({});
 export const getTemplate = async (src) => {
   return await axios.get(src).then((response) => response.data);;

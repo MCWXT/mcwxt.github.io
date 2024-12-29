@@ -1,4 +1,4 @@
-import { Axios } from '/cdn_modules/axios@1.7.8/esm/axios.min.js';
+import { Axios } from 'axios';
 import { cache } from 'tao';
 const github_access = cache.get('github_access');
 const getHeaders = () => {
