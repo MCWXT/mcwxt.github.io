@@ -25,7 +25,7 @@ jobs:
       run: |
         echo "Fetching issues from GitHub API..."
         curl -s -H "Accept: application/vnd.github.v3+json" \
-        "https://api.github.com/repos/MCWXT/Blog/issues?state=open&labels=友链提交" \
+        "https://api.github.com/repos/${{ github.repository }}/issues?state=open&labels=$(echo -ne "\u53cb\u94fe\u63d0\u4ea4")" \
         -o issues.json
         
         echo "Fetched issues content:"
