@@ -14,12 +14,12 @@ export default {
         }
       }).then((response) => {
         const match = response.data.match(new RegExp(`(?<=window.location.href=')https://www.123865.com/s/(.){5,}(?=';)`));
-        parent.location.href = match && match[0] || 'https://mcapks.net/down.php?vs=' + version + '_64' || 'https://mcapks.net/info/' + encodeURIComponent(btoa(version)) + '/' + info_key + '.html';
+        window.location.href = match && match[0] || 'https://mcapks.net/down.php?vs=' + version + '_64' || 'https://mcapks.net/info/' + encodeURIComponent(btoa(version)) + '/' + info_key + '.html';
       });
     }
     const refresh = () => {
-      parent.window.localStorage.removeItem('mcapks');
-      parent.window.location.reload();
+      window.localStorage.removeItem('mcapks');
+      window.location.reload();
     }
     return {
       data,
