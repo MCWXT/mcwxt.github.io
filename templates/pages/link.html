@@ -1,11 +1,11 @@
 <div style="padding: 7rem 0;">
-  <div class="card mx-auto" style="height: 13rem; width: 15rem;">
+  <div class="card mx-auto" style="height: 14rem; width: 16rem;">
     <div class="card-header">
       跳转外链
     </div>
     <div class="card-body h-auto">
       <h5 class="card-title">您确定跳转至:</h5>
-      <p class="card-text">{{$route.query.url}}</p>
+      <p class="card-text textLineBreakHidden" style="--line: 3">{{$route.query.url}}…</p>
       <a :href="$route.query.url" target="_blank" class="btn btn-primary position-absolute" style="right: 1rem;bottom: 1rem;">继续</a>
     </div>
   </div>
