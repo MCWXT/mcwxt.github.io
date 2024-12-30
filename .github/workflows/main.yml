@@ -28,22 +28,19 @@ jobs:
         cat issues.json
 
         echo "Parsing issues JSON..."
-        cat issues.json | jq '[.[] | .body]' > parsed_issues.json
+        cat issues.json | jq '[.[] | {body: .body}]' > parsed_issues.json
 
         echo "Parsed issues JSON content:"
         cat parsed_issues.json
 
-    - name: Save issues to JSON file
+    - name: Configure AWS CLI
       run: |
-        mkdir -p data/json
-        mv parsed_issues.json data/json/issues.json
+        pip install awscli
+        aws configure set aws_access_key_id ${{ secrets.CLOUDFLARE_ACCESS_KEY_ID }}
+        aws configure set aws_secret_access_key ${{ secrets.CLOUDFLARE_SECRET_ACCESS_KEY }}
+        aws configure set default.region us-east-1
 
-    - name: Commit and push changes
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload issues to Cloudflare R2
       run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add data/json/issues.json
-        git commit -m 'Update issues.json with open issues tagged with 友链提交'
-        git push
+        echo "Uploading issues to Cloudflare R2..."
+        aws s3 cp parsed_issues.json s3://blog/data/json/issues.json --endpoint-url https://05b69c2cf1cc6b7312bd86130ff3d5f3.r2.cloudflarestorage.com
