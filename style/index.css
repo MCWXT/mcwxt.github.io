@@ -1,6 +1,6 @@
 @import url("/style/reset.css");
-@import url("https://unpkg.com/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-@import url("https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css");
+@import url("/cdn_modules/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url("/cdn_modules/bootstrap@5.3.3/css/bootstrap.min.css");
 
 * {
   font-family: sans-serif !important;

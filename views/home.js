@@ -8,7 +8,7 @@ export default {
   setup() {
     const axios = new Axios({});
     const issuesFriendLink = ref();
-    axios.get('/data/json/issues.json').then((response) => issuesFriendLink.value = JSON.parse(response.data));
+    axios.get('https://storage.mcwxt.top/data/json/issues.json').then((response) => issuesFriendLink.value = JSON.parse(response.data));
     return {
       myselfLink,
       friendLink,
