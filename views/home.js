@@ -18,5 +18,5 @@ export default {
   components: {
     LinkCard
   },
-  template: await getTemplate('/templates/pages/home.html')
+  template: await getTemplate('/templates/views/home.html')
 }

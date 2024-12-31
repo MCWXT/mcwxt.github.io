@@ -27,5 +27,5 @@ export default {
       refresh
     }
   },
-  template: await getTemplate('/templates/pages/mcDownload.html')
+  template: await getTemplate('/templates/views/mcDownload.html')
 }

@@ -7,5 +7,5 @@ export default {
       
     }
   },
-  template: await getTemplate('/templates/pages/404.html')
+  template: await getTemplate('/templates/views/404.html')
 }

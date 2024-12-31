@@ -8,5 +8,5 @@ export default {
       isLogged
     }
   },
-  template: await getTemplate('/templates/pages/login/request.html')
+  template: await getTemplate('/templates/views/login/request.html')
 }

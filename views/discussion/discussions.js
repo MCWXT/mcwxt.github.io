@@ -10,5 +10,5 @@ export default {
       discussions
     }
   },
-  template: await getTemplate('/templates/pages/discussions.html')
+  template: await getTemplate('/templates/views/discussions.html')
 }

@@ -13,5 +13,5 @@ export default {
       
     }
   },
-  template: await getTemplate('/templates/pages/login/callback.html')
+  template: await getTemplate('/templates/views/login/callback.html')
 }
