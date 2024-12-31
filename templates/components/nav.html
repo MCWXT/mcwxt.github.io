@@ -12,7 +12,7 @@
   </div>
   <div class="offcanvas offcanvas-start w-75" tabindex="-1" id="offcanvas" data-bs-scroll="true" aria-labelledby="offcanvasLabel">
     <div class="offcanvas-header">
-      <div class="fs-5 mx-auto fw-bolder" style="font-family: sans-serif!important;">
+      <div class="fs-5 mx-auto fw-bolder">
         <span class="me-1">MC</span>
         <span class="px-1 rounded-1 text-light" style="background-color: #FE9900;">WXT</span>
       </div>
@@ -25,6 +25,13 @@
         <router-link class="list-tao-item ps-3 py-1 my-1 link-secondary" :to="item.location" :class="{ 'bg-body-tertiary': $route.path == item.location }" v-for="item in nav">
           <span>{{item.name}}</span>
         </router-link>
+      </div>
+    </div>
+    <div class="offcanvas-footer position-relative pb-5">
+      <div class="position-absolute start-50 translate-middle" data-bs-dismiss="offcanvas" aria-label="Close">
+        <router-link class="btn btn-light btn-sm" to="/login" role="button">登录</router-link>
+        <span class="mx-1 text-secondary">|</span>
+        <button class="btn btn-light btn-sm" @click="cache.clear">清除缓存</button>
       </div>
     </div>
   </div>

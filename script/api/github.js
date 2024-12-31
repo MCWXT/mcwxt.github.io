@@ -1,6 +1,6 @@
 import { Axios } from 'axios';
 import { cache } from 'tao';
-const github_access = cache.get('github_access');
+const github_access = cache.getItem('github_access');
 const getHeaders = () => {
   const headers = {};
   if (github_access && github_access.access_token) {

@@ -7,7 +7,7 @@ export default {
     const route = useRoute();
     const axios = new Axios({});
     axios.post('/api/login/access_token/' + route.query.code).then((response) => {
-      cache.set('github_access', response.data);
+      cache.setItem('github_access', response.data);
     });
     return {
       

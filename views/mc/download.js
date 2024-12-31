@@ -4,8 +4,8 @@ import { Axios } from 'axios';
 export default {
   setup() {
     const axios = new Axios({});
-    const data = ref(cache.get('mcapks') || axios.get(httproxy`https://mcapks.net/api/vs-list.php`).then((response) => {
-      data.value = cache.set('mcapks', JSON.parse(response.data).message);
+    const data = ref(cache.getItem('mcapks') || axios.get(httproxy`https://mcapks.net/api/vs-list.php`).then((response) => {
+      data.value = cache.setItem('mcapks', JSON.parse(response.data).message);
     }));
     const download = (version, info_key) => {
       axios.get(httproxy`https://mcapks.net/down.php`, {

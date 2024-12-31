@@ -7,11 +7,11 @@ export default {
   setup() {
     const route = useRoute();
     const number = route.params.number;
-    const discussion = ref(cache.get('repos/MCWXT/mcwxt.github.io/discussions/' + number) || github.get('repos/MCWXT/mcwxt.github.io/discussions/' + number).then((response) => {
-      discussion.value = cache.set(response.config.url, response.data);
+    const discussion = ref(cache.getItem('repos/MCWXT/mcwxt.github.io/discussions/' + number) || github.get('repos/MCWXT/mcwxt.github.io/discussions/' + number).then((response) => {
+      discussion.value = cache.setItem(response.config.url, response.data);
     }));
-    const comments = ref(cache.get('repos/MCWXT/mcwxt.github.io/discussions/' + number + '/comments') || github.get('repos/MCWXT/mcwxt.github.io/discussions/' + number + '/comments').then((response) => {
-      comments.value = cache.set(response.config.url, response.data);
+    const comments = ref(cache.getItem('repos/MCWXT/mcwxt.github.io/discussions/' + number + '/comments') || github.get('repos/MCWXT/mcwxt.github.io/discussions/' + number + '/comments').then((response) => {
+      comments.value = cache.setItem(response.config.url, response.data);
     }));
     return {
       discussion,

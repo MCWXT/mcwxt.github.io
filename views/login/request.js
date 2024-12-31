@@ -3,7 +3,7 @@ import { getTemplate, cache } from 'tao';
 export default {
   setup() {
     const isLogged = ref(false);
-    cache.get('github_access') && (isLogged.value = true);
+    cache.getItem('github_access') && (isLogged.value = true);
     return {
       isLogged
     }

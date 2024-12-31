@@ -8,12 +8,20 @@ export const httproxy = (url) => {
   return proxyServer + url;
 };
 export const cache = {
-  set: (key, content) => {
+  setItem(key, content) {
     localStorage.setItem(key, typeof content == 'string' ? content : JSON.stringify(content));
     return content;
   },
-  get: (key) => {
+  getItem(key) {
     const content = localStorage.getItem(key);
     return content && content.indexOf('{') != -1 ? JSON.parse(content) : content;
+  },
+  removeItem(key) {
+    localStorage.removeItem(key);
+  },
+  clear() {
+    const github_access = cache.getItem('github_access');
+    localStorage.clear();
+    cache.setItem('github_access', github_access);
   }
 }
