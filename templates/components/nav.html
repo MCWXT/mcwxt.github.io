@@ -31,7 +31,7 @@
       <div class="position-absolute start-50 translate-middle" data-bs-dismiss="offcanvas" aria-label="Close">
         <router-link class="btn btn-light btn-sm" to="/login" role="button">登录</router-link>
         <span class="mx-1 text-secondary">|</span>
-        <button class="btn btn-light btn-sm" @click="cache.clear">清除缓存</button>
+        <button class="btn btn-light btn-sm" @click="() => cache.clear()">清除缓存</button>
       </div>
     </div>
   </div>
