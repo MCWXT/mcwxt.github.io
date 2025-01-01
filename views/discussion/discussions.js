@@ -1,11 +1,10 @@
 import { ref } from 'vue';
 import { getTemplate, cache } from 'tao';
-import github from '/script/api/github.js';
+import { octokit, config } from '/script/api/github.js';
 export default {
   setup() {
-    const discussions = ref(cache.getItem('repos/MCWXT/mcwxt.github.io/discussions') || github.get('repos/MCWXT/mcwxt.github.io/discussions').then((response) => {
-      discussions.value = cache.setItem(response.config.url, response.data);
-    }));
+    const discussions = ref([]);
+    octokit.request(`GET /repos/{owner}/{repo}/discussions`, config).then((response) => discussions.value = response.data).catch((error) => alert(error));
     return {
       discussions
     }

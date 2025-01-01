@@ -9,8 +9,8 @@
     </div>
     <div class="pb-2">
       <div class="text-center">
-        <a class="btn btn-success w-75" :class="{ disabled: isLogged }" role="button" href="https://github.com/login/oauth/authorize?client_id=Iv23lieAt4NOqGN5GqZI&state=MCWXT">
-          <span v-if="isLogged">您已登录</span>
+        <a class="btn btn-success w-75" :class="{ disabled: logged }" role="button" href="https://github.com/login/oauth/authorize?client_id=Iv23lieAt4NOqGN5GqZI&state=MCWXT">
+          <span v-if="logged">您已登录</span>
           <span v-else>点击授权</span>
         </a>
       </div>

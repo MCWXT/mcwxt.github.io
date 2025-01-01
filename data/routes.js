@@ -64,17 +64,17 @@ export default [
   }, {
     path: '/login',
     name: 'Login',
-    component: () => import('/views/login/request.js'),
+    component: () => import('/views/login/login.js'),
     meta: {
       title: '登录'
     }
   }, {
-    path: '/login/callback',
-    name: 'Callback',
-    component: () => import('/views/login/callback.js'),
+    path: '/login/oauth',
+    name: 'Oauth',
+    component: () => import('/views/login/oauth.js'),
     beforeEnter: (to) => to.query.state == 'MCWXT' || { path: '/' },
     meta: {
-      title: '授权成功'
+      title: '授权'
     }
   },
 ]

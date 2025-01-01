@@ -7,11 +7,11 @@ export default {
     const route = useRoute();
     const axios = new Axios({});
     axios.post('/api/login/access_token/' + route.query.code).then((response) => {
-      cache.setItem('github_access', response.data);
+      cache.setItem('access_token', response.data);
     });
     return {
-      
+      logged: Boolean(cache.getItem('github_access'))
     }
   },
-  template: await getTemplate('/templates/views/login/callback.html')
+  template: await getTemplate('/templates/views/login.html')
 }

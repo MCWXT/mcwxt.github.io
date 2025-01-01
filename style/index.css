@@ -1,6 +1,7 @@
 @import url("/style/reset.css");
 @import url("/cdn_modules/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import url("/cdn_modules/bootstrap@5.3.3/css/bootstrap.min.css");
+@import url("/");
 
 * {
   font-family: sans-serif !important;
@@ -60,4 +61,8 @@ button {
 
 .fs-10 {
   font-size: .2rem;
+}
+
+.navHeight {
+  height: 3rem;
 }
