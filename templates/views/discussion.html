@@ -23,7 +23,7 @@
         <span class="text-dark-emphasis">{{discussion.comments}}</span>
         <a class="btn btn-success btn-sm position-absolute end-0 top-50 translate-middle" role="button" :href="'//github.com/MCWXT/mcwxt.github.io/discussions/' + number">新评论</a>
       </div>
-      <div v-if="comments" class="m-2 border rounded" v-if="comments[0]" v-for="comment in comments">
+      <div class="m-2 border rounded" v-if="comments[0]" v-for="comment in comments">
         <div class="py-2">
           <img class="rounded-circle mx-2" style="width: 2rem;" :src="comment.user.avatar_url" alt="">
           <span>{{comment.user.login}}</span>
