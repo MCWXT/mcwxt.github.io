@@ -4,7 +4,7 @@ export default {
   setup() {
     
     return {
-      logged: Boolean(cache.getItem('github_access'))
+      logged: Boolean(cache.getItem('access_token'))
     }
   },
   template: await getTemplate('/templates/views/login.html')
