@@ -7,7 +7,7 @@ export default {
     const route = useRoute();
     const axios = new Axios({});
     axios.post('/api/login/access_token/' + route.query.code).then((response) => {
-      cache.setItem('access_token', response.data.access_token);
+      cache.setItem('access_token', JSON.parse(response.data).access_token);
     });
     return {
       logged: Boolean(cache.getItem('access_token'))
