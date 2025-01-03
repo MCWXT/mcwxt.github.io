@@ -20,12 +20,6 @@ export const cache = {
     localStorage.removeItem(key);
   },
   clear() {
-    const github_access = cache.getItem('github_access');
     localStorage.clear();
-    cache.setItem('github_access', github_access);
   }
-}
-const sha = cache.getItem('sha');
-export const componentImport = (src) => {
-  return import(`${src}?${sha}`);
 }
