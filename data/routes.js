@@ -10,15 +10,15 @@ export default [
     path: '/home',
     redirect: '/'
   }, {
-    path: '/404',
-    name: 'NotFound',
-    component: () => import('/views/404.js'),
+    path: '/error/:errorType',
+    name: 'Error',
+    component: () => import('/views/error.js'),
     meta: {
-      title: '404'
+      title: '错误'
     }
   }, {
     path: '/:pathMatch(.*)*',
-    redirect: '/404'
+    redirect: '/error/404'
   }, {
     path: '/link',
     name: 'Link',
@@ -72,7 +72,7 @@ export default [
     path: '/login/oauth',
     name: 'Oauth',
     component: () => import('/views/login/oauth.js'),
-    beforeEnter: (to) => to.query.state == 'MCWXT' || { path: '/' },
+    beforeEnter: (to) => to.query.state == 'MCWXT' && to.query.code || { path: '/error/400' },
     meta: {
       title: '授权'
     }
