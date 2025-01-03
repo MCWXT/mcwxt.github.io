@@ -1,7 +1,7 @@
 import { Axios } from 'axios';
 const axios = new Axios({});
 export const getTemplate = async (src) => {
-  return await axios.get(src).then((response) => response.data);;
+  return axios.get(src).then((response) => response.data);;
 }
 export const httproxy = (url) => {
   const proxyServer = 'https://proxy.mcwxt.top/';
@@ -24,4 +24,8 @@ export const cache = {
     localStorage.clear();
     cache.setItem('github_access', github_access);
   }
+}
+const sha = cache.getItem('sha');
+export const componentImport = (src) => {
+  return import(`${src}?${sha}`);
 }
