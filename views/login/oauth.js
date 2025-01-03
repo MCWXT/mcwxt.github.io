@@ -8,9 +8,9 @@ export default {
     const axios = new Axios({});
     axios.post('/api/login/access_token/' + route.query.code).then((response) => {
       cache.setItem('access_token', JSON.parse(response.data).access_token);
-    });
+    }).catch((error) => alert(error));
     return {
-      logged: Boolean(cache.getItem('access_token'))
+      logged: true
     }
   },
   template: await getTemplate('/templates/views/login.html')
