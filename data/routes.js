@@ -72,7 +72,7 @@ export default [
     path: '/login/oauth',
     name: 'Oauth',
     component: () => import('/views/login/oauth.js'),
-    beforeEnter: (to) => to.query.state == 'MCWXT' && to.query.code || { path: '/error/400' },
+    beforeEnter: (to) => to.query.state == 'MCWXT' && to.query.code && true || { path: '/error/400' },
     meta: {
       title: '授权'
     }
