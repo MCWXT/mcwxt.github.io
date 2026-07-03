@@ -6,30 +6,29 @@
 		title: "首页"
 	});
 	const theme = useThemeStore();
-	const issuesFriendLink = ref();
-	const { data, error } = await useAPI("/issues/friendlink");
-	const _issuesFriendLink = [];
-	data.value.map((value, key) => {
-		if (value.issue_state === "closed") {
-			return;
-		}
-		_issuesFriendLink[key] = {};
-		_issuesFriendLink[key].title = value.site_title;
-		_issuesFriendLink[key].brief = value.site_brief;
-		_issuesFriendLink[key].url = value.site_url;
-		_issuesFriendLink[key].icon = value.site_icon;
-	});
-	issuesFriendLink.value = _issuesFriendLink;
 
-	if (error.value)
-		issuesFriendLink.value = [
-			{
-				title: "出问题啦",
-				url: "https://github.com/MCWXT/Blog/issues",
-				icon: "https://img.icons8.com/?size=100&id=k0I9K7HGGgQY&format=png&color=000000",
-				brief: "提交错误"
-			}
-		];
+	const { data, error } = await useAPI("/issues/friendlink");
+	const issuesFriendLink = computed(() => {
+		if (error.value) {
+			return [
+				{
+					title: "出问题啦",
+					url: "https://github.com/MCWXT/Blog/issues",
+					icon: "https://img.icons8.com/?size=100&id=k0I9K7HGGgQY&format=png&color=000000",
+					brief: "提交错误"
+				}
+			];
+		}
+		if (!data.value) return [];
+		return data.value
+			.filter(v => v.issue_state !== "closed")
+			.map(v => ({
+				title: v.site_title,
+				brief: v.site_brief,
+				url: v.site_url,
+				icon: v.site_icon
+			}));
+	});
 </script>
 
 <template>

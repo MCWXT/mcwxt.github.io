@@ -5,15 +5,18 @@
 	useHead({
 		title: "视频"
 	});
-	const data = ref();
 	const { data: discussions } = await useFetch("/api/github/discussions/general");
-	const { data: _data, error } = await useAPI("/video/archive/related");
-	data.value = _data.value.data;
-	if (error.value)
+	const { data: videoRes, error } = await useAPI("/video/archive/related");
+	const data = computed(() => {
+		if (!videoRes.value?.data) return [];
+		return videoRes.value.data;
+	});
+	if (error.value) {
 		toast({
 			type: "error",
 			content: error.value
 		});
+	}
 </script>
 <template>
 	<div>
@@ -72,7 +75,7 @@
 								</div>
 							</div>
 							<div class="flex-1 text-nowrap">
-								{{ day(item.pubdate*1000, "zh-cn").displayText }}
+								{{ day(item.pubdate * 1000, "zh-cn").displayText }}
 							</div>
 						</div>
 						<div class="flex text-sm text-gray-600">
