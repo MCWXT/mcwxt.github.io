@@ -64,6 +64,7 @@
 		<input id="my-drawer" type="checkbox" class="drawer-toggle" />
 		<div class="drawer-content">
 			<header class="h-16">
+        <NuxtLoadingIndicator :height="2" />
 				<nav-bar class="fixed left-0 top-0 z-50"></nav-bar>
 				<div class="toast toast-top toast-center z-40 mt-16">
 					<div
@@ -104,6 +105,7 @@
 								class="inline me-1"
 								src="https://travel.moe/images/icon/icon64.png"
 								style="width: 22px; height: 22px"
+                alt="异次元之旅"
 							/>异次元之旅</a
 						>
 					</p>

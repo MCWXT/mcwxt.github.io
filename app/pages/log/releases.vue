@@ -35,7 +35,7 @@
 				<div>
 					<div class="avatar">
 						<div class="w-7 rounded-full">
-							<img :src="item.author.avatar_url" />
+							<img :src="item.author.avatar_url" alt="item.author.login" />
 						</div>
 					</div>
 				</div>

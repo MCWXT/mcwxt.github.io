@@ -7,12 +7,15 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'MCWXT的个人博客',
-      titleTemplate: 'MCWXT|%s',
+      titleTemplate: 'MCWXT的个人博客|%s',
       meta: [
         { name: 'description', content: 'MCWXT的个人博客。友链，资源，论坛，文章，视频各种功能一应俱全！' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'keywords', content: 'MCWXT的个人博客,MCWXT,Web,Blog,Personal blog' },
         { name: 'referrer', content: 'same-origin' },
-      ]
+      ],
+      htmlAttrs: {
+        lang: 'zh-CN'
+      }
     }
   },
   runtimeConfig: {

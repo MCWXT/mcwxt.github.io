@@ -67,7 +67,7 @@
 					<div class="text-lg font-black my-1">{{ item.commit.message }}</div>
 					<div class="avatar">
 						<div class="w-5 rounded-full">
-							<img :src="item.committer.avatar_url" />
+							<img :src="item.committer.avatar_url" :alt="item.commit.committer.name" />
 						</div>
 					</div>
 					<span class="text-sm"
