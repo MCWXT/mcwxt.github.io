@@ -19,6 +19,6 @@ export default cachedEventHandler(
 	},
 	{
 		name: "github-log-releases",
-		maxAge: 120
+		maxAge: 900
 	}
 );

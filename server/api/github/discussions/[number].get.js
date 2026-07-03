@@ -20,6 +20,6 @@ export default cachedEventHandler(
 	},
 	{
 		name: "github-discussions",
-		maxAge: 600
+		maxAge: 1800
 	}
 );

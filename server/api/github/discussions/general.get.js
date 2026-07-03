@@ -14,14 +14,10 @@ export default cachedEventHandler(
 			});
 		}
 
-		const data = [...response.data].reverse();
-		const match = data.filter(i => i.category?.slug === "pin");
-		const rest = data.filter(i => i.category?.slug !== "pin");
-
-		return [...match, ...rest];
+		return response.data;
 	},
 	{
-		name: "github-discussions-list",
-		maxAge: 900
+		name: "github-discussions-list-general",
+		maxAge: 7200
 	}
 );

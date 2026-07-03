@@ -9,7 +9,7 @@
 	>
 		<div class="m-2">
 			<div class="rounded-full overflow-hidden size-12">
-				<img class="object-contain size-full" loading="lazy" :src="icon" />
+				<img class="object-contain size-full" loading="lazy" :alt="title" :src="icon" />
 			</div>
 		</div>
 		<div class="my-auto w-64 truncate">

@@ -2,14 +2,10 @@ import { defineStore } from "pinia";
 
 export const useAuthStore = defineStore("auth", {
 	state: () => ({
-		token: null,
-    remaining: 0
+		token: null
 	}),
 	getters: {
-		isLogin: state => !!state.token,
-		canRequest: state => {
-			return state.count < state.limit;
-		}
+		isLogin: state => !!state.token
 	},
 	actions: {
 		login(token) {

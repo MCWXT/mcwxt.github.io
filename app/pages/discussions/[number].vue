@@ -1,6 +1,10 @@
 <script setup>
-	import Giscus from '@giscus/vue';
+	import Giscus from "@giscus/vue";
 	import { marked } from "marked";
+	const auth = useAuthStore();
+	const octokit = useOctokit({
+		auth: auth.token
+	});
 	const number = useRoute().params.number;
 	const theme = useThemeStore();
 	function getDiscussTip(item) {
@@ -30,9 +34,24 @@
 		}
 	};
 	const { data, error } = await useFetch("/api/github/discussions/" + number);
-  useHead({
+	useHead({
 		title: "讨论：" + data.value.title
 	});
+	if (process.client) {
+		octokit
+			.request(`GET /repos/{owner}/{repo}/discussions/${number}`, octokitConfig)
+			.then(response => {
+				const contents = response.data;
+				data.value = contents;
+			})
+			.catch(error => {
+				toast({
+					type: "error",
+					content: error.message
+				});
+				router.replace("/discussions");
+			});
+	}
 </script>
 <template>
 	<template v-if="data">
@@ -57,7 +76,7 @@
 					<img
 						class="rounded-lg me-2 h-10 inline flex-none"
 						:src="data.user.avatar_url"
-						alt=""
+						:alt="data.user.login"
 					/>
 					<span class="none me-2">{{ data.user.login }}</span>
 					<span class="flex-1">{{ day(data.created_at).displayText }}</span>

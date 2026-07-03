@@ -29,8 +29,11 @@ export default defineNuxtConfig({
     ]
   },
   css: ['~/assets/css/main.css'],
-  modules: ['@pinia/nuxt', '@nuxt/icon', '@pinia/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxt/icon', '@pinia/nuxt', '@nuxtjs/sitemap'],
   icon: {
     provider: 'iconify'
+  },
+  sitemap: {
+    autoLastmod: true
   }
 })

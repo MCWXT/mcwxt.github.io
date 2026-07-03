@@ -21,6 +21,6 @@ export default cachedEventHandler(
 	},
 	{
 		name: "github-log-commits",
-		maxAge: 120
+		maxAge: 1800
 	}
 );

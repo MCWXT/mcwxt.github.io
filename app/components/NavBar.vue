@@ -36,7 +36,7 @@
 			<div class="dropdown dropdown-end">
 				<div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
 					<div class="w-10 rounded-full">
-						<img src="/img/logo.png" alt="" />
+						<img src="/img/logo.png" alt="菜单" />
 					</div>
 				</div>
 				<ul

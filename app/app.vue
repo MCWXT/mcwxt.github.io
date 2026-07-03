@@ -89,8 +89,7 @@
 					<p>感谢访问我的博客！</p>
 					<br />
 					<p>
-						Copyright © 2023 - {{ new Date().getFullYear() }} All right reserved by
-						MCWXT
+						Copyright © 2023-{{ new Date().getFullYear() }} MCWXT. All rights reserved. Built with Nuxt SSR.
 					</p>
 					<p>
 						<a href="https://icp.gov.moe/?keyword=20250684" target="_blank"
@@ -113,6 +112,7 @@
 					<h6 class="footer-title">感谢</h6>
 					<ul>
 						<li><a href="https://vite.dev">Vite</a></li>
+            <li><a href="https://nuxt.com/">Nuxt</a></li>
 						<li><a href="https://www.w3.org">W3C</a></li>
 						<li><a href="https://www.mozilla.org">Mozilla</a></li>
 					</ul>

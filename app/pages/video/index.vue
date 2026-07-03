@@ -6,16 +6,7 @@
 		title: "视频"
 	});
 	const data = ref();
-	const carousel = [
-		{
-			image: "https://www.dmoe.cc/random.php",
-			href: "https://www.dmoe.cc/random.php"
-		},
-		{
-			image: "https://storage.mcwxt.top/assets/img/IMG_20250725_004145.jpg",
-			href: "https://github.com/mcwxt/Blog"
-		}
-	];
+	const { data: discussions } = await useFetch("/api/github/discussions/general");
 	const { data: _data, error } = await useAPI("/video/archive/related");
 	data.value = _data.value.data;
 	if (error.value)
@@ -28,11 +19,20 @@
 	<div>
 		<div class="carousel rounded-md m-2 aspect-16/9">
 			<router-link
-				class="carousel-item w-full"
-				v-for="item in carousel"
-				:to="{ path: '/link', query: { url: item.href } }"
+				class="carousel-item w-full relative"
+				v-for="item in [...discussions].reverse().slice(0, 3)"
+				:to="{ path: '/discussions/' + item.number }"
 			>
-				<img class="object-cover w-full" :src="item.image" alt="" />
+				<img
+					class="object-cover w-full"
+					:src="'https://www.dmoe.cc/random.php?' + item.number"
+					:alt="item.title"
+				/>
+				<div
+					class="m-2 p-1 absolute bottom-0 start-0 bg-black/40 text-white text-xs rounded-sm"
+				>
+					{{ item.title }}
+				</div>
 			</router-link>
 		</div>
 		<template v-if="data">
@@ -45,7 +45,7 @@
 					:to="'/video/' + item.bvid"
 				>
 					<div class="aspect-4/3 relative rounded-lg overflow-hidden">
-						<img class="object-cover size-full" :src="item.pic" alt="" />
+						<img class="object-cover size-full" :src="item.pic" :alt="item.title" />
 						<div
 							class="m-2 p-1 absolute bottom-0 end-0 bg-black/50 text-white text-xs rounded-sm"
 						>
@@ -72,7 +72,7 @@
 								</div>
 							</div>
 							<div class="flex-1 text-nowrap">
-								{{ formatTimestamp(item.pubdate) }}
+								{{ day(item.pubdate*1000, "zh-cn").displayText }}
 							</div>
 						</div>
 						<div class="flex text-sm text-gray-600">

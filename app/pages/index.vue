@@ -45,7 +45,7 @@
 							class="rounded-full"
 							@click="easterEgg.click(() => theme.toggleTheme())"
 							src="/img/logo.png"
-							alt=""
+							alt="MCWXT"
 						/>
 					</div>
 					<div class="text-center ms-2" style="width: 8rem">

@@ -5,6 +5,10 @@
 	useHead({
 		title: "讨论"
 	});
+  const auth = useAuthStore();
+	const octokit = useOctokit({
+		auth: auth.token
+	});
 	function getDiscussTip(item) {
 		const { category } = item;
 		const name = category.name;
@@ -20,8 +24,23 @@
 	const { data: carousel } = await useAPI("/video/news", {
 		transform: res => res?.data?.archives || []
 	});
-
+  
 	const { data, error } = await useFetch("/api/github/discussions");
+
+  octokit
+  .request(`GET /repos/{owner}/{repo}/discussions`, octokitConfig)
+  .then((response) => {
+    if (response.status !== 200) {
+      toast({
+        type: 'error',
+        content: response.status,
+      });
+    }
+    const data = response.data.reverse();
+    const match = data.filter((i) => i.category.slug == 'pin');
+    const rest = data.filter((i) => i.category.slug !== 'pin');
+    data.value = [...match, ...rest];
+  });
 </script>
 <template>
 	<div class="carousel rounded-md m-2 aspect-16/9">
@@ -30,7 +49,7 @@
 			v-for="item in carousel"
 			:to="{ path: '/video/' + item.bvid }"
 		>
-			<img class="object-cover w-full" :src="item.pic" alt="" />
+			<img class="object-cover w-full" :src="item.pic" :alt="item.title" />
 			<div
 				class="m-2 p-1 absolute bottom-0 start-0 bg-black/40 text-white text-xs rounded-sm"
 			>
@@ -74,7 +93,7 @@
 								<img
 									class="rounded-full inline me-1 w-10 aspect-square"
 									:src="discussion.user.avatar_url"
-									alt=""
+									:alt="discussion.user.login"
 								/>
 							</div>
 							<icon
