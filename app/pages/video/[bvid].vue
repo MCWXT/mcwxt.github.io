@@ -8,8 +8,8 @@
 			type: "error",
 			content: error.value
 		});
-  useHead({
-		title: "视频：" + data.value.title
+  useSeoMeta({
+		title: () => `视频：${ data.value.title }`
 	});
 </script>
 <template>

@@ -34,8 +34,8 @@
 		}
 	};
 	const { data, error } = await useFetch("/api/github/discussions/" + number);
-	useHead({
-		title: "讨论：" + data.value.title
+	useSeoMeta({
+		title: () => `讨论：${data.value.title}`
 	});
 	if (process.client) {
 		octokit
@@ -79,7 +79,7 @@
 						:alt="data.user.login"
 					/>
 					<span class="none me-2">{{ data.user.login }}</span>
-					<span class="flex-1">{{ day(data.created_at).displayText }}</span>
+					<NuxtTime class="flex-1" :datetime="data.created_at" relative />
 					<span class="flex-none">
 						<div class="dropdown dropdown-bottom dropdown-end">
 							<div tabindex="0" role="button" class="btn btn-ghost">

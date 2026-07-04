@@ -1,11 +1,13 @@
 <script setup>
-	useHead({
+	useSeoMeta({
 		title: "跳转链接"
 	});
 	const route = useRoute();
-	if (route.path.indexOf("linkto") != -1) {
-		history.back();
-		location.href = route.query.url;
+	if (process.client) {
+		if (route.path.indexOf("linkto") != -1) {
+			history.back();
+			location.href = route.query.url;
+		}
 	}
 </script>
 <template>

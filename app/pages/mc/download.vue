@@ -2,7 +2,7 @@
 	definePageMeta({
 		keepalive: true
 	});
-	useHead({
+	useSeoMeta({
 		title: "MC基岩版全版本下载"
 	});
 	const page = ref(1);

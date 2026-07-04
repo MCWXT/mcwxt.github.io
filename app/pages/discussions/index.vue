@@ -2,7 +2,7 @@
 	definePageMeta({
 		keepalive: true
 	});
-	useHead({
+	useSeoMeta({
 		title: "讨论"
 	});
   const auth = useAuthStore();
@@ -44,7 +44,7 @@
 </script>
 <template>
 	<div class="carousel rounded-md m-2 aspect-16/9">
-		<router-link
+		<nuxt-link
 			class="carousel-item w-full relative"
 			v-for="item in carousel"
 			:to="{ path: '/video/' + item.bvid }"
@@ -55,7 +55,7 @@
 			>
 				{{ item.title }}
 			</div>
-		</router-link>
+		</nuxt-link>
 	</div>
 	<div>
 		<div>
@@ -74,7 +74,7 @@
 		</div>
 		<template v-if="data">
 			<div class="m-3 divide-y md:mx-32">
-				<router-link
+				<nuxt-link
 					class="block transition border-base-300 active:backdrop-brightness-90"
 					v-for="discussion in data"
 					:to="'/discussions/' + discussion.number"
@@ -109,7 +109,7 @@
 							>
 						</div>
 					</div>
-				</router-link>
+				</nuxt-link>
 			</div>
 		</template>
 	</div>

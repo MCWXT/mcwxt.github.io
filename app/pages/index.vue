@@ -2,7 +2,7 @@
 	definePageMeta({
 		keepalive: true
 	});
-	useHead({
+	useSeoMeta({
 		title: "首页"
 	});
 	const theme = useThemeStore();

@@ -1,5 +1,5 @@
 <script setup>
-  useHead({
+  useSeoMeta({
 		title: "登录中"
 	});
 	definePageMeta({

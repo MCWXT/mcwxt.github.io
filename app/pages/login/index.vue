@@ -1,5 +1,5 @@
 <script setup>
-  useHead({
+  useSeoMeta({
 		title: "登录"
 	});
 	const auth = useAuthStore();

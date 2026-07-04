@@ -1,5 +1,5 @@
 <script setup>
-  useHead({
+  useSeoMeta({
 		title: "版本日志"
 	});
 	import { marked } from "marked";
@@ -61,11 +61,11 @@
 					<ul class="list rounded-box border border-base-300">
 						<li class="list-row">
 							<icon name="tabler:file-zip"></icon>
-							<a :href="item.zipball_url">Source code (zip)</a>
+							<nuxt-link :href="item.zipball_url" external>Source code (zip)</nuxt-link>
 						</li>
 						<li class="list-row">
 							<icon name="tabler:file-zip"></icon>
-							<a :href="item.tarball_url">Source code (tar.gz)</a>
+							<nuxt-link :href="item.tarball_url" external>Source code (tar.gz)</nuxt-link>
 						</li>
 					</ul>
 				</div>

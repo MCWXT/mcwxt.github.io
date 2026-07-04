@@ -1,5 +1,5 @@
 <script setup>
-  useHead({
+  useSeoMeta({
 		title: "更新日志"
 	});
 	const route = useRoute();

@@ -43,12 +43,12 @@
 					tabindex="-1"
 					class="menu menu-sm dropdown-content overflow-y-auto max-h-96 rounded-box z-1 mt-6 w-52 p-2 bg-base-200 border border-base-300"
 				>
-					<li><router-link to="/">主页</router-link></li>
+					<li><nuxt-link to="/">主页</nuxt-link></li>
 					<li>
-						<router-link to="/login"
+						<nuxt-link to="/login"
 							>登录<span class="badge badge-xs" v-if="auth.isLogin"
 								>已登录</span
-							></router-link
+							></nuxt-link
 						>
 					</li>
 					<li @click="theme.toggleTheme()">

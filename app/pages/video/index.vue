@@ -2,7 +2,7 @@
 	definePageMeta({
 		keepalive: true
 	});
-	useHead({
+	useSeoMeta({
 		title: "视频"
 	});
 	const { data: discussions } = await useFetch("/api/github/discussions/general");
@@ -21,7 +21,7 @@
 <template>
 	<div>
 		<div class="carousel rounded-md m-2 aspect-16/9">
-			<router-link
+			<nuxt-link
 				class="carousel-item w-full relative"
 				v-for="item in [...discussions].reverse().slice(0, 3)"
 				:to="{ path: '/discussions/' + item.number }"
@@ -36,13 +36,13 @@
 				>
 					{{ item.title }}
 				</div>
-			</router-link>
+			</nuxt-link>
 		</div>
 		<template v-if="data">
 			<div
 				class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 justify-items-center px-2"
 			>
-				<router-link
+				<nuxt-link
 					class="w-44 my-2 hover:bg-zinc-200 group cursor-pointer flex flex-col gap-2 transition active:scale-105"
 					v-for="item in data"
 					:to="'/video/' + item.bvid"
@@ -74,9 +74,7 @@
 									{{ formatter.format(item.stat.danmaku) }}
 								</div>
 							</div>
-							<div class="flex-1 text-nowrap">
-								{{ day(item.pubdate * 1000, "zh-cn").displayText }}
-							</div>
+							<NuxtTime class="flex-1 text-nowrap" :datetime="item.pubdate*1000" relative />
 						</div>
 						<div class="flex text-sm text-gray-600">
 							<p class="flex-1">
@@ -85,7 +83,7 @@
 							<icon class="flex-none m-1" name="mingcute:more-2-fill"></icon>
 						</div>
 					</div>
-				</router-link>
+				</nuxt-link>
 			</div>
 		</template>
 	</div>
