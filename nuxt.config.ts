@@ -16,6 +16,10 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'zh-CN'
       }
+    },
+    pageTransition: {
+      name: 'page',
+      mode: 'default',
     }
   },
   runtimeConfig: {

@@ -26,7 +26,7 @@
 					</p>
 				</div>
 				<div class="card-actions justify-end">
-					<a :href="$route.query.url" target="_blank" class="btn btn-primary">继续</a>
+					<nuxt-link :href="$route.query.url" target="_blank" class="btn btn-primary" external>继续</nuxt-link>
 				</div>
 			</div>
 		</div>

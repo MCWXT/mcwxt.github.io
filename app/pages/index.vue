@@ -1,7 +1,4 @@
 <script setup>
-	definePageMeta({
-		keepalive: true
-	});
 	useSeoMeta({
 		title: "首页"
 	});
@@ -39,13 +36,23 @@
 			></div>
 			<div class="flex">
 				<div>
-					<div class="avatar ms-2 relative" style="height: 8rem; top: -0.5rem">
-						<img
-							class="rounded-full"
-							@click="easterEgg.click(() => theme.toggleTheme())"
-							src="/img/logo.png"
-							alt="MCWXT"
-						/>
+					<div class="ms-2 relative hover-3d" style="height: 8rem; top: -0.5rem">
+						<figure class="avatar">
+							<img
+								class="rounded-full"
+								@click="easterEgg.click(() => theme.toggleTheme())"
+								src="/img/logo.png"
+								alt="MCWXT"
+							/>
+						</figure>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
 					</div>
 					<div class="text-center ms-2" style="width: 8rem">
 						<h2 class="text-4xl">MCWXT</h2>
@@ -68,10 +75,11 @@
 							</div>
 						</div>
 						<div class="text-center">
-							<a
+							<nuxt-link
 								class="btn btn-neutral btn-sm w-48"
 								href="https://m.bilibili.com/space/3493283118451294"
-								><span class="text-light">关注</span></a
+								external
+								><span class="text-light">关注</span></nuxt-link
 							>
 						</div>
 					</div>

@@ -1,7 +1,4 @@
 <script setup>
-	definePageMeta({
-		keepalive: true
-	});
 	useSeoMeta({
 		title: "视频"
 	});

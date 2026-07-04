@@ -1,7 +1,4 @@
 <script setup>
-	definePageMeta({
-		keepalive: true
-	});
 	useSeoMeta({
 		title: "MC基岩版全版本下载"
 	});
@@ -24,6 +21,7 @@
 			return;
 		}
 		updateList(data.value);
+		window.scrollTo({ top: 0, behavior: "smooth" });
 		if (list.value[0] == undefined) {
 			toast({
 				type: "error",
@@ -59,60 +57,72 @@
 </script>
 
 <template>
-	<div class="m-2">
-		<h1 class="text-2xl text-center">MC基岩版全版本下载</h1>
-		<div class="w-74 my-3 mx-auto">
-			<img src="/img/remcbbsBT.png" alt="Minecraft" />
-		</div>
-		<div class="alert alert-vertical w-72 my-4 mx-auto">
-			<span>
-				<icon class="text-xl text-info" name="mingcute:information-fill"></icon>
-				<br />
-				<b>仅供体验，请支持正版</b><br />
-				正版购买：<a
-					href="https://www.minecraft.net/zh-hans/store/minecraft-android"
-					class="link-success text-decoration-none"
-					>官方页面<icon name="mingcute:link-fill"></icon
-				></a>
-			</span>
-		</div>
-	</div>
 	<div>
 		<div class="m-2">
-			<table class="table table-xs">
-				<thead>
-					<tr>
-						<th class="text-center">版本</th>
-						<th class="text-center">类型</th>
-						<th class="text-center">大小</th>
-						<th class="text-center">下载</th>
-					</tr>
-				</thead>
-				<template v-if="list">
-					<tbody>
-						<tr v-for="apk in list">
-							<td class="text-center">{{ apk.version }}</td>
-							<td class="text-center">
-								<span class="text-error" v-if="apk.beta == 'True'">测试版</span>
-								<span v-else class="text-success">正式版</span>
-							</td>
-							<td class="text-center">{{ apk.size }}</td>
-							<td class="text-center">
-								<a
-									class="btn btn-primary"
-									@click="download(apk.version, apk.info_key)"
-									><icon name="mingcute:download-2-fill"></icon
-								></a>
-							</td>
+			<h1 class="text-2xl text-center">MC基岩版全版本下载</h1>
+			<div class="w-74 my-3 mx-auto">
+				<img src="/img/remcbbsBT.png" alt="Minecraft" />
+			</div>
+			<div class="alert alert-vertical w-72 my-4 mx-auto">
+				<span>
+					<icon class="text-xl text-info" name="mingcute:information-fill"></icon>
+					<br />
+					<b>仅供体验，请支持正版</b><br />
+					正版购买：<a
+						href="https://www.minecraft.net/zh-hans/store/minecraft-android"
+						class="link-success text-decoration-none"
+						>官方页面<icon name="mingcute:link-fill"></icon
+					></a>
+				</span>
+			</div>
+		</div>
+		<div>
+			<div class="m-2">
+				<table class="table table-xs">
+					<thead>
+						<tr>
+							<th class="text-center">版本</th>
+							<th class="text-center">类型</th>
+							<th class="text-center">大小</th>
+							<th class="text-center">下载</th>
 						</tr>
-					</tbody>
-				</template>
-			</table>
+					</thead>
+					<template v-if="list">
+						<TransitionGroup name="list" tag="tbody">
+							<tr v-for="apk in list" :key="apk.info_key">
+								<td class="text-center">{{ apk.version }}</td>
+								<td class="text-center">
+									<span class="text-error" v-if="apk.beta == 'True'">测试版</span>
+									<span v-else class="text-success">正式版</span>
+								</td>
+								<td class="text-center">{{ apk.size }}</td>
+								<td class="text-center">
+									<a
+										class="btn btn-primary"
+										@click="download(apk.version, apk.info_key)"
+										><icon name="mingcute:download-2-fill"></icon
+									></a>
+								</td>
+							</tr>
+						</TransitionGroup>
+					</template>
+				</table>
+			</div>
+		</div>
+		<div class="join grid grid-cols-3 w-50 mx-auto">
+			<button class="join-item btn btn-outline btn-sm" @click="page--">上一页</button>
+			<button class="join-item btn btn-outline btn-sm">{{ page }}</button>
+			<button class="join-item btn btn-outline btn-sm" @click="page++">下一页</button>
 		</div>
 	</div>
-	<div class="join grid grid-cols-3 w-50 mx-auto">
-		<button class="join-item btn btn-outline btn-sm" @click="page--">上一页</button>
-		<button class="join-item btn btn-outline btn-sm">{{ page }}</button>
-		<button class="join-item btn btn-outline btn-sm" @click="page++">下一页</button>
-	</div>
 </template>
+<style scoped>
+	.list-enter-active {
+		transition: all 0.5s ease;
+	}
+	.list-enter-from,
+	.list-leave-to {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+</style>

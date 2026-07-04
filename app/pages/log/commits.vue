@@ -1,5 +1,5 @@
 <script setup>
-  useSeoMeta({
+	useSeoMeta({
 		title: "更新日志"
 	});
 	const route = useRoute();
@@ -52,39 +52,66 @@
 	);
 </script>
 <template>
-	<div class="m-4">
-		<h2 class="text-2xl">更新日志 Commits</h2>
-	</div>
-	<div v-if="data">
-		<ul class="timeline timeline-compact timeline-vertical mx-4 my-5">
-			<li v-for="item in data">
-				<hr />
-				<div class="timeline-middle text-3xl text-base-content/90">
-					<icon name="majesticons:git-commit-line"></icon>
-				</div>
-				<div class="timeline-end mb-10">
-					<time class="font-mono italic text-sm">{{ item.commit.committer.date }}</time>
-					<div class="text-lg font-black my-1">{{ item.commit.message }}</div>
-					<div class="avatar">
-						<div class="w-5 rounded-full">
-							<img :src="item.committer.avatar_url" :alt="item.commit.committer.name" />
-						</div>
-					</div>
-					<span class="text-sm"
-						>{{ item.commit.committer.name }}
-						向仓库提交了文件，如有bug，请联系邮箱:
-						{{ item.commit.committer.email }}</span
-					>
-				</div>
-				<hr />
-			</li>
-		</ul>
-	</div>
 	<div>
-		<div class="join grid grid-cols-3 w-50 mx-auto">
-			<button class="join-item btn btn-outline btn-sm" @click="page--">上一页</button>
-			<button class="join-item btn btn-outline btn-sm">{{ page }}</button>
-			<button class="join-item btn btn-outline btn-sm" @click="page++">下一页</button>
+		<div class="m-4">
+			<h2 class="text-2xl">更新日志 Commits</h2>
+		</div>
+		<div v-if="data">
+			<TransitionGroup
+				class="timeline timeline-compact timeline-vertical mx-4 my-5"
+				name="list"
+				tag="ul"
+			>
+				<li v-for="item in data" :key="item.commit.committer.date">
+					<hr />
+					<div class="timeline-middle text-3xl text-base-content/90">
+						<icon name="majesticons:git-commit-line"></icon>
+					</div>
+					<div class="timeline-end mb-10">
+						<nuxt-time
+							class="font-mono italic text-sm"
+							:datetime="item.commit.committer.date"
+							year="numeric"
+							month="long"
+							day="numeric"
+							hour="2-digit"
+							minute="2-digit"
+						></nuxt-time>
+						<div class="text-lg font-black my-1">{{ item.commit.message }}</div>
+						<div class="avatar">
+							<div class="w-5 rounded-full">
+								<img
+									:src="item.committer.avatar_url"
+									:alt="item.commit.committer.name"
+								/>
+							</div>
+						</div>
+						<span class="text-sm"
+							>{{ item.commit.committer.name }}
+							向仓库提交了文件，如有bug，请联系邮箱:
+							{{ item.commit.committer.email }}</span
+						>
+					</div>
+					<hr />
+				</li>
+			</TransitionGroup>
+		</div>
+		<div>
+			<div class="join grid grid-cols-3 w-50 mx-auto">
+				<button class="join-item btn btn-outline btn-sm" @click="page--">上一页</button>
+				<button class="join-item btn btn-outline btn-sm">{{ page }}</button>
+				<button class="join-item btn btn-outline btn-sm" @click="page++">下一页</button>
+			</div>
 		</div>
 	</div>
 </template>
+<style scoped>
+	.list-enter-active {
+		transition: all 0.5s ease;
+	}
+	.list-enter-from,
+	.list-leave-to {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+</style>

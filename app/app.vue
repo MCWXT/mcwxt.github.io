@@ -64,7 +64,7 @@
 		<input id="my-drawer" type="checkbox" class="drawer-toggle" />
 		<div class="drawer-content">
 			<header class="h-16">
-        <NuxtLoadingIndicator :height="2" />
+				<NuxtLoadingIndicator :height="2.5" />
 				<nav-bar class="fixed left-0 top-0 z-50"></nav-bar>
 				<div class="toast toast-top toast-center z-40 mt-16">
 					<div
@@ -90,13 +90,17 @@
 					<p>感谢访问我的博客！</p>
 					<br />
 					<p>
-						Copyright © 2023-{{ new Date().getFullYear() }} MCWXT. All rights reserved. Built with Nuxt SSR.
+						Copyright © 2023-{{ new Date().getFullYear() }} MCWXT. All rights reserved.
+						Built with Nuxt SSR.
 					</p>
 					<p>
-						<a href="https://icp.gov.moe/?keyword=20250684" target="_blank"
-							>萌ICP备20250684号</a
+						<nuxt-link
+							href="https://icp.gov.moe/?keyword=20250684"
+							target="_blank"
+							external
+							>萌ICP备20250684号</nuxt-link
 						><span class="mx-2 text-base-content/80">|</span
-						><a
+						><nuxt-link
 							style="text-decoration: none; color: #51c4d3"
 							href="https://travel.moe/go.html"
 							title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！"
@@ -105,18 +109,21 @@
 								class="inline me-1"
 								src="https://travel.moe/images/icon/icon64.png"
 								style="width: 22px; height: 22px"
-                alt="异次元之旅"
-							/>异次元之旅</a
+								alt="异次元之旅"
+								external
+							/>异次元之旅</nuxt-link
 						>
 					</p>
 				</aside>
 				<nav>
 					<h6 class="footer-title">感谢</h6>
 					<ul>
-						<li><a href="https://vite.dev">Vite</a></li>
-            <li><a href="https://nuxt.com/">Nuxt</a></li>
-						<li><a href="https://www.w3.org">W3C</a></li>
-						<li><a href="https://www.mozilla.org">Mozilla</a></li>
+						<li><nuxt-link href="https://vite.dev" external>Vite</nuxt-link></li>
+						<li><nuxt-link href="https://nuxt.com/" external>Nuxt</nuxt-link></li>
+						<li><nuxt-link href="https://www.w3.org" external>W3C</nuxt-link></li>
+						<li>
+							<nuxt-link href="https://www.mozilla.org" external>Mozilla</nuxt-link>
+						</li>
 					</ul>
 				</nav>
 				<nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
@@ -136,4 +143,23 @@
 	</div>
 </template>
 
-<style scoped></style>
+<style>
+	.page-enter-from {
+		opacity: 0;
+		transform: scale(0.99);
+		filter: blur(6px);
+	}
+
+	.page-enter-active {
+		transition:
+			opacity 0.35s ease,
+			transform 0.35s ease,
+			filter 0.35s ease;
+	}
+
+	.page-enter-to {
+		opacity: 1;
+		transform: scale(1);
+		filter: blur(0);
+	}
+</style>
