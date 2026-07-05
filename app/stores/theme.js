@@ -6,6 +6,10 @@ export const useThemeStore = defineStore("theme", {
 	}),
 
 	actions: {
+		init() {
+			if (typeof window === "undefined") return;
+			this.current = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+		},
 		toggleTheme() {
 			const style = document.createElement("style");
 			style.textContent = `
@@ -31,6 +35,5 @@ export const useThemeStore = defineStore("theme", {
 			}
 			return false;
 		}
-	},
-	persist: true
+	}
 });

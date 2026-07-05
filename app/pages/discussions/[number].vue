@@ -1,5 +1,6 @@
 <script setup>
 	import Giscus from "@giscus/vue";
+	import { toBlob } from "html-to-image";
 	import { marked } from "marked";
 	const auth = useAuthStore();
 	const octokit = useOctokit({
@@ -37,6 +38,15 @@
 	useSeoMeta({
 		title: () => `讨论：${data.value.title}`
 	});
+	const card = useTemplateRef("card");
+	 const share = async (url) => {
+     copy(url);
+	   const blob = await toBlob(card.value.root);
+		 const file = new File([blob], "share.png", { type: "image/png" });
+		   navigator.share({
+				files: [file]
+			});
+	 }
 	if (process.client) {
 		octokit
 			.request(`GET /repos/{owner}/{repo}/discussions/${number}`, octokitConfig)
@@ -55,6 +65,9 @@
 </script>
 <template>
 	<div>
+		<div class="fixed -left-[9999px] top-0 pointer-events-none">
+      <discussions-share-card ref="card" :discussion="data" />
+    </div>
 		<template v-if="data">
 			<div class="p-3">
 				<h1 class="mt-3 text-2xl">
@@ -99,6 +112,7 @@
 										>
 									</li>
 									<li><a @click="copy(data.body)">复制Markdown</a></li>
+									<li><a @click="share('https://mcwxt.top/discussions/' + data.number)">分享</a></li>
 								</ul>
 							</div>
 						</span>

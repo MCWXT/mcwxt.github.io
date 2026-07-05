@@ -3,6 +3,7 @@
 	const theme = useThemeStore();
 	const toasts = ref([]);
 	if (process.client) {
+    theme.init();
 		document.documentElement.setAttribute("data-theme", theme.current);
 		document.addEventListener("toast", e => {
 			e.detail.data.icon = {

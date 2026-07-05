@@ -19,6 +19,7 @@
     "@tailwindcss/vite": "^4.3.1",
     "daisyui": "^5.6.3",
     "dayjs": "^1.11.21",
+    "html-to-image": "^1.11.13",
     "marked": "^18.0.5",
     "nuxt": "^4.4.8",
     "octokit": "^5.0.5",
