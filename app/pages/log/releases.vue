@@ -10,15 +10,17 @@
 	});
 
 	const { data, error } = await useFetch(() => "/api/github/log/releases");
-	octokit.request(`GET /repos/{owner}/{repo}/releases`, octokitConfig).then(response => {
-		if (response.status !== 200) {
-			toast({
-				type: "error",
-				content: response.status
-			});
-		}
-		data.value = response.data;
-	});
+	if (process.client) {
+		octokit.request(`GET /repos/{owner}/{repo}/releases`, octokitConfig).then(response => {
+			if (response.status !== 200) {
+				toast({
+					type: "error",
+					content: response.status
+				});
+			}
+			data.value = response.data;
+		});
+	}
 </script>
 <template>
 	<div>

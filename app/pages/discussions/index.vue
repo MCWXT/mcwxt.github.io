@@ -24,18 +24,20 @@
 
 	const { data, error } = await useFetch("/api/github/discussions");
 
-	octokit.request(`GET /repos/{owner}/{repo}/discussions`, octokitConfig).then(response => {
-		if (response.status !== 200) {
-			toast({
-				type: "error",
-				content: response.status
-			});
-		}
-		const data = response.data.reverse();
-		const match = data.filter(i => i.category.slug == "pin");
-		const rest = data.filter(i => i.category.slug !== "pin");
-		data.value = [...match, ...rest];
-	});
+	if (process.client) {
+		octokit.request(`GET /repos/{owner}/{repo}/discussions`, octokitConfig).then(response => {
+			if (response.status !== 200) {
+				toast({
+					type: "error",
+					content: response.status
+				});
+			}
+			const data = response.data.reverse();
+			const match = data.filter(i => i.category.slug == "pin");
+			const rest = data.filter(i => i.category.slug !== "pin");
+			data.value = [...match, ...rest];
+		});
+	}
 </script>
 <template>
 	<div>

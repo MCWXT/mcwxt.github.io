@@ -1,6 +1,9 @@
 <script setup>
 	const props = defineProps(["discussion"]);
 	const root = useTemplateRef("root");
+	const getDomain = () => {
+    return window.location.hostname;
+  }
 	defineExpose({
 		root
 	});
@@ -27,13 +30,15 @@
 					:alt="discussion.title"
 				/>
 			</div>
-			<div class="">
-				<h1 class="text-xl truncate">{{ discussion.title }}</h1>
-				<span class="text-sm text-base-content/80">
+			<div class="w-60">
+				<h1 class="text-xl truncate w-50">{{ discussion.title }}</h1>
+				<span class="text-xs text-base-content/80">
 					{{ getDiscussTip(discussion) }}
 				</span>
 				<div class="text-sm flex items-center text-base-content/80">
-					<span class="flex-none">来自MCWXT的个人博客</span>
+					<client-only>
+						<span class="flex-none">来自 {{ getDomain() }}</span>
+					</client-only>
 					<div class="flex-1 text-end">
 						<span class="badge badge-soft badge-accent text-xs">讨论</span>
 					</div>
