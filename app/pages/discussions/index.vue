@@ -47,7 +47,7 @@
 				v-for="item in carousel"
 				:to="{ path: '/video/' + item.bvid }"
 			>
-				<img class="object-cover w-full" :src="item.pic" :alt="item.title" />
+				<img class="object-cover w-full" :src="item.cover" :alt="item.title" />
 				<div
 					class="m-2 p-1 absolute bottom-0 start-0 bg-black/40 text-white text-xs rounded-sm"
 				>
