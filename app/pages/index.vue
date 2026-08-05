@@ -1,6 +1,15 @@
 <script setup>
+  const route = useRoute();
+	useHead({
+		link: [
+			{
+				rel: "canonical",
+				href: `https://mcwxt.top${route.path}`
+			}
+		]
+	});
 	useSeoMeta({
-		title: "首页"
+		title: "首页-友链列表免费互链，点击讨论多元化空间在前方等你，发布你的奇思妙想"
 	});
 	const theme = useThemeStore();
 

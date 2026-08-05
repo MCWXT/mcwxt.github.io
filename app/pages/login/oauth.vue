@@ -1,6 +1,6 @@
 <script setup>
   useSeoMeta({
-		title: "登录中"
+		title: "登录中-新的世界等你来发掘"
 	});
 	definePageMeta({
 		ssr: false

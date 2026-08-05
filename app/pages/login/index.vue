@@ -1,6 +1,15 @@
 <script setup>
+	const route = useRoute();
+	useHead({
+		link: [
+			{
+				rel: "canonical",
+				href: `https://mcwxt.top${route.path}`
+			}
+		]
+	});
 	useSeoMeta({
-		title: "登录"
+		title: "登录-新的世界等你来发掘"
 	});
 	const auth = useAuthStore();
 </script>

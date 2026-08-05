@@ -1,6 +1,15 @@
 <script setup>
+	const route = useRoute();
 	useSeoMeta({
-		title: "MC基岩版全版本下载"
+		title: "MC基岩版全版本下载-资源来自官方渠道"
+	});
+	useHead({
+		link: [
+			{
+				rel: "canonical",
+				href: `https://mcwxt.top${route.path}`
+			}
+		]
 	});
 	const page = ref(1);
 	const pageSize = 20;

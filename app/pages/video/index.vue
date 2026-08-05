@@ -1,6 +1,15 @@
 <script setup>
+	const route = useRoute();
+	useHead({
+		link: [
+			{
+				rel: "canonical",
+				href: `https://mcwxt.top${route.path}`
+			}
+		]
+	});
 	useSeoMeta({
-		title: "视频"
+		title: "视频-精彩多元化的视频等你来发现，前方高能，资讯、舞蹈、动漫、游戏视频丰富多彩"
 	});
 	const { data: discussions } = await useFetch("/api/github/discussions/general");
 	const { data: videoRes, error } = await useAPI("/video/archive/related");
@@ -71,7 +80,11 @@
 									{{ formatter.format(item.stat.danmaku) }}
 								</div>
 							</div>
-							<NuxtTime class="flex-1 text-nowrap" :datetime="item.pubdate*1000" relative />
+							<NuxtTime
+								class="flex-1 text-nowrap"
+								:datetime="item.pubdate * 1000"
+								relative
+							/>
 						</div>
 						<div class="flex text-sm text-gray-600">
 							<p class="flex-1">

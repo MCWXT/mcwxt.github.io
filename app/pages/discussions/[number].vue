@@ -6,7 +6,8 @@
 	const octokit = useOctokit({
 		auth: auth.token
 	});
-	const number = useRoute().params.number;
+	const route = useRoute();
+	const number = route.params.number;
 	const theme = useThemeStore();
 	function getDiscussTip(item) {
 		const { category } = item;
@@ -36,7 +37,26 @@
 	};
 	const { data, error } = await useFetch("/api/github/discussions/" + number);
 	useSeoMeta({
-		title: () => `讨论：${data.value.title}`
+		title: () => `讨论：${data.value.title} ${data.value.body.substr(0, 45)} ……`
+	});
+	useHead({
+		link: [{ rel: "canonical", href: `https://mcwxt.top${route.path}` }],
+		script: [
+			{
+				type: "application/ld+json",
+				children: JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "BlogPosting",
+					headline: data.value.title,
+					articleBody: data.value.body,
+					author: data.value.user.login,
+					datePublished: data.value.created_at,
+					dateModified: data.value.updated_at,
+					publisher: "MCWXT的个人博客",
+					mainEntityOfPage: "https://mcwxt.top/discussions/" + data.value.number
+				})
+			}
+		]
 	});
 	const card = useTemplateRef("card");
 	const share = async url => {

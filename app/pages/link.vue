@@ -1,8 +1,16 @@
 <script setup>
-	useSeoMeta({
-		title: "跳转链接"
+  const route = useRoute();
+	useHead({
+		link: [
+			{
+				rel: "canonical",
+				href: `https://mcwxt.top${route.path}`
+			}
+		]
 	});
-	const route = useRoute();
+	useSeoMeta({
+		title: "跳转链接-前往更加丰富的世界，免费友链互链"
+	});
 	if (process.client) {
 		if (route.path.indexOf("linkto") != -1) {
 			history.back();
@@ -26,7 +34,13 @@
 					</p>
 				</div>
 				<div class="card-actions justify-end">
-					<nuxt-link :href="$route.query.url" target="_blank" class="btn btn-primary" external>继续</nuxt-link>
+					<nuxt-link
+						:href="$route.query.url"
+						target="_blank"
+						class="btn btn-primary"
+						external
+						>继续</nuxt-link
+					>
 				</div>
 			</div>
 		</div>

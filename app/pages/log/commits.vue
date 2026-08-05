@@ -1,9 +1,17 @@
 <script setup>
-	useSeoMeta({
-		title: "更新日志"
-	});
 	const route = useRoute();
-	const router = useRouter();
+  const router = useRouter();
+	useHead({
+		link: [
+			{
+				rel: "canonical",
+				href: `https://mcwxt.top${route.path}`
+			}
+		]
+	});
+	useSeoMeta({
+		title: "更新日志-记录每一次更新，这是网站的来时路，欢迎各位大佬指导评价"
+	});
 	if (route.query.page < 1 || Number.isNaN(route.query.page)) {
 		router.push({
 			query: { page: String(1) }

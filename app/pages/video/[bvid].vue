@@ -1,5 +1,6 @@
 <script setup>
-	const bvid = useRoute().params.bvid;
+	const route = useRoute();
+	const bvid = route.params.bvid;
 	const data = ref();
 	const { data: _data, error } = await useAPI("/video/view?bvid=" + bvid);
 	data.value = _data.value.data;
@@ -10,6 +11,14 @@
 		});
 	useSeoMeta({
 		title: () => `视频：${data.value.title}`
+	});
+	useHead({
+		link: [
+			{
+				rel: "canonical",
+				href: `https://mcwxt.top${route.path}`
+			}
+		]
 	});
 </script>
 <template>
