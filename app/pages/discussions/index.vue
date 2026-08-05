@@ -9,7 +9,7 @@
 		]
 	});
 	useSeoMeta({
-		title: "讨论-丰富多彩的世界，这里有大神独到的见解，不一样的思路，精彩的答辩等你来发掘"
+		title: "讨论-丰富多彩的世界"
 	});
 	const auth = useAuthStore();
 	const octokit = useOctokit({

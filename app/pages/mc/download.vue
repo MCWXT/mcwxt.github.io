@@ -1,7 +1,7 @@
 <script setup>
 	const route = useRoute();
 	useSeoMeta({
-		title: "MC基岩版全版本下载-资源来自官方渠道"
+		title: "MC基岩版全版本下载"
 	});
 	useHead({
 		link: [

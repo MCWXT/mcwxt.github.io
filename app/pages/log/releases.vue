@@ -9,7 +9,7 @@
 		]
 	});
 	useSeoMeta({
-		title: "版本日志-每一个版本都是一个全新的网站，一个不一样的世界，一次新的蜕变"
+		title: "版本日志-每个版本都是一次蜕变"
 	});
 	import { marked } from "marked";
 

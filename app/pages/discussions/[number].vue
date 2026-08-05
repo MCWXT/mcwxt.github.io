@@ -37,7 +37,7 @@
 	};
 	const { data, error } = await useFetch("/api/github/discussions/" + number);
 	useSeoMeta({
-		title: () => `讨论：${data.value.title} ${data.value.body.substr(0, 45)} ……`
+		title: () => `讨论：${data.value.title}`
 	});
 	useHead({
 		link: [{ rel: "canonical", href: `https://mcwxt.top${route.path}` }],

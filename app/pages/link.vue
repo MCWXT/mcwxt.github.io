@@ -9,7 +9,7 @@
 		]
 	});
 	useSeoMeta({
-		title: "跳转链接-前往更加丰富的世界，免费友链互链"
+		title: "跳转链接-前往更加丰富的世界"
 	});
 	if (process.client) {
 		if (route.path.indexOf("linkto") != -1) {

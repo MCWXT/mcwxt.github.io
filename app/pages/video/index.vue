@@ -9,7 +9,7 @@
 		]
 	});
 	useSeoMeta({
-		title: "视频-精彩多元化的视频等你来发现，前方高能，资讯、舞蹈、动漫、游戏视频丰富多彩"
+		title: "视频-前方高能，资讯、舞蹈、动漫、游戏"
 	});
 	const { data: discussions } = await useFetch("/api/github/discussions/general");
 	const { data: videoRes, error } = await useAPI("/video/archive/related");
